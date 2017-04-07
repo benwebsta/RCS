@@ -38,6 +38,21 @@
 			<artifactId>commons-logging</artifactId>
 		</dependency>
 		
+		
+		<!-- JDBC Driver, MUST BE INSTALLED IN MAVEN -->
+		<!-- mvn install:install-file -Dfile=ojdbc7.jar -DgroupId=org.oracle -DartifactId=ojdbc -Dversion=1.0 -Dpackaging=jar -->
+		<dependency>
+			<groupId>org.oracle</groupId>
+			<artifactId>ojdbc</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+        </dependency>
+		
 		<!-- Testing Frameworks -->
 		<dependency>
 			<groupId>junit</groupId>
