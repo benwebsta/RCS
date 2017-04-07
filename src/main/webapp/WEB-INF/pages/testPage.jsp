@@ -11,5 +11,6 @@
 <body>
 	<c:out value="Testing Spring Setup"/> </br>
 	<c:out value="${n}">test</c:out>
+	<c:out value="Does it work"/>
 </body>
 </html>
