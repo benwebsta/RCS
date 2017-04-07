@@ -3,8 +3,8 @@ package com.revature.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.revature.beans.Apartment;
 import com.revature.config.HibernateUtil;
-import com.revature.model.Apartment;
 
 @Component
 public class TestService {
