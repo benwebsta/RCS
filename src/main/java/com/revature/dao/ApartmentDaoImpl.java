@@ -31,4 +31,16 @@ public class ApartmentDaoImpl implements ApartmentDao{
 		return null;
 	}
 
+	@Override
+	public int getGenderId(int apartmentId) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getRoomsAvailable(int apartmentId) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

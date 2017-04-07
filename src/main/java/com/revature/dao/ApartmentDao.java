@@ -15,4 +15,8 @@ public interface ApartmentDao {
 	
 	public ArrayList<Employee> getEmployeesByApartment(int apartmentId);
 	
+	public int getGenderId(int apartmentId);
+	
+	public int getRoomsAvailable(int apartmentId);
+	
 }

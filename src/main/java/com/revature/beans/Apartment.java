@@ -47,6 +47,14 @@ public class Apartment implements Serializable{
 	@Column(name="ZIP_CODE")
 	@Qualifier("zipCode")
 	private int zipCode;
+	
+	@Column(name="GENDER_ID")
+	@Qualifier("genderId")
+	private int genderId;
+
+	@Column(name="ROOMS_AVAILABLE")
+	@Qualifier("roomsAvailable")
+	private int roomsAvailable;
 
 	@OneToMany(mappedBy = "apartmentHome")
 	private List<Employee> employees;
@@ -102,12 +110,30 @@ public class Apartment implements Serializable{
 	public void setEmployees(List<Employee> employees) {
 		this.employees = employees;
 	}
+	
+	public int getGenderId() {
+		return genderId;
+	}
+
+	public void setGenderId(int genderId) {
+		this.genderId = genderId;
+	}
+
+	public int getRoomsAvailable() {
+		return roomsAvailable;
+	}
+
+	public void setRoomsAvailable(int roomsAvailable) {
+		this.roomsAvailable = roomsAvailable;
+	}
 
 	@Override
 	public String toString() {
 		return "Apartment [apartmentId=" + apartmentId + ", address=" + address + ", city=" + city + ", state=" + state
-				+ ", zipCode=" + zipCode + ", employees=" + employees + "]";
+				+ ", zipCode=" + zipCode + ", genderId=" + genderId + ", roomsAvailable=" + roomsAvailable
+				+ ", employees=" + employees + "]";
 	}
+
 	
 	
 	
