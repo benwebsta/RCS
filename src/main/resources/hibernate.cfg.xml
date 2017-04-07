@@ -16,7 +16,8 @@
 
 
 		<property name="hibernate.show_sql">true</property>
-		<mapping class="com.revature.model.Apartment" />
+		<mapping class="com.revature.beans.Apartment" />
+		<mapping class="com.revature.beans.Employee" />
 
 	</session-factory>
 </hibernate-configuration>
