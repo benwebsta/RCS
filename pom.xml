@@ -42,9 +42,9 @@
 		<!-- JDBC Driver, MUST BE INSTALLED IN MAVEN -->
 		<!-- mvn install:install-file -Dfile=ojdbc7.jar -DgroupId=org.oracle -DartifactId=ojdbc -Dversion=1.0 -Dpackaging=jar -->
 		<dependency>
-			<groupId>org.oracle</groupId>
-			<artifactId>ojdbc</artifactId>
-			<version>1.0</version>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc7</artifactId>
+			<version>12.1.0</version>
 		</dependency>
 		
 		<!-- Hibernate -->
