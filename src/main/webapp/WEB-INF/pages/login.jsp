@@ -10,7 +10,7 @@
 </head>
 <body>
 	<p>Hi</p>
-	<form:form action="login" method="POST" commandName="user">
+	<form:form action="login" method="POST" commandName="emp">
 	<!-- path=[field of object specified in command name] -->
 	Username: <form:input path="username" />
 		<form:errors path="username" cssClass="alert alert-danger" element="div" />
