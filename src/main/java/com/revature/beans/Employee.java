@@ -45,7 +45,7 @@ public class Employee implements Serializable{
 	@Qualifier("username")
 	private String username;
 	
-	@Column(name= "PASSWORD")
+	@Column(name= "password")
 	@Qualifier("password")
 	private int password;
 	
