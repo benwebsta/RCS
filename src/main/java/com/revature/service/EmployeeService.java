@@ -1,9 +1,12 @@
 package com.revature.service;
 
+import org.springframework.stereotype.Component;
+
 import com.revature.beans.Employee;
 import com.revature.dao.EmployeeDao;
 import com.revature.dao.EmployeeDaoImpl;
 
+@Component
 public class EmployeeService {
 	EmployeeDao employeeDao = new EmployeeDaoImpl();
 
