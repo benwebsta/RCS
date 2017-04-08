@@ -8,6 +8,6 @@ public interface EmployeeDao {
 
 	public Employee getEmployeeByLogin(String username, String password);
 	
-	public boolean updatePassword(int employeeId, String newPassword);
+	public boolean updateEmployee(Employee employee);
 	
 }

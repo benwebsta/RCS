@@ -1,8 +1,11 @@
 package com.revature.service;
 
 import com.revature.beans.Employee;
+import com.revature.dao.EmployeeDao;
+import com.revature.dao.EmployeeDaoImpl;
 
 public class EmployeeService {
+	EmployeeDao employeeDao = new EmployeeDaoImpl();
 
 	public Employee loginEmployee(String username, String password){
 		
@@ -10,12 +13,12 @@ public class EmployeeService {
 	}
 	
 	public Employee getEmployeeById(int employeeId){
-		
-		return null;
+		Employee employee = employeeDao.getEmployeeById(employeeId);
+		return employee;
 	}
 	
-	public boolean updatePassword(int employeeId, String password){
-	
+	public boolean updateEmployee(Employee employee){
+		employeeDao.updateEmployee(employee);
 		return true;
 	}
 	
