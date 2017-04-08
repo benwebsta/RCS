@@ -14,4 +14,9 @@ public class EmployeeService {
 		return null;
 	}
 	
+	public boolean updatePassword(int employeeId, String password){
+	
+		return true;
+	}
+	
 }
