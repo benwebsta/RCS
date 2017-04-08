@@ -1,6 +1,6 @@
 package com.revature.dao;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.revature.beans.Apartment;
 import com.revature.beans.Employee;
@@ -11,9 +11,9 @@ public interface ApartmentDao {
 	
 	public Apartment getApartmentById(int apartmentId);
 	
-	public ArrayList<Apartment> getAllApartments();
+	public List<Apartment> getAllApartments();
 	
-	public ArrayList<Employee> getEmployeesByApartment(int apartmentId);
+	public List<Employee> getEmployeesByApartment(int apartmentId);
 	
 	public int getGenderId(int apartmentId);
 	

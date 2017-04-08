@@ -1,6 +1,6 @@
 package com.revature.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.revature.beans.Apartment;
 import com.revature.beans.Employee;
@@ -17,12 +17,12 @@ public class ApartmentService {
 		return null;
 	}
 
-	public ArrayList<Apartment> getAllApartments() {
+	public List<Apartment> getAllApartments() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ArrayList<Employee> getEmployeesByApartment(int apartmentId) {
+	public List<Employee> getEmployeesByApartment(int apartmentId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

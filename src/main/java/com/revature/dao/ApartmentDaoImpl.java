@@ -1,6 +1,6 @@
 package com.revature.dao;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.revature.beans.Apartment;
 import com.revature.beans.Employee;
@@ -20,13 +20,13 @@ public class ApartmentDaoImpl implements ApartmentDao{
 	}
 
 	@Override
-	public ArrayList<Apartment> getAllApartments() {
+	public List<Apartment> getAllApartments() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<Employee> getEmployeesByApartment(int apartmentId) {
+	public List<Employee> getEmployeesByApartment(int apartmentId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
