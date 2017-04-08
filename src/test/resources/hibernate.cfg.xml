@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+		<property name="hibernate.connection.password">rcspassword</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@rcs-db.cjazgbdosvdt.us-west-2.rds.amazonaws.com:1521:ORCL</property>
+		<property name="hibernate.connection.username">rcsusername</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+
+
+
+
+
+		<property name="hibernate.show_sql">true</property>
+		<mapping class="com.revature.beans.Apartment" />
+		<mapping class="com.revature.beans.Employee" />
+		<mapping class="com.revature.beans.Chain" />
+		<mapping class="com.revature.beans.Group" />
+		<mapping class="com.revature.beans.Message" />
+		<mapping class="com.revature.beans.Gender" />
+		<mapping class="com.revature.beans.TransferRequest" />
+
+	</session-factory>
+</hibernate-configuration>

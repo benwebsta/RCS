@@ -11,12 +11,12 @@ public class Driver {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		EmployeeService employeeService = new EmployeeService();
+/*		EmployeeService employeeService = new EmployeeService();
 		
 		Employee employee = employeeService.getEmployeeById(1);
 		
 		employee.setPassword("testuuuuu");
-		employeeService.updateEmployee(employee);
+		employeeService.updateEmployee(employee);*/
 		
 		
 	}

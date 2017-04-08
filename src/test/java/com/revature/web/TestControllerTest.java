@@ -44,5 +44,4 @@ public class TestControllerTest {
 		MockMvc mockMvc = standaloneSetup(tc).build();
 		mockMvc.perform(get("/")).andExpect(view().name("testPage"));
 	}
-
 }
