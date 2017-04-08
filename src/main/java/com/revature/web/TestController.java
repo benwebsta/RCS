@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.revature.service.TestService;
 
 @Controller
+@RequestMapping("/")
 public class TestController {
+	
 	@Autowired
 	TestService testService;
 	
