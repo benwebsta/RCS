@@ -12,6 +12,6 @@
 	
 		<!-- Allowing access to static resources folder -->
 	<mvc:resources location="/resources" mapping="/**"></mvc:resources>
-
+	
 
 </beans>
