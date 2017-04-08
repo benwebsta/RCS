@@ -62,7 +62,7 @@ public class Employee implements Serializable{
 	private int fill;
 	
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name="APARTMENT_ID")
+	@JoinColumn(name="APARTMENTS")
 	private Apartment apartmentHome;
 	
 	public Employee(){
