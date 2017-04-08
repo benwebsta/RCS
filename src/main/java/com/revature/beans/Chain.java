@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,6 +19,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 
 @Entity
+//Table name in DB
 @Table(name="CHAINS")
 public class Chain implements Serializable {
 
@@ -30,8 +33,12 @@ public class Chain implements Serializable {
 	public Chain(){}
 	
 	@Id
+	//Column name in DB
 	@Column(name="CHAIN_ID")
+	//Sequence name in DB and sequence name we call it
 	@SequenceGenerator(name="CHAIN_SEQ",sequenceName="CHAIN_SEQ")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="CHAIN_SEQ")
+	//the name every other bean sees this variable as
 	@Qualifier("chainId")
 	private int chainId;
 	

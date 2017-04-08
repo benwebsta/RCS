@@ -16,4 +16,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		return null;
 	}
 
+	@Override
+	public boolean updatePassword(int employeeId, String newPassword) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

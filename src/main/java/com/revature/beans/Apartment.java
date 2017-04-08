@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Entity
+//Table name in DB
 @Table(name = "APARTMENTS")
 public class Apartment implements Serializable{
 
@@ -25,37 +26,52 @@ public class Apartment implements Serializable{
 	private static final long serialVersionUID = 6391088910725394108L;
 	
 	@Id
+	//Column name in DB
 	@Column(name="APARTMENT_ID")
+	//Sequence name in DB and sequence name we call it
 	@SequenceGenerator(name="APARTMENT_SEQ", sequenceName="APARTMENT_SEQ")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="APARTMENT_SEQ")
+	//the name every other bean sees this variable as
 	@Qualifier("apartmentId")
 	private int apartmentId;
 	
-
+	//Column name in DB
 	@Column(name="ADDRESS")
+	//the name every other bean sees this variable as
 	@Qualifier("address")
 	private String address;
 	
+	//Column name in DB
 	@Column(name="CITY")
+	//the name every other bean sees this variable as
 	@Qualifier("city")
 	private String city;
 	
+	//Column name in DB
 	@Column(name="STATE")
+	//the name every other bean sees this variable as
 	@Qualifier("state")
 	private String state;
 	
+	//Column name in DB
 	@Column(name="ZIP_CODE")
 	@Qualifier("zipCode")
+	//the name every other bean sees this variable as
 	private int zipCode;
 	
+	//Column name in DB
 	@Column(name="GENDER_ID")
+	//the name every other bean sees this variable as
 	@Qualifier("genderId")
 	private int genderId;
 
+	//Column name in DB
 	@Column(name="ROOMS_AVAILABLE")
+	//the name every other bean sees this variable as
 	@Qualifier("roomsAvailable")
 	private int roomsAvailable;
 
+	//mapping to variable in employee bean(every apartment has a list of tenants)
 	@OneToMany(mappedBy = "apartmentHome")
 	private List<Employee> employees;
 	

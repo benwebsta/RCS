@@ -21,6 +21,8 @@
 		<mapping class="com.revature.beans.Chain" />
 		<mapping class="com.revature.beans.Group" />
 		<mapping class="com.revature.beans.Message" />
+		<mapping class="com.revature.beans.Gender" />
+		<mapping class="com.revature.beans.TransferRequest" />
 
 	</session-factory>
 </hibernate-configuration>
