@@ -20,11 +20,11 @@ public class TestControllerTest {
 		//assertEquals("testPage", tc.test());
 	}
 	
-	@Test
-	public void testWithMock() throws Exception{
-		TestController tc = new TestController();
-		MockMvc mockMvc = standaloneSetup(tc).build();
-		mockMvc.perform(get("/")).andExpect(view().name("testPage"));
-	}
+//	@Test
+//	public void testWithMock() throws Exception{
+//		TestController tc = new TestController();
+//		MockMvc mockMvc = standaloneSetup(tc).build();
+//		mockMvc.perform(get("/")).andExpect(view().name("testPage"));
+//	}
 
 }
