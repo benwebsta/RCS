@@ -49,10 +49,104 @@ public class Employee implements Serializable{
 	@Qualifier("password")
 	private int password;
 	
+	@Column(name = "APARTMENT_ID")
+	@Qualifier("apartmentId")
+	private int apartmentId;
+	
+	@Column(name = "GENDER_ID")
+	@Qualifier("genderId")
+	private int genderId;
+	
+	@Column(name = "FILL")
+	@Qualifier("fill")
+	private int fill;
+	
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn(name="APARTMENT_ID")
 	private Apartment apartmentHome;
 	
+	public Employee(){
+		
+	}
+
+	public int getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public int getPassword() {
+		return password;
+	}
+
+	public void setPassword(int password) {
+		this.password = password;
+	}
+
+	public int getApartmentId() {
+		return apartmentId;
+	}
+
+	public void setApartmentId(int apartmentId) {
+		this.apartmentId = apartmentId;
+	}
+
+	public int getGenderId() {
+		return genderId;
+	}
+
+	public void setGenderId(int genderId) {
+		this.genderId = genderId;
+	}
+
+	public int getFill() {
+		return fill;
+	}
+
+	public void setFill(int fill) {
+		this.fill = fill;
+	}
+
+	public Apartment getApartmentHome() {
+		return apartmentHome;
+	}
+
+	public void setApartmentHome(Apartment apartmentHome) {
+		this.apartmentHome = apartmentHome;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [employeeId=" + employeeId + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", username=" + username + ", password=" + password + ", apartmentId=" + apartmentId + ", genderId="
+				+ genderId + ", fill=" + fill + ", apartmentHome=" + apartmentHome + "]";
+	}
 	
 }
 
