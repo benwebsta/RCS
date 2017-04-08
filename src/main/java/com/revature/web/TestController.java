@@ -17,7 +17,7 @@ public class TestController {
 		@RequestMapping(method=RequestMethod.GET)
 		public String test(ModelMap modelMap){
 			
-			modelMap.addAttribute("n", testService.getApartment());
+			//modelMap.addAttribute("n", testService.getApartment());
 			
 			return "testPage";
 		}
