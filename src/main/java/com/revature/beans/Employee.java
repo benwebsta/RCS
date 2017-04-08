@@ -45,13 +45,9 @@ public class Employee implements Serializable{
 	@Qualifier("username")
 	private String username;
 	
-	@Column(name="PASSWORD")
+	@Column(name= "PASSWORD")
 	@Qualifier("password")
 	private int password;
-	
-	@Column(name="FILL")
-	@Qualifier("fill")
-	private boolean fill;
 	
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn(name="APARTMENT_ID")
