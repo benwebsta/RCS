@@ -51,6 +51,55 @@ public class ApartmentServiceTest {
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 		
+		createExistingData();
+		mockAddNewApartment();
+		mockCreateNewApartment();		
+		mockGetApartmentById();
+		mockGetEmployeesByApartment();
+		
+	}
+
+	private void mockGetEmployeesByApartment() {
+		//Mocks getting Employees By Apartment
+		when(mockDao.getEmployeesByApartment(anyInt())).thenReturn(null);
+		when(mockDao.getEmployeesByApartment(1)).thenReturn(apartment1.getEmployees());
+		when(mockDao.getEmployeesByApartment(509)).thenReturn(apartment1.getEmployees());
+	}
+
+	private void mockGetApartmentById() {
+		//Mocks getting apartment By Id
+		when(mockDao.getApartmentById(anyInt())).thenReturn(null);
+		when(mockDao.getApartmentById(1)).thenReturn(apartment1);
+		when(mockDao.getApartmentById(509)).thenReturn(apartment2);
+	}
+
+	private void mockCreateNewApartment() {
+		//Mocks getting All Apartments
+		when(mockDao.getAllApartments()).thenReturn(apartments);
+	}
+
+	private void mockAddNewApartment() {
+		//Mocks adding an apartment to the database 
+		doAnswer(new Answer<Void>(){
+
+			@Override
+			public Void answer(InvocationOnMock invocation) throws Throwable {
+				Apartment apartment = new Apartment();
+				
+				apartment.setAddress((String)invocation.getArgument(1));
+				apartment.setCity((String) invocation.getArgument(2));
+				apartment.setState((String) invocation.getArgument(3));
+				apartment.setZipCode((Integer) invocation.getArgument(4));
+				apartment.setApartmentId(100);
+				apartment.setRoomsAvailable(3);
+				
+				apartments.add(apartment);
+				return null;
+				
+			}}).when(mockDao).addNewApartment(anyString(), anyString(), anyString(), anyInt());
+	}
+
+	private void createExistingData() {
 		apartment1 = new Apartment();
 		apartment1.setAddress("123 test drive");
 		apartment1.setCity("Washington");
@@ -85,46 +134,6 @@ public class ApartmentServiceTest {
 		//creates an empty list of employees in apartment 509
 		List emptyList = new ArrayList<Employee>();
 		apartment2.setEmployees(emptyList);
-		
-		
-		//Mocks adding an apartment to the database 
-		doAnswer(new Answer<Void>(){
-
-			@Override
-			public Void answer(InvocationOnMock invocation) throws Throwable {
-				Apartment apartment = new Apartment();
-				
-				apartment.setAddress((String)invocation.getArgument(1));
-				apartment.setCity((String) invocation.getArgument(2));
-				apartment.setState((String) invocation.getArgument(3));
-				apartment.setZipCode((Integer) invocation.getArgument(4));
-				apartment.setApartmentId(100);
-				apartment.setRoomsAvailable(3);
-				
-				apartments.add(apartment);
-				return null;
-				
-			}}).when(mockDao).addNewApartment(anyString(), anyString(), anyString(), anyInt());
-		
-		
-		//Mocks getting All Apartments
-		when(mockDao.getAllApartments()).thenReturn(apartments);
-		
-		//Mocks getting apartment By Id
-		when(mockDao.getApartmentById(1)).thenReturn(apartment1);
-		
-		when(mockDao.getApartmentById(509)).thenReturn(apartment2);
-		
-		when(mockDao.getApartmentById(2)).thenReturn(null);
-		
-		//Mocks getting Employees By Apartment
-		
-		when(mockDao.getEmployeesByApartment(1)).thenReturn(apartment1.getEmployees());
-		when(mockDao.getEmployeesByApartment(509)).thenReturn(apartment1.getEmployees());
-		when(mockDao.getEmployeesByApartment(2)).thenReturn(null);
-		
-		
-		
 	}
 
 	@After
