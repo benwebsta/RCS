@@ -6,7 +6,7 @@ var app = angular.module('rcs', []);
 $stateProvider
 .state('updatePassword', {
   url: "/updatePassword",
-  templateUrl: "../pages/updatePassword.jsp"
+  templateUrl: "/../../WEB-INF/pages/updatePassword.jsp"
 })
   $urlRouterProvider.otherwise("/");
 })*/
