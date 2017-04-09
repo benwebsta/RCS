@@ -168,6 +168,7 @@ public class EmployeeServiceTest {
 		assertNull("Employee was not null", employee);
 	}
 	
+	@Test
 	public void updateEmployeeTest(){
 		Employee employee = new Employee();
 		employee.setEmployeeId(1);
@@ -177,6 +178,7 @@ public class EmployeeServiceTest {
 		assertEquals(mockDao.getEmployeeById(1).getFirstName(), employee.getFirstName());
 	}
 	
+	@Test
 	public void updateNotExistingEmployeeTest(){
 		Employee employee = new Employee();
 		employee.setEmployeeId(9001);
