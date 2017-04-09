@@ -12,7 +12,7 @@ public class EmployeeService {
 
 	public Employee loginEmployee(String username, String password){
 		
-		return null;
+		return employeeDao.getEmployeeByLogin(username, password);
 	}
 	
 	public Employee getEmployeeById(int employeeId){

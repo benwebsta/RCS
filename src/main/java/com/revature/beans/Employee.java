@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+@Component
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee implements Serializable{
