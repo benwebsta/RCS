@@ -1,8 +1,13 @@
 package com.revature.dao;
 
-import org.hibernate.Transaction;
+import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.LogicalExpression;
+import org.hibernate.criterion.Restrictions;
 
 import com.revature.beans.Employee;
 import com.revature.config.HibernateUtil;
@@ -19,8 +24,20 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Override
 	public Employee getEmployeeByLogin(String username, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		Employee returnEmployee = null;
+		Session sess = HibernateUtil.getSession();
+		Criteria cr = sess.createCriteria(Employee.class);
+		Criterion authUsername = Restrictions.eq("username", username);
+		Criterion authPassword = Restrictions.eq("password", password);
+		LogicalExpression lg = Restrictions.and(authUsername, authPassword);
+		cr.add(lg);
+		List<Employee> employeeList = cr.list();
+		for(Employee employee : employeeList) {
+			returnEmployee = employee;
+		}
+		
+		sess.close();
+		return returnEmployee;
 	}
 
 	@Override
