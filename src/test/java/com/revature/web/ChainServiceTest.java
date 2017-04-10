@@ -114,15 +114,13 @@ public class ChainServiceTest {
 
 			@Override
 			public Void answer(InvocationOnMock invocation) throws Throwable {
-				Group groupOne = (Group) invocation.getArgument(0);
-				Group groupTwo = (Group) invocation.getArgument(1);
-				Chain newChain = new Chain();
+				Chain newChain = invocation.getArgument(0);
 				chains.add(newChain);
 				return null;
 			}
 			
 			
-		}).when(mockDao).addNewChain(ArgumentMatchers.any(Group.class), ArgumentMatchers.any(Group.class));
+		}).when(mockDao).addNewChain(ArgumentMatchers.any(Chain.class));
 		
 	}
 
@@ -168,7 +166,7 @@ public class ChainServiceTest {
 		newChain.setGroup2(groupFour);
 		
 		assertEquals(1, this.chainService.getAllChains().size());
-		this.chainService.addNewChain(groupThree, groupFour);
+		this.chainService.addNewChain(newChain);
 		assertEquals(2, this.chainService.getAllChains().size());
 		List<Chain> chains = this.chainService.getAllChains();
 		assertFalse(chains.get(0).getChainId() == chains.get(1).getChainId());
