@@ -18,7 +18,10 @@ app.controller("updatePasswordController",
 		    		username : "xavier",
 		    		password : passwordUpdate,
 		    		genderId : 1,
-		    		fill : 1
+		    		fill : 1, 
+		    		apartmentHome : {
+		    			
+		    		}
 		    }
 		    console.log(employee);
 		    
@@ -27,7 +30,7 @@ app.controller("updatePasswordController",
 		    	  url: 'updatePasswordRest',
 		    	  data: employee
 		    	}).then(function successCallback(response) {
-		    	    console.log("success");
+		    	   $scope.passwordUpdate = response;
 		    	  }, function errorCallback(response) {
 		    	    console.log("error");
 		    	  });

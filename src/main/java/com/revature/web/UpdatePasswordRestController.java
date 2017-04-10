@@ -14,15 +14,15 @@ import com.revature.service.EmployeeService;
 public class UpdatePasswordRestController {
 	EmployeeService employeeService = new EmployeeService();
 
-
 	@RequestMapping(method=RequestMethod.POST)	
-	public @ResponseBody String updatePassword_JSON( @RequestBody Employee employee){
+	/*public @ResponseBody Employee updatePassword_JSON( @RequestBody Employee employee){*/
+	public @ResponseBody String updatePassword_JSON( @RequestBody String employee){
 		System.out.println("test");
 		System.out.println(employee);
 /*		Employee employee = employeeService.getEmployeeById(1);
 		employee.setPassword(string.);
 		employeeService.updateEmployee();*/
-		return "login";
+		return employee;
 	}
 	
 }
