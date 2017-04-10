@@ -3,6 +3,7 @@ package com.revature.dao;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import com.revature.beans.Apartment;
 import com.revature.beans.Chain;
@@ -44,9 +45,24 @@ public class ChainDaoImpl implements ChainDao {
 	}
 
 	@Override
-	public void addNewChain(Group groupOne, Group groupTwo) {
+	public void addNewChain(Chain chain) {
 		// TODO Auto-generated method stub
-		
+		Session sess = HibernateUtil.getSession();
+		Transaction tx;
+		try
+		{
+			tx = sess.beginTransaction();
+			sess.saveOrUpdate(chain);
+			tx.commit();
+		}
+		catch(Exception e)
+		{
+			e.getStackTrace();
+		}
+		finally
+		{
+			sess.close();
+		}
 	}
 
 }

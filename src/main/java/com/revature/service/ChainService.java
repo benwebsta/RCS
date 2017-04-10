@@ -35,8 +35,8 @@ public class ChainService {
 	}
 
 	
-	public void addNewChain(Group groupOne, Group groupTwo) {
+	public void addNewChain(Chain chain) {
 		// TODO Auto-generated method stub
-		
+		chainDao.addNewChain(chain);
 	}
 }
