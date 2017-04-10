@@ -4,18 +4,22 @@ import java.util.List;
 
 import com.revature.beans.Chain;
 import com.revature.beans.Group;
+import com.revature.dao.ChainDao;
+import com.revature.dao.ChainDaoImpl;
 
 public class ChainService {
+	ChainDao chainDao = new ChainDaoImpl();
 	
 	public List<Chain> getAllChains() {
 		// TODO Auto-generated method stub
-		return null;
+		return chainDao.getAllChains();
 	}
 
 	
 	public Chain getChainById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		Chain chain = chainDao.getChainById(id);
+		return chain;
 	}
 
 	

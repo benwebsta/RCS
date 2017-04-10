@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,17 +43,17 @@ public class Chain implements Serializable {
 	@Qualifier("chainId")
 	private int chainId;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="GROUP_ID_1")
 	@Qualifier("group1")
 	private Group group1;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="GROUP_ID_2")
 	@Qualifier("group2")
 	private Group group2;
 	
-	@OneToMany(mappedBy="chain")
+	@OneToMany(mappedBy="chain", fetch=FetchType.EAGER)
 	private List<Message> messagesForChain;
 
 	public int getChainId() {

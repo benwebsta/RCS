@@ -2,13 +2,9 @@ package com.revature.driver;
 
 import java.util.List;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import com.revature.beans.Apartment;
-import com.revature.beans.Employee;
-import com.revature.service.ApartmentService;
-import com.revature.service.EmployeeService;
+import com.revature.beans.Chain;
+import com.revature.beans.Group;
+import com.revature.service.ChainService;
 
 public class Driver {
 
@@ -35,7 +31,14 @@ public class Driver {
 //		{
 //			System.out.println(e.toString());
 //		}
-		
+//		ChainService chainService = new ChainService();
+//		Chain chain = chainService.getChainById(1);
+//		System.out.println(chain.toString());
+//		List<Chain> chainList = chainService.getAllChains();
+//		for(Chain c: chainList)
+//		{
+//			System.out.println(c.toString());
+//		}
 	}
 
 }
