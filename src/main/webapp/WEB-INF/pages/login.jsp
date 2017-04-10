@@ -5,8 +5,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<!-- angular scripts-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-resource.js"></script>
+<script src="resources/js/app.js"></script>
+<script src="resources/js/updatePasswordController.js"></script>
+<title>New Password</title>
 </head>
+
 <body>
 	<form:form action="login" method="POST" commandName="employee">
 	<!-- path=[field of object specified in command name] -->
@@ -15,5 +22,14 @@
 	<input type="submit" value="login"/>
 	
 	</form:form>
+	<div ng-app="rcs">
+		<div ng-controller="loginController">
+			Username:
+			<input type="text" placeholder="username" ng-model="username">
+			Password:
+			<input type="text" placeholder="password" ng-model="password">
+			<button ng-click="update()">Submit</button>
+		</div>
+	</div>
 </body>
 </html>

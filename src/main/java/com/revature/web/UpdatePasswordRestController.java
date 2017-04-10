@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.Gson;
 import com.revature.beans.Employee;
 import com.revature.service.EmployeeService;
 
@@ -16,13 +17,15 @@ public class UpdatePasswordRestController {
 
 	@RequestMapping(method=RequestMethod.POST)	
 	/*public @ResponseBody Employee updatePassword_JSON( @RequestBody Employee employee){*/
-	public @ResponseBody String updatePassword_JSON( @RequestBody String employee){
+	public @ResponseBody String updatePassword_JSON( @RequestBody String employeeJson){
 		System.out.println("test");
+		System.out.println(employeeJson);
+		Employee employee = new Gson().fromJson(employeeJson, Employee.class);
 		System.out.println(employee);
 /*		Employee employee = employeeService.getEmployeeById(1);
 		employee.setPassword(string.);
 		employeeService.updateEmployee();*/
-		return employee;
+		return employeeJson;
 	}
 	
 }
