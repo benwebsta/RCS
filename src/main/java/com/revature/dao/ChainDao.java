@@ -7,7 +7,7 @@ import com.revature.beans.Group;
 
 public interface ChainDao {
 	
-	public void addNewChain(Group groupOne, Group groupTwo);
+	public void addNewChain(Chain chain);
 	
 	public List<Chain> getAllChains();
 	
