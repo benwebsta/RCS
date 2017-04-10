@@ -1,5 +1,6 @@
 package com.revature.web;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
@@ -85,17 +86,11 @@ public class ApartmentServiceTest {
 			public Void answer(InvocationOnMock invocation) throws Throwable {
 				Apartment apartment = new Apartment();
 				
-				apartment.setAddress((String)invocation.getArgument(1));
-				apartment.setCity((String) invocation.getArgument(2));
-				apartment.setState((String) invocation.getArgument(3));
-				apartment.setZipCode((Integer) invocation.getArgument(4));
-				apartment.setApartmentId(100);
-				apartment.setRoomsAvailable(3);
-				
+				apartment = invocation.getArgument(0);
 				apartments.add(apartment);
 				return null;
 				
-			}}).when(mockDao).addNewApartment(anyString(), anyString(), anyString(), anyInt());
+			}}).when(mockDao).addNewApartment(any(Apartment.class));
 	}
 
 	private void createExistingData() {
@@ -143,7 +138,12 @@ public class ApartmentServiceTest {
 	public void addNewApartmentTest() {
 		
 		assertEquals("Did not return all Apartments", 2,this.apartmentService.getAllApartments().size());
-		this.apartmentService.addNewApartment(testAddress, testCity, testState, testZipcode);
+		Apartment newApartment = new Apartment();
+		newApartment.setAddress(testAddress);
+		newApartment.setCity(testCity);
+		newApartment.setState(testState);
+		newApartment.setZipCode(testZipcode);
+		this.apartmentService.addNewApartment(newApartment);
 		assertEquals("Did not add the new apartment", 3,this.apartmentService.getAllApartments().size());
 	}
 	
