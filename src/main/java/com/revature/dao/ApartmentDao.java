@@ -7,7 +7,7 @@ import com.revature.beans.Employee;
 
 public interface ApartmentDao {
 
-	public void addNewApartment(String address, String city, String state, int zipCode);
+	public void addNewApartment(Apartment apartment);
 	
 	public Apartment getApartmentById(int apartmentId);
 	

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -72,7 +73,7 @@ public class Apartment implements Serializable{
 	private int roomsAvailable;
 
 	//mapping to variable in employee bean(every apartment has a list of tenants)
-	@OneToMany(mappedBy = "apartmentHome")
+	@OneToMany(mappedBy = "apartmentHome", fetch=FetchType.EAGER)
 	private List<Employee> employees;
 	
 	public Apartment(){
