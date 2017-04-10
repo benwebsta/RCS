@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -39,32 +40,32 @@ public class Group implements Serializable {
 	private int groupId;
 	
 	//Many to one is used because there is nothing stopping an employee being in more the on group
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="EMPLOYEE_ID_1")
 	@Qualifier("employee1")
 	private Employee employee1;
 
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="EMPLOYEE_ID_2")
 	@Qualifier("employee2")
 	private Employee employee2;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="EMPLOYEE_ID_3")
 	@Qualifier("employee3")
 	private Employee employee3;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="EMPLOYEE_ID_4")
 	@Qualifier("employee4")
 	private Employee employee4;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="EMPLOYEE_ID_5")
 	@Qualifier("employee5")
 	private Employee employee5;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="EMPLOYEE_ID_6")
 	@Qualifier("employee6")
 	private Employee employee6;

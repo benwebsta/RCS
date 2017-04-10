@@ -7,7 +7,7 @@ import com.revature.beans.Group;
 
 public interface GroupDao {
 	
-	void addGroup(Employee...employees);
+	void addGroup(Group group);
 	
 	List<Group> getAllGroups();
 	
