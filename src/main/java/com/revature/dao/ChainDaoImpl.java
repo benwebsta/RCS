@@ -35,13 +35,19 @@ public class ChainDaoImpl implements ChainDao {
 	@Override
 	public List<Chain> getChainsByGroupOne(Group groupOne) {
 		// TODO Auto-generated method stub
-		return null;
+		Session sess = HibernateUtil.getSession();
+		List<Chain> chain = (List<Chain>) sess.get(Chain.class, groupOne);
+		sess.close();
+		return chain;
 	}
 
 	@Override
 	public List<Chain> getChainsByGroupTwo(Group groupTwo) {
 		// TODO Auto-generated method stub
-		return null;
+		Session sess = HibernateUtil.getSession();
+		List<Chain> chain = (List<Chain>) sess.get(Chain.class, groupTwo);
+		sess.close();
+		return chain;
 	}
 
 	@Override

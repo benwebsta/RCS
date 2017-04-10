@@ -25,13 +25,13 @@ public class ChainService {
 	
 	public List<Chain> getChainsByGroupOne(Group groupOne) {
 		// TODO Auto-generated method stub
-		return null;
+		return chainDao.getChainsByGroupOne(groupOne);
 	}
 
 	
 	public List<Chain> getChainsByGroupTwo(Group groupTwo) {
 		// TODO Auto-generated method stub
-		return null;
+		return chainDao.getChainsByGroupTwo(groupTwo);
 	}
 
 	
