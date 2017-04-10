@@ -73,7 +73,7 @@ public class Apartment implements Serializable{
 	private int roomsAvailable;
 
 	//mapping to variable in employee bean(every apartment has a list of tenants)
-	@OneToMany(mappedBy = "apartmentHome", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "apartmentId", fetch=FetchType.EAGER)
 	private List<Employee> employees;
 	
 	public Apartment(){

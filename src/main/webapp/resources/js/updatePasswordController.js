@@ -17,11 +17,9 @@ app.controller("updatePasswordController",
 		    		lastName : "Grogan",
 		    		username : "xavier",
 		    		password : passwordUpdate,
+		    		apartmentId : 2,
 		    		genderId : 1,
-		    		fill : 1, 
-		    		apartmentHome : {
-		    			
-		    		}
+		    		fill : 1
 		    }
 		    console.log(employee);
 		    

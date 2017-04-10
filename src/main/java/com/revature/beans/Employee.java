@@ -50,6 +50,10 @@ public class Employee implements Serializable{
 	@Qualifier("password")
 	private String password;
 	
+	@Column(name = "APARTMENT_ID")
+	@Qualifier("apartmentId")
+	private int apartmentId;
+	
 	@Column(name = "GENDER_ID")
 	@Qualifier("genderId")
 	private int genderId;
@@ -57,10 +61,6 @@ public class Employee implements Serializable{
 	@Column(name = "FILL")
 	@Qualifier("fill")
 	private int fill;
-	
-	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name="APARTMENT_ID")
-	private Apartment apartmentHome;
 	
 	public Employee(){
 		
@@ -122,19 +122,19 @@ public class Employee implements Serializable{
 		this.fill = fill;
 	}
 
-	public Apartment getApartmentHome() {
-		return apartmentHome;
+	public int getApartmentId() {
+		return apartmentId;
 	}
 
-	public void setApartmentHome(Apartment apartmentHome) {
-		this.apartmentHome = apartmentHome;
+	public void setApartmentId(int apartmentId) {
+		this.apartmentId = apartmentId;
 	}
 
 	@Override
 	public String toString() {
 		return "Employee [employeeId=" + employeeId + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", username=" + username + ", password=" + password + ", genderId="
-				+ genderId + ", fill=" + fill + "]";
+				+ ", username=" + username + ", password=" + password + ", genderId=" + genderId + ", fill=" + fill
+				+ ", apartmentId=" + apartmentId + "]\n";
 	}
 	
 }

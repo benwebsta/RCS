@@ -22,9 +22,7 @@ public class UpdatePasswordRestController {
 		System.out.println(employeeJson);
 		Employee employee = new Gson().fromJson(employeeJson, Employee.class);
 		System.out.println(employee);
-/*		Employee employee = employeeService.getEmployeeById(1);
-		employee.setPassword(string.);
-		employeeService.updateEmployee();*/
+		employeeService.updateEmployee(employee);
 		return employeeJson;
 	}
 	
