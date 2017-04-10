@@ -118,7 +118,7 @@ public class ApartmentServiceTest {
 		
 		//creates employee in apartment
 		employee = new Employee();
-		employee.setApartmentHome(apartment1);
+		employee.setApartmentId(apartment1.getApartmentId());
 		employee.setFirstName("Test");
 		employee.setLastName("Case");
 		List list = new ArrayList<Employee>();
