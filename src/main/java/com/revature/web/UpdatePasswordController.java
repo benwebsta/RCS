@@ -22,7 +22,7 @@ public class UpdatePasswordController {
 			return "updatePassword";
 		}
 		
-/*		@RequestMapping(method=RequestMethod.PUT)
+/*		@RequestMapping(method=RequestMethod.POST)
 		public @ResponseBody String updatePassword_JSON( @RequestBody Employee employee){
 			System.out.println("test");
 			System.out.println(employee);

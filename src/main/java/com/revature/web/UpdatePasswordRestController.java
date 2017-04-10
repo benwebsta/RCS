@@ -15,12 +15,14 @@ public class UpdatePasswordRestController {
 	EmployeeService employeeService = new EmployeeService();
 
 
-	@RequestMapping(method=RequestMethod.PUT)	
+	@RequestMapping(method=RequestMethod.POST)	
 	public @ResponseBody String updatePassword_JSON( @RequestBody Employee employee){
 		System.out.println("test");
 		System.out.println(employee);
-		/*employeeService.updateEmployee(employee);*/
-		return "updatePassword";
+/*		Employee employee = employeeService.getEmployeeById(1);
+		employee.setPassword(string.);
+		employeeService.updateEmployee();*/
+		return "login";
 	}
 	
 }

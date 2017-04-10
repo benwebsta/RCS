@@ -12,12 +12,18 @@ app.controller("updatePasswordController",
 		    
 		    $scope.passwordUpdate = $scope.pass; 
 		    var employee = {
-		    		password : passwordUpdate
+		    		employeeId : 1,
+		    		firstName : "Xavier", 
+		    		lastName : "Grogan",
+		    		username : "xavier",
+		    		password : passwordUpdate,
+		    		genderId : 1,
+		    		fill : 1
 		    }
 		    console.log(employee);
 		    
 		    $http({
-		    	  method: 'PUT',
+		    	  method: 'POST',
 		    	  url: 'updatePasswordRest',
 		    	  data: employee
 		    	}).then(function successCallback(response) {
