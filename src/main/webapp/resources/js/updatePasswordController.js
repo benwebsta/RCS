@@ -11,15 +11,15 @@ app.controller("updatePasswordController",
 		    }
 		    console.log(employee);
 		    
-		    
-		    $http.post('/updatePassword', employee )
-		    		.then(
-		    		function (response) {
-		                console.log(response.data);
-		            },
-		            function(errResponse){
-		                console.error('Error while updating User');
-		            });
+		    $http({
+		    	  method: 'POST',
+		    	  url: 'updatePassword_json',
+		    	  data: employee
+		    	}).then(function successCallback(response) {
+		    	    console.log("success");
+		    	  }, function errorCallback(response) {
+		    	    console.log("error");
+		    	  });
 			
 			// Making the fields empty
 			//

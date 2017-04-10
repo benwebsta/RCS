@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.revature.beans.Employee;
 import com.revature.service.EmployeeService;
 
 @Controller
@@ -22,12 +21,18 @@ public class UpdatePasswordController {
 			return "updatePassword";
 		}
 		
-		@RequestMapping(method=RequestMethod.POST)
+/*		@RequestMapping(method=RequestMethod.POST)
 		public @ResponseBody String updatePassword_JSON( @RequestBody Employee employee){
 			System.out.println("test");
 			System.out.println(employee);
-			/*employeeService.updateEmployee(employee);*/
+			employeeService.updateEmployee(employee)
 			return "updatePassword";
-		}
+		}*/
+		
+/*		@RequestMapping(value = "/PostFormData", method = RequestMethod.POST)
+		public @ResponseBody Person PostService(@RequestBody Person person) {
+			
+			return person;
+		}*/
 		
 }
