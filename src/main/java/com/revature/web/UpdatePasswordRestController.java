@@ -10,11 +10,12 @@ import com.revature.beans.Employee;
 import com.revature.service.EmployeeService;
 
 @RestController
+@RequestMapping("/updatePasswordRest")
 public class UpdatePasswordRestController {
 	EmployeeService employeeService = new EmployeeService();
 
 
-	@RequestMapping(value = "updatePassword_json", method=RequestMethod.POST)	
+	@RequestMapping(method=RequestMethod.PUT)	
 	public @ResponseBody String updatePassword_JSON( @RequestBody Employee employee){
 		System.out.println("test");
 		System.out.println(employee);
