@@ -1,6 +1,7 @@
 app.controller("updatePasswordController", 
 	['$scope', '$http',
 		 function($scope, $http) {
+		$('#testModal').modal({ show: false})
 		
 		 console.log($scope.pass);
 		 $scope.passwordUpdate = null;
@@ -37,6 +38,11 @@ app.controller("updatePasswordController",
 			//
 			$scope.password ='';
 		    
+		  }
+		  
+		  $scope.changePassword = function() {
+			  console.log("in change");
+			  $('#testModal').modal('show');
 		  }
 		  
 	}]);
