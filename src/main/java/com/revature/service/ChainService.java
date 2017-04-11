@@ -2,11 +2,14 @@ package com.revature.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.revature.beans.Chain;
 import com.revature.beans.Group;
 import com.revature.dao.ChainDao;
 import com.revature.dao.ChainDaoImpl;
 
+@Component
 public class ChainService {
 	ChainDao chainDao = new ChainDaoImpl();
 	

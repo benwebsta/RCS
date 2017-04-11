@@ -10,7 +10,8 @@ app.controller("updatePasswordController",
 		    var passwordUpdate = $scope.pass;
 		    console.log(passwordUpdate);
 		    
-		    $scope.passwordUpdate = $scope.pass; 
+		    $scope.passwordUpdate = $scope.pass;
+		    
 		    var employee = {
 		    		employeeId : 1,
 		    		firstName : "Xavier", 

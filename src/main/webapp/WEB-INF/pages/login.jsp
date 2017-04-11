@@ -26,10 +26,7 @@
 	
 	
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          
-          
-		          <div>
-				<div>
+				<div ng-controller="loginController">
 					<form name="loginForm">
 						Username:
 						<input type="text"
@@ -37,6 +34,7 @@
 							placeholder="username" 
 							ng-model="username"
 							ng-maxlength="25"
+							ng-pattern="/^[a-zA-Z0-9]+$/"
 							required />
 						<div ng-messages="loginForm.employeeUsername.$error" role="alert">
 							<div ng-message="required">You did not enter a field</div>
@@ -48,6 +46,7 @@
 							placeholder="password" 
 							ng-model="password"
 							ng-maxlength="25"
+							ng-pattern="/^[a-zA-Z0-9]+$/"
 							required />
 						<div ng-messages="loginForm.employeePassword.$error" role="alert">
 							<div ng-message="required">You did not enter a field</div>
@@ -55,11 +54,10 @@
 						</div>
 						<button ng-click="update()">Submit</button>
 					</form>
+					${{employee}}
 				</div>
 			</div>
-          
-          
-        </div>
+
 	
 	
 	

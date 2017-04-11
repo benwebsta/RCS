@@ -11,7 +11,6 @@ public class EmployeeService {
 	EmployeeDao employeeDao = new EmployeeDaoImpl();
 
 	public Employee loginEmployee(String username, String password){
-		
 		return employeeDao.getEmployeeByLogin(username, password);
 	}
 	
