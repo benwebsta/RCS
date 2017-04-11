@@ -27,7 +27,7 @@
 	      <div ng-controller="updatePasswordController">
 	      <div class="modal-body">
 	        <h5>Input new password:</h5>
-				<input type="text" placeholder="password" ng-model="pass">
+				<input type="text" placeholder="password" ng-model="pass" ng-pattern="/^[a-zA-Z0-9]+$/" required>
 	      </div>
 	      <div class="modal-footer">
 	      		<div class="row">
@@ -36,7 +36,7 @@
 						  <strong>Success!</strong> Password saved!
 						</div>
 						<div class="alert alert-danger" ng-show="result == false">
-						  <strong>Danger!</strong> Password save failed!
+						  <strong>Alert!</strong> Password save failed!
 						</div>
 	      			</div>
 	      			<div class="col-md-3">
