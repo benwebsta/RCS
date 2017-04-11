@@ -28,7 +28,7 @@ import com.revature.beans.Employee;
 import com.revature.dao.ApartmentDao;
 import com.revature.service.ApartmentService;
 
-@Ignore
+//@Ignore
 public class ApartmentServiceTest {
 
 	String testAddress = "123 Test st";
