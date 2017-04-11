@@ -36,6 +36,7 @@ app.controller("updatePasswordController",
 		  }
 		  
 		  $scope.changePassword = function() {
+			  console.log("modal");
 			  $('#changepasswordModal').modal('show');
 		  }
 		  
