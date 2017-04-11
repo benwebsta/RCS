@@ -41,7 +41,6 @@ app.controller("updatePasswordController",
 		  }
 		  
 		  $scope.changePassword = function() {
-			  console.log("in change");
 			  $('#testModal').modal('show');
 		  }
 		  
