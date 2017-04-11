@@ -63,7 +63,7 @@ public class ApartmentServiceTest {
 		//Mocks getting Employees By Apartment
 		when(mockDao.getEmployeesByApartment(anyInt())).thenReturn(null);
 		when(mockDao.getEmployeesByApartment(1)).thenReturn(apartment1.getEmployees());
-		when(mockDao.getEmployeesByApartment(509)).thenReturn(apartment1.getEmployees());
+		when(mockDao.getEmployeesByApartment(509)).thenReturn(apartment2.getEmployees());
 	}
 
 	private void mockGetApartmentById() {

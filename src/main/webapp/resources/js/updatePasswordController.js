@@ -3,8 +3,6 @@ app.controller("updatePasswordController",
 		 function($scope, $http) {
 		$('#changepasswordModal').modal({ show: false})
 		$scope.result = null;
-		
-		 console.log($scope.pass);
 		 $scope.passwordUpdate = null;
 		 
 		  $scope.update = function() {
@@ -40,5 +38,6 @@ app.controller("updatePasswordController",
 		  $scope.changePassword = function() {
 			  $('#changepasswordModal').modal('show');
 		  }
+		  
 		  
 	}]);
