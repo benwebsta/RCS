@@ -53,7 +53,7 @@ public class Chain implements Serializable {
 	@Qualifier("group2")
 	private Group group2;
 	
-	@OneToMany(mappedBy="chain", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="chainId", fetch=FetchType.EAGER)
 	private List<Message> messagesForChain;
 
 	public int getChainId() {

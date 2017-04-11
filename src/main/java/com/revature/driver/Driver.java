@@ -1,46 +1,42 @@
 package com.revature.driver;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.util.SystemPropertyUtils;
 
+import com.google.gson.Gson;
 import com.revature.beans.Chain;
+import com.revature.beans.Employee;
 import com.revature.beans.Group;
+import com.revature.dao.ChainDao;
+import com.revature.dao.ChainDaoImpl;
+import com.revature.dao.EmployeeDao;
+import com.revature.dao.EmployeeDaoImpl;
+import com.revature.dao.GroupDao;
+import com.revature.dao.GroupDaoImpl;
 import com.revature.service.ChainService;
 
 public class Driver {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-/*		EmployeeService employeeService = new EmployeeService();
 		
-		Employee employee = employeeService.getEmployeeById(1);
+		EmployeeDao employeeDao = new EmployeeDaoImpl();
+		GroupDao groupDao = new GroupDaoImpl();
 		
-		employee.setPassword("testuuuuu");
-		employeeService.updateEmployee(employee);*/
+		Employee e = employeeDao.getEmployeeById(3);
+		List<Group> g = groupDao.getGroupsContainingEmployee(e);
+		ChainDao chainDao = new ChainDaoImpl();
 		
-//		ApartmentService apartmentService = new ApartmentService();
-//		Apartment apartment = apartmentService.getApartmentById(1);
-//		System.out.println(apartment.toString());
-//		List<Apartment> aptList = apartmentService.getAllApartments();
-//		for(Apartment a: aptList)
-//		{
-//			System.out.println(a.toString());
-//		}
-//		List<Employee> empList = apartmentService.getEmployeesByApartment(1);
-//		for(Employee e: empList)
-//		{
-//			System.out.println(e.toString());
-//		}
-//		ChainService chainService = new ChainService();
-//		Chain chain = chainService.getChainById(1);
-//		System.out.println(chain.toString());
-//		List<Chain> chainList = chainService.getAllChains();
-//		for(Chain c: chainList)
-//		{
-//			System.out.println(c.toString());
-//		}
+		List<Chain> chains = new LinkedList<>();
+		for(Group g2 : g){
+		chains.addAll(chainDao.getChainsByGroupOne(g2));
+		chains.addAll(chainDao.getChainsByGroupTwo(g2));
+		}
+		String json = new Gson().toJson(chains);
+		System.out.println(g.size());
+		System.out.println(json);
+		
 	}
 
 }
