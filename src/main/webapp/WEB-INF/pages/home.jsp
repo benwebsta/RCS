@@ -74,8 +74,8 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Overview <span class="sr-only">current</span></a></li>
-            <li ng-click="dashboard = !dashboard"><a href="#">Dashboard show</a></li>
-            <li><a href="#">Analytics</a></li>
+            <li ng-click="login = !login; dashboard = false"><a href="#">Login</a></li>
+            <li ng-click="dashboard = !dashboard; login = false" ><a href="#">Dashboard show</a></li>
             <li><a href="#">Export</a></li>
           </ul>
           <ul class="nav nav-sidebar">
@@ -98,7 +98,9 @@
         <div ng-show="dashboard" ng-cloak>
         	<jsp:include page="dashboard.jsp"/>
         </div>
-
+        <div ng-show="login" ng-cloak>
+        	<jsp:include page="login.jsp"/>
+		</div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
 <!--     Placed at the end of the document so the pages load faster

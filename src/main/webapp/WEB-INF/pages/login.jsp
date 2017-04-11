@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -14,7 +14,7 @@
 <title>New Password</title>
 </head>
 
-<body>
+<body> --%>
 <%-- 	<form:form action="login" method="POST" commandName="employee">
 	<!-- path=[field of object specified in command name] -->
 	Username: <form:input path="username" />
@@ -22,34 +22,46 @@
 	<input type="submit" value="login"/>
 	
 	</form:form> --%>
-	<div ng-app="rcs">
-		<div ng-controller="loginController">
-			<form name="loginForm">
-				Username:
-				<input type="text"
-					name="employeeUsername" 
-					placeholder="username" 
-					ng-model="username"
-					ng-maxlength="25"
-					required />
-				<div ng-messages="loginForm.employeeUsername.$error" role="alert">
-					<div ng-message="required">You did not enter a field</div>
-					<div ng-message="maxlength">Your field is too long</div>
+	
+	
+	
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          
+          
+		          <div>
+				<div>
+					<form name="loginForm">
+						Username:
+						<input type="text"
+							name="employeeUsername" 
+							placeholder="username" 
+							ng-model="username"
+							ng-maxlength="25"
+							required />
+						<div ng-messages="loginForm.employeeUsername.$error" role="alert">
+							<div ng-message="required">You did not enter a field</div>
+							<div ng-message="maxlength">Your field is too long</div>
+						</div>
+						Password:
+						<input type="text"
+							name="employeePassword"
+							placeholder="password" 
+							ng-model="password"
+							ng-maxlength="25"
+							required />
+						<div ng-messages="loginForm.employeePassword.$error" role="alert">
+							<div ng-message="required">You did not enter a field</div>
+							<div ng-message="maxlength">Your field is too long</div>
+						</div>
+						<button ng-click="update()">Submit</button>
+					</form>
 				</div>
-				Password:
-				<input type="text"
-					name="employeePassword"
-					placeholder="password" 
-					ng-model="password"
-					ng-maxlength="25"
-					required />
-				<div ng-messages="loginForm.employeePassword.$error" role="alert">
-					<div ng-message="required">You did not enter a field</div>
-					<div ng-message="maxlength">Your field is too long</div>
-				</div>
-				<button ng-click="update()">Submit</button>
-			</form>
-		</div>
-	</div>
-</body>
-</html>
+			</div>
+          
+          
+        </div>
+	
+	
+	
+<!-- </body>
+</html> -->
