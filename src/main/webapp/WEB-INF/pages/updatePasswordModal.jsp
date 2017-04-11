@@ -5,10 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>New Password</title>
-</head><!-- 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
-<script src="resources/js/app.js"></script>
-<script src="resources/js/updatePasswordController.js"></script> -->
+</head>
 
 <body ng-app="rcs">
 
