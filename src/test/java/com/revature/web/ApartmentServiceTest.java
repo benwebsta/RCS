@@ -100,7 +100,7 @@ public class ApartmentServiceTest {
 		apartment1.setState("DC");
 		apartment1.setZipCode(12345);
 		apartment1.setApartmentId(1);
-		apartment1.setRoomsAvailable(2);F
+		apartment1.setRoomsAvailable(2);
 		apartment1.setGenderId(1);
 		
 		apartment2 = new Apartment();
