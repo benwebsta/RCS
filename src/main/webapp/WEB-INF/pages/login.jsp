@@ -34,6 +34,7 @@
 							placeholder="username" 
 							ng-model="username"
 							ng-maxlength="25"
+							ng-pattern="/^[a-zA-Z0-9]+$/"
 							required />
 						<div ng-messages="loginForm.employeeUsername.$error" role="alert">
 							<div ng-message="required">You did not enter a field</div>
@@ -45,6 +46,7 @@
 							placeholder="password" 
 							ng-model="password"
 							ng-maxlength="25"
+							ng-pattern="/^[a-zA-Z0-9]+$/"
 							required />
 						<div ng-messages="loginForm.employeePassword.$error" role="alert">
 							<div ng-message="required">You did not enter a field</div>
