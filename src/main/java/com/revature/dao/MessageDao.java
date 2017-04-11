@@ -8,7 +8,7 @@ import com.revature.beans.Message;
 
 public interface MessageDao  {
 	
-	void AddMessage(Chain chain, Message message);
+	void AddMessage(Message message);
 	List<Message> getAllMessages();
 	Message getMessageById(int id);
 	List<Message> getMessagesByChain(Chain chain);
