@@ -33,8 +33,6 @@
 	<script src="resources/js/sendHousingRequestController.js"></script>
 	<script src="resources/js/sendMaintenanceRequestController.js"></script>
 	<script src="resources/js/createNewResidentController.js"></script>
-
-	
 	
 	<!-- CSS for our pages -->
 	<script src="resources/css/home.css"></script>
@@ -42,6 +40,7 @@
 	
 	<!-- CSS for dashboard template -->
 	<link href="https://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
+	<link rel="stylesheet" href="bower_components/angular-bootstrap-simple-chat/src/css/themes.css">
 	<title>Insert title here</title>
 </head>
 <body ng-app="rcs">
