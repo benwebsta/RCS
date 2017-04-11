@@ -19,7 +19,7 @@ public class LoginRestController {
 	@Autowired
 	EmployeeService employeeService;
 	
-	@RequestMapping(value="/employee", method=RequestMethod.GET)
+	@RequestMapping(value="/employee", method=RequestMethod.POST)
 	public @ResponseBody String getUser(@PathVariable("id") int id) {
 		System.out.println("fetching user with id" + id);
         Employee emp = employeeService.getEmployeeById(id);
