@@ -44,7 +44,7 @@ public class GenderSeviceTest {
 	
 	@Before
 	public void setUp(){
-		MockitoAnnotations.initMocks(mockDao);
+		MockitoAnnotations.initMocks(this);
 		
 		setPreExistingData();
 		mockGetGenderById();

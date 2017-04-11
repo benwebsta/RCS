@@ -49,7 +49,7 @@ public class GroupServiceTest {
 	
 	@Before
 	public void setUp (){
-		MockitoAnnotations.initMocks(mockDao);
+		MockitoAnnotations.initMocks(this);
 		
 		setUpExistingData();
 		mockAddGroup();

@@ -52,7 +52,7 @@ public class EmployeeServiceTest {
 	List<Employee> employees;
 	@Before
 	public void setUp() throws Exception {
-		MockitoAnnotations.initMocks(mockDao);
+		MockitoAnnotations.initMocks(this);
 	
 		setupPrexistingData();
 		mockGetEmployeeById();
