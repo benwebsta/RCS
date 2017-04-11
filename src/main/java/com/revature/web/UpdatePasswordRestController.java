@@ -17,13 +17,13 @@ public class UpdatePasswordRestController {
 
 	@RequestMapping(method=RequestMethod.POST)	
 	/*public @ResponseBody Employee updatePassword_JSON( @RequestBody Employee employee){*/
-	public @ResponseBody String updatePassword_JSON( @RequestBody String employeeJson){
+	public @ResponseBody Boolean updatePassword_JSON( @RequestBody String employeeJson){
 		System.out.println("test");
 		System.out.println(employeeJson);
 		Employee employee = new Gson().fromJson(employeeJson, Employee.class);
 		System.out.println(employee);
-		employeeService.updateEmployee(employee);
-		return employeeJson;
+		boolean result = employeeService.updateEmployee(employee);
+		return result;
 	}
 	
 }
