@@ -14,11 +14,11 @@
 
 
 	
-	<div id="testModal" class="modal fade">
+	<div id="changepasswordModal" class="modal fade">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title">Change Password</h5>
+	        <h3 class="modal-title">Change Password</h3>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
@@ -26,12 +26,26 @@
 	      
 	      <div ng-controller="updatePasswordController">
 	      <div class="modal-body">
-	        <p>Input new password:</p>
+	        <h5>Input new password:</h5>
 				<input type="text" placeholder="password" ng-model="pass">
 	      </div>
-	      <div class="modal-footer"	>
-	        <button type="button" class="btn btn-primary" ng-click="update()">Save New Password</button>
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      <div class="modal-footer">
+	      		<div class="row">
+	      			<div class="col-md-6">
+	      				<div class="alert alert-success" ng-show="result == true">
+						  <strong>Success!</strong> Password saved!
+						</div>
+						<div class="alert alert-danger" ng-show="result == false">
+						  <strong>Danger!</strong> Password save failed!
+						</div>
+	      			</div>
+	      			<div class="col-md-3">
+	      		    	<button type="button" class="btn btn-primary" ng-click="update()">Save New Password</button>
+	      			</div>
+	      			<div class="col-md-3">
+	      				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      			</div>
+		        </div>
 	        </div>
 	        
 	      </div>

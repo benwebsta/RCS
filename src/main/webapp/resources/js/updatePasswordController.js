@@ -1,7 +1,8 @@
 app.controller("updatePasswordController", 
 	['$scope', '$http',
 		 function($scope, $http) {
-		$('#testModal').modal({ show: false})
+		$('#changepasswordModal').modal({ show: false})
+		$scope.result = null;
 		
 		 console.log($scope.pass);
 		 $scope.passwordUpdate = null;
@@ -29,7 +30,7 @@ app.controller("updatePasswordController",
 		    	  url: 'updatePasswordRest',
 		    	  data: employee
 		    	}).then(function successCallback(response) {
-		    	   $scope.passwordUpdate = response;
+		    	   $scope.result = response.data;
 		    	  }, function errorCallback(response) {
 		    	    console.log("error");
 		    	  });
@@ -37,7 +38,7 @@ app.controller("updatePasswordController",
 		  }
 		  
 		  $scope.changePassword = function() {
-			  $('#testModal').modal('show');
+			  $('#changepasswordModal').modal('show');
 		  }
 		  
 	}]);
