@@ -52,7 +52,7 @@ public class EmployeeServiceTest {
 	List<Employee> employees;
 	@Before
 	public void setUp() throws Exception {
-		MockitoAnnotations.initMocks(mockDao);
+		MockitoAnnotations.initMocks(this);
 	
 		setupPrexistingData();
 		mockGetEmployeeById();
@@ -77,7 +77,7 @@ public class EmployeeServiceTest {
 					}					
 				}
 				
-				return true;
+				return b;
 			}
 			
 		};
@@ -174,7 +174,7 @@ public class EmployeeServiceTest {
 		employee.setEmployeeId(1);
 		employee.setFirstName("newName");
 		assertNotEquals(employeeService.getEmployeeById(1).getFirstName(), employee.getFirstName());
-		employeeService.updateEmployee(employee);
+		assertEquals(true, employeeService.updateEmployee(employee));
 		assertEquals(mockDao.getEmployeeById(1).getFirstName(), employee.getFirstName());
 	}
 	
@@ -183,7 +183,7 @@ public class EmployeeServiceTest {
 		Employee employee = new Employee();
 		employee.setEmployeeId(9001);
 		employee.setFirstName("newName");
-		employeeService.updateEmployee(employee);
+		assertEquals(false, employeeService.updateEmployee(employee));
 		Employee nullEmployee = employeeService.getEmployeeById(9001);
 		assertNull("Employee should not have been added here, update existing only", nullEmployee);
 	}

@@ -23,7 +23,7 @@ public class LoginController {
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String login(ModelMap modelMap) {
-		return "login";
+		return "home";
 	}
 
 	@RequestMapping(method = RequestMethod.POST, path="/login")

@@ -15,20 +15,40 @@
 </head>
 
 <body>
-	<form:form action="login" method="POST" commandName="employee">
+<%-- 	<form:form action="login" method="POST" commandName="employee">
 	<!-- path=[field of object specified in command name] -->
 	Username: <form:input path="username" />
 	Password: <form:password path="password" />
 	<input type="submit" value="login"/>
 	
-	</form:form>
+	</form:form> --%>
 	<div ng-app="rcs">
 		<div ng-controller="loginController">
-			Username:
-			<input type="text" placeholder="username" ng-model="username">
-			Password:
-			<input type="text" placeholder="password" ng-model="password">
-			<button ng-click="update()">Submit</button>
+			<form name="loginForm">
+				Username:
+				<input type="text"
+					name="employeeUsername" 
+					placeholder="username" 
+					ng-model="username"
+					ng-maxlength="25"
+					required />
+				<div ng-messages="loginForm.employeeUsername.$error" role="alert">
+					<div ng-message="required">You did not enter a field</div>
+					<div ng-message="maxlength">Your field is too long</div>
+				</div>
+				Password:
+				<input type="text"
+					name="employeePassword"
+					placeholder="password" 
+					ng-model="password"
+					ng-maxlength="25"
+					required />
+				<div ng-messages="loginForm.employeePassword.$error" role="alert">
+					<div ng-message="required">You did not enter a field</div>
+					<div ng-message="maxlength">Your field is too long</div>
+				</div>
+				<button ng-click="update()">Submit</button>
+			</form>
 		</div>
 	</div>
 </body>

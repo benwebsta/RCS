@@ -1,6 +1,8 @@
 app.controller("updatePasswordController", 
 	['$scope', '$http',
 		 function($scope, $http) {
+		$('#changepasswordModal').modal({ show: false})
+		$scope.result = null;
 		
 		 console.log($scope.pass);
 		 $scope.passwordUpdate = null;
@@ -28,15 +30,15 @@ app.controller("updatePasswordController",
 		    	  url: 'updatePasswordRest',
 		    	  data: employee
 		    	}).then(function successCallback(response) {
-		    	   $scope.passwordUpdate = response;
+		    	   $scope.result = response.data;
 		    	  }, function errorCallback(response) {
 		    	    console.log("error");
 		    	  });
-			
-			// Making the fields empty
-			//
-			$scope.password ='';
 		    
+		  }
+		  
+		  $scope.changePassword = function() {
+			  $('#changepasswordModal').modal('show');
 		  }
 		  
 	}]);

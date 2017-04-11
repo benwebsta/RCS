@@ -21,8 +21,7 @@ public class EmployeeService {
 	}
 	
 	public boolean updateEmployee(Employee employee){
-		employeeDao.updateEmployee(employee);
-		return true;
+		return employeeDao.updateEmployee(employee);
 	}
 	
 }

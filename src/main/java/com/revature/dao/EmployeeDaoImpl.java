@@ -51,19 +51,17 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			 sess.saveOrUpdate(employee);
 			 
 		     tx.commit();
+		     return true;
 
 		 }
 		 catch (Exception e) {
 				e.printStackTrace();
-
+				return false;
 		 }
 		 finally {
 
 		     sess.close();
 		 }
-
-		 
-		return true;
 	}
 
 }
