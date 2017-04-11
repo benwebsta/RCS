@@ -26,6 +26,8 @@
 	<!-- Scripts -->
 	<script src="resources/js/app.js"></script>
 	<script src="resources/js/updatePasswordController.js"></script>
+	<!-- CSS for our pages -->
+	<script src="resources/css/home.css"></script>
 	<!-- CSS for dashboard template -->
 	<link href="https://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
 	<title>Insert title here</title>
@@ -51,7 +53,7 @@
             <li><a href="#">Dashboard</a></li>
             
             <li ng-controller="updatePasswordController" ng-click="changePassword()">
-            	<a>Change Password</a>
+            	<a href="#">Change Password</a>
 			</li>
             <li><a href="#">Profile</a></li>
             <li><a href="#">Help</a></li>

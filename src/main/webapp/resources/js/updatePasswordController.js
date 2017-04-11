@@ -33,10 +33,6 @@ app.controller("updatePasswordController",
 		    	  }, function errorCallback(response) {
 		    	    console.log("error");
 		    	  });
-			
-			// Making the fields empty
-			//
-			$scope.password ='';
 		    
 		  }
 		  
