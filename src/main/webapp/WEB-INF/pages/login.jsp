@@ -28,33 +28,32 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<div ng-controller="loginController">
 					<form name="loginForm">
+					<div class="form-group">
 						Username:
 						<input type="text"
-							name="employeeUsername" 
 							placeholder="username" 
 							ng-model="username"
 							ng-maxlength="25"
 							ng-pattern="/^[a-zA-Z0-9]+$/"
 							required />
-						<div ng-messages="loginForm.employeeUsername.$error" role="alert">
-							<div ng-message="required">You did not enter a field</div>
-							<div ng-message="maxlength">Your field is too long</div>
-						</div>
+						<span ng-show="loginForm.username.$error" role="alert">
+						You did not enter a field
+						</span>
+					</div>
+					<div class="form-group">
 						Password:
 						<input type="text"
-							name="employeePassword"
 							placeholder="password" 
 							ng-model="password"
 							ng-maxlength="25"
 							ng-pattern="/^[a-zA-Z0-9]+$/"
 							required />
-						<div ng-messages="loginForm.employeePassword.$error" role="alert">
-							<div ng-message="required">You did not enter a field</div>
-							<div ng-message="maxlength">Your field is too long</div>
-						</div>
-						<button ng-click="update()">Submit</button>
+						<span ng-show="loginForm.password.$error" role="alert">You did not enter a field
+						</span>
+					</div>
+						<button ng-click="update()" ng-disabled="loginForm.username.$invalid || loginForm.password.$invalid">Submit</button>
 					</form>
-					${{employee}}
+					{{employee}}
 				</div>
 			</div>
 
