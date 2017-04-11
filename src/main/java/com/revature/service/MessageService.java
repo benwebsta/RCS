@@ -2,9 +2,12 @@ package com.revature.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.revature.beans.Chain;
 import com.revature.beans.Message;
 
+@Component
 public class MessageService {
 	
 	public List<Message> getAllMessages() {
