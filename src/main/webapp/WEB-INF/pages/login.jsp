@@ -26,10 +26,7 @@
 	
 	
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          
-          
-		          <div>
-				<div>
+				<div ng-controller="loginController">
 					<form name="loginForm">
 						Username:
 						<input type="text"
@@ -55,11 +52,10 @@
 						</div>
 						<button ng-click="update()">Submit</button>
 					</form>
+					${{employee}}
 				</div>
 			</div>
-          
-          
-        </div>
+
 	
 	
 	

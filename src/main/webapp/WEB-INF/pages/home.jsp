@@ -27,6 +27,7 @@
 	<!-- Scripts -->
 	<script src="resources/js/app.js"></script>
 	<script src="resources/js/updatePasswordController.js"></script>
+	<script src="resources/js/loginController.js"></script>
 	<script src="resources/js/dashboardController.js"></script>
 	
 	<!-- CSS for our pages -->
