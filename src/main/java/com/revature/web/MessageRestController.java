@@ -182,9 +182,6 @@ public class MessageRestController {
 			result = message.getMessageId() > 0;
 		}
 		
-		
-		
-		
 		return result;
 	}
 
