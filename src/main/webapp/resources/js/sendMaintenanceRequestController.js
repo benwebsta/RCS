@@ -2,7 +2,7 @@ app.controller("sendMaintenanceRequestController",
 	['$scope', '$http',
 		 function($scope, $http) {
 		$('#sendMaintenanceRequestModal').modal({ show: false})
-		
+		$scope.confirmBoolean = true;
 		
 		$scope.send = function() {
 			console.log("teststststuuuu");
@@ -33,6 +33,9 @@ app.controller("sendMaintenanceRequestController",
 		
 		  $scope.sendMaintenanceRequest = function() {
 			  $('#sendMaintenanceRequestModal').modal('show');
+		  }
+		  $scope.confirm = function() {
+			  $scope.confirmBoolean = false;
 		  }
 		  
 		  
