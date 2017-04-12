@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>New Password</title>
+<title>Maintenance Email</title>
 </head>
 
 <body ng-app="rcs">
@@ -15,23 +15,40 @@
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h3 class="modal-title">Send Maintenance Request</h3>
+	        <h3 class="modal-title">Send Housing Request</h3>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
 	      
-	      <div>
-	      <div class="modal-body">
-				To: <input type="text" value="maintenance@revature.com">
-	        <h5>Email body</h5>
-				<input type="text" placeholder="email">
-	      </div>
-	      <div class="modal-footer">
-    		    	<button type="button" class="btn btn-primary">Send</button>
-    				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-	        </div>
-	        
+	      <div ng-controller="sendMaintenanceRequestController">
+		      <div class="modal-body">
+		      
+				<h3><b>To:</b> maintenance@revature.com</h3><br>
+		        <h4><b>Email Header</b></h4>
+				<input type="text" placeholder="header" ng-model="header">
+		        <h5>Email body</h5>
+				<input type="text" placeholder="email body" ng-model="body">
+		     
+		      </div>
+		      <div class="modal-footer">
+		      		<div class="row">
+		      			<div class="col-md-6">
+		      				<div class="alert alert-success" ng-show="result == true">
+							  <strong>Success!</strong> Email sent!
+							</div>
+							<div class="alert alert-danger" ng-show="result == false">
+							  <strong>Alert!</strong> Email Failed to Send!
+							</div>
+		      			</div>
+		      			<div class="col-md-3">
+		      		    	<button type="button" class="btn btn-primary" ng-click="send()">Send Email</button>
+		      			</div>
+		      			<div class="col-md-3">
+		      				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+		      			</div>
+			        </div>
+		        </div>
 	      </div>
 	    </div>
 	  </div>

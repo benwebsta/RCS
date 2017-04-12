@@ -41,7 +41,11 @@ public class sendEmailRestController {
 	    String body = jobject.get("body").getAsString();
 	    
 	    Employee employee = (Employee) session.getAttribute("employee");
-	    String emailPreface = "Generated email through the RCS system from : " + employee.getEmail() + "\n\n";
+	    String emailPreface = "";
+	    if(recipientEmail.equals("housing@revature.com"))
+	    	emailPreface = "Housing Request Email \n\nGenerated email through the RCS system from : " + employee.getEmail() + "\n\n";
+	    else
+	    	emailPreface = "Maintenance Request Email \n\nGenerated email through the RCS system from : " + employee.getEmail() + "\n\n";
 		
 	    //this line will send emails to housing@revature.com lol
 	    //boolean result = sendEmail(employee, recipientEmail, header, body);
