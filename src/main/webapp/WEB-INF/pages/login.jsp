@@ -28,30 +28,32 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<div ng-controller="loginController">
 					<form name="loginForm">
-					<div class="form-group">
-						Username:
-						<input type="text"
-							placeholder="username" 
-							ng-model="username"
-							ng-maxlength="25"
-							ng-pattern="/^[a-zA-Z0-9]+$/"
-							required />
-						<span ng-show="loginForm.username.$error" role="alert">
-						You did not enter a field
-						</span>
-					</div>
-					<div class="form-group">
-						Password:
-						<input type="text"
-							placeholder="password" 
-							ng-model="password"
-							ng-maxlength="25"
-							ng-pattern="/^[a-zA-Z0-9]+$/"
-							required />
-						<span ng-show="loginForm.password.$error" role="alert">You did not enter a field
-						</span>
-					</div>
-						<button ng-click="update()" ng-disabled="loginForm.username.$invalid || loginForm.password.$invalid">Submit</button>
+					<!-- USERNAME -->
+			        <div class="form-group">
+			            <label>Username</label>
+			            <input type="text" 
+			            	name="username" 
+			            	class="form-control"
+			            	ng-class="{ 'has-error' : loginForm.username.$invalid && !loginForm.username.$pristine }" 
+			            	ng-model="username" 
+			            	ng-maxlength="25"
+			            	ng-pattern="/^[a-zA-Z0-9]+$/">
+			            <p ng-show="loginForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+			        </div>
+			        <!-- PASSWORD -->
+			        <div class="form-group">
+			        	<label>Password</label>
+			        	<input type="text" 
+			        		name="password" 
+			        		class="form-control"
+			        		ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }" 
+			        		ng-model="password" 
+			        		ng-maxlength="25"
+			        		ng-pattern="/^[a-zA-Z0-9]+$/">
+			            <p ng-show="loginForm.password.$error.maxlength" class="help-block">Password is too long.</p>
+			        </div>
+						<button ng-click="update()" 
+								ng-disabled="loginForm.$invalid">Submit</button>
 					</form>
 					{{employee}}
 				</div>
