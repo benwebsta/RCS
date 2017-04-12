@@ -2,6 +2,7 @@ app.controller("sendHousingRequestController",
 	['$scope', '$http',
 		 function($scope, $http) {
 		$('#sendHousingRequestModal').modal({ show: false})
+		$scope.confirmBoolean = true;
 		
 		$scope.test = function() {
 			console.log("test");
@@ -37,6 +38,8 @@ app.controller("sendHousingRequestController",
 		  $scope.sendHousingRequest = function() {
 			  $('#sendHousingRequestModal').modal('show');
 		  }
-		  
+		  $scope.confirm = function() {
+			  $scope.confirmBoolean = false;
+		  }
 		  
 	}]);

@@ -44,7 +44,8 @@
 		     	</form>
 		      </div>
 		      <div class="modal-footer">
-		      		<div class="row">
+		      
+		      		<div class="row" ng-show="confirmBoolean">
 		      			<div class="col-md-6">
 		      				<div class="alert alert-success" ng-show="result == true">
 							  <strong>Success!</strong> Email sent!
@@ -54,12 +55,29 @@
 							</div>
 		      			</div>
 		      			<div class="col-md-3">
-		      		    	<button type="button" class="btn btn-primary" ng-click="send()">Send Email</button>
+		      		    	<button type="button" class="btn btn-primary" ng-click="confirm()">Send Email</button>
 		      			</div>
 		      			<div class="col-md-3">
 		      				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
 		      			</div>
 			        </div>
+			        <div class="row" ng-show="!confirmBoolean">
+		      			<div class="col-md-6">
+		      				<div class="alert alert-success" ng-show="result == true">
+							  <strong>Success!</strong> Email sent!
+							</div>
+							<div class="alert alert-danger" ng-show="result == false">
+							  <strong>Alert!</strong> Email Failed to Send!
+							</div>
+		      			</div>
+		      			<div class="col-md-3">
+		      		    	<button type="button" class="btn btn-success" ng-click="send()">Send email to Housing</button>
+		      			</div>
+		      			<div class="col-md-3">
+		      				<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+		      			</div>
+			        </div>
+			        
 		        </div>
 	      </div>
 	    </div>
