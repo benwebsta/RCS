@@ -34,4 +34,8 @@ public class ApartmentService {
 		return apartmentDao.getEmployeesByApartment(apartmentId);
 	}
 	
+	public Apartment getApartmentFromEmployee(Employee employee){
+		return this.getApartmentById(employee.getApartmentId());
+	}
+	
 }
