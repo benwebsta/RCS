@@ -11,20 +11,26 @@ app.controller("sendHousingRequestController",
 		$scope.send = function() {
 			console.log("teststststuuuu");
 		    
-		    var recipientEmail = $scope.recipientEmail;
 		    var header = $scope.header;
 		    var body = $scope.body;
 		    
-		    console.log(recipientEmail);
 		    console.log(header);
 		    console.log(body);
 		    
 		    var email = {
-		    		recipientEmail : recipientEmail,
+		    		recipientEmail : "housing@revature.com",
 		    		header : header, 
 		    		body : body
 		    }
-		    console.log(email);
+		    $http({
+		    	  method: 'POST',
+		    	  url: 'sendEmailRest',
+		    	  data: email
+		    	}).then(function successCallback(response) {
+		    	   $scope.result = response.data;
+		    	  }, function errorCallback(response) {
+		    	    console.log("error");
+		    	  });
 	
 		  }
 		

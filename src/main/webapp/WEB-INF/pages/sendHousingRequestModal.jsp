@@ -25,7 +25,6 @@
 		      <div class="modal-body">
 		      
 				<h3><b>To:</b> housing@revature.com</h3><br>
-				<input type="text" ng-hide="true" value="housing@revature.com" ng-model="recipientEmail">
 		        <h4><b>Email Header</b></h4>
 				<input type="text" placeholder="header" ng-model="header">
 		        <h5>Email body</h5>

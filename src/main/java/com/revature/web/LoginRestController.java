@@ -24,17 +24,17 @@ public class LoginRestController {
 	@RequestMapping(method=RequestMethod.POST)	
 	/*public @ResponseBody Employee updatePassword_JSON( @RequestBody Employee employee){*/
 	public @ResponseBody String login_JSON( @RequestBody String[] credentials, ModelMap modelMap, HttpSession session){
-		System.out.println("test");
-		System.out.println("should be username and password " + credentials[0] + credentials[1]);
+		//System.out.println("test");
+		//System.out.println("should be username and password " + credentials[0] + credentials[1]);
 		Employee employee = employeeService.loginEmployee(credentials[0], credentials[1]);
-		System.out.println("logged in employee " + employee);
+		//System.out.println("logged in employee " + employee);
 		modelMap.addAttribute("employee", employee);
 		session.setAttribute("employee", employee);
 		
 		if (modelMap.containsAttribute("employee"))
-			System.out.println(employee);
+			//System.out.println(employee);
 		if (session.getAttribute("employee") != null)
-			System.out.println(employee);
+			//System.out.println(employee);
 		
 		System.out.println("end of login rest controller");
 		String employeeJson = new Gson().toJson(employee);

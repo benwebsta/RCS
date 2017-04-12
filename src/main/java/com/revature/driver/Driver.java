@@ -1,6 +1,6 @@
 package com.revature.driver;
 
-import com.revature.web.sendEmailController;
+import com.revature.web.sendEmailRestController;
 
 public class Driver {
 
