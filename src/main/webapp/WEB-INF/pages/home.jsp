@@ -35,9 +35,9 @@
 	<script src="resources/js/createNewResidentController.js"></script>
 	
 	<!-- CSS for our pages -->
-	<script src="resources/css/home.css"></script>
-	<script src="resources/css/messages.css"></script>
-	<script src="resources/emailModal.css"></script>
+	<link rel="stylesheet" src="resources/css/home.css"></script>
+	<link rel="stylesheet" src="resources/css/messages.css"></script>
+	<link rel="stylesheet" src="resources/emailModal.css"></script>
 	
 	<!-- CSS for dashboard template -->
 	<link href="https://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
