@@ -37,6 +37,7 @@
 	<!-- CSS for our pages -->
 	<script src="resources/css/home.css"></script>
 	<script src="resources/css/messages.css"></script>
+	<script src="resources/emailModal.css"></script>
 	
 	<!-- CSS for dashboard template -->
 	<link href="https://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">

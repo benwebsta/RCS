@@ -28,7 +28,7 @@
 		        <h4><b>Email Header</b></h4>
 				<input type="text" placeholder="header" ng-model="header">
 		        <h5>Email body</h5>
-				<input type="text" placeholder="email body" ng-model="body">
+				<textarea placeholder="email body" ng-model="body"></textarea>
 		     
 		      </div>
 		      <div class="modal-footer">
