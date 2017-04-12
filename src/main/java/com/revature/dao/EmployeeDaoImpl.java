@@ -64,4 +64,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		 }
 	}
 
+	@Override
+	public Employee getEmployeeByUsername(String username) {
+		// TODO Auto-generated method stub
+		Session sess = HibernateUtil.getSession();
+		Criteria c = sess.createCriteria(Employee.class);
+		c.add(Restrictions.eq("username", username));
+		List<Employee> l = c.list();
+		return l.size() == 1 ? l.get(0) : null; 
+	}
+
 }

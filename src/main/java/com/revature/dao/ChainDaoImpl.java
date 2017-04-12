@@ -1,5 +1,6 @@
 package com.revature.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -65,14 +66,15 @@ public class ChainDaoImpl implements ChainDao {
 	}
 
 	@Override
-	public void addNewChain(Chain chain) {
+	public Integer addNewChain(Chain chain) {
 		// TODO Auto-generated method stub
 		Session sess = HibernateUtil.getSession();
+		Integer id = null;
 		Transaction tx;
 		try
 		{
 			tx = sess.beginTransaction();
-			sess.saveOrUpdate(chain);
+			id = (Integer) sess.save(chain);
 			tx.commit();
 		}
 		catch(Exception e)
@@ -83,6 +85,7 @@ public class ChainDaoImpl implements ChainDao {
 		{
 			sess.close();
 		}
+		return id;
 	}
 
 }
