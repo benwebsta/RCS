@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import com.revature.beans.Chain;
@@ -37,6 +38,7 @@ public class MessageDaoImpl implements MessageDao {
 		Criteria c = sess.createCriteria(Message.class);
 		if (chain != null){
 			c.add(Restrictions.eq("chainId", chain.getChainId()));
+			c.addOrder(Order.desc("messageId"));
 			messages = c.list();
 		}
 		return messages;

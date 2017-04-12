@@ -9,10 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NamedQueries;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 @Entity
@@ -35,10 +37,9 @@ public class Message implements Serializable {
 	@Qualifier("messageId")
 	private int messageId;
 	
-	@ManyToOne
-	@JoinColumn(name="CHAIN_ID")
+	@Column(name="CHAIN_ID")
 	@Qualifier("chain")
-	private Chain chain;
+	private int chainId;
 	
 	@Column(name="MESSAGE")
 	@Qualifier("message")
@@ -46,7 +47,7 @@ public class Message implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Message [messageId=" + messageId + ", chain=" + chain + ", message=" + message + "]";
+		return "Message [messageId=" + messageId + ", chainId=" + chainId + ", message=" + message + "]";
 	}
 
 	public int getMessageId() {
@@ -57,13 +58,7 @@ public class Message implements Serializable {
 		this.messageId = messageId;
 	}
 
-	public Chain getChain() {
-		return chain;
-	}
 
-	public void setChain(Chain chain) {
-		this.chain = chain;
-	}
 
 	public String getMessage() {
 		return message;
@@ -71,6 +66,14 @@ public class Message implements Serializable {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public int getChainId() {
+		return chainId;
+	}
+
+	public void setChainId(int chainId) {
+		this.chainId = chainId;
 	}
 	
 	
