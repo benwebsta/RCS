@@ -40,7 +40,7 @@
 	
 	<!-- CSS for dashboard template -->
 	<link href="https://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
-	<link rel="stylesheet" href="bower_components/angular-bootstrap-simple-chat/src/css/themes.css">
+	<!-- <link rel="stylesheet" href="bower_components/angular-bootstrap-simple-chat/src/css/themes.css"> -->
 	<title>Insert title here</title>
 </head>
 <body ng-app="rcs">

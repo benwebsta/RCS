@@ -62,6 +62,10 @@ public class Employee implements Serializable{
 	@Qualifier("fill")
 	private int fill;
 	
+	@Column(name="EMAIL")
+	@Qualifier("email")
+	private String email;
+	
 	public Employee(){
 		
 	}
@@ -129,12 +133,20 @@ public class Employee implements Serializable{
 	public void setApartmentId(int apartmentId) {
 		this.apartmentId = apartmentId;
 	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	@Override
 	public String toString() {
 		return "Employee [employeeId=" + employeeId + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", username=" + username + ", password=" + password + ", genderId=" + genderId + ", fill=" + fill
-				+ ", apartmentId=" + apartmentId + "]\n";
+				+ ", apartmentId=" + apartmentId + ", email=" + email +"]\n";
 	}
 	
 }

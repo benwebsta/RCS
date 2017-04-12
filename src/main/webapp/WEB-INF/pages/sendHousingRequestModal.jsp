@@ -21,17 +21,35 @@
 	        </button>
 	      </div>
 	      
-	      <div>
-	      <div class="modal-body">
-				To: <input type="text" value="housing@revature.com">
-	        <h5>Email body</h5>
-				<input type="text" placeholder="email">
-	      </div>
-	      <div class="modal-footer">
-    		    	<button type="button" class="btn btn-primary">Send</button>
-    				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-	        </div>
-	        
+	      <div ng-controller="sendHousingRequestController">
+		      <div class="modal-body">
+		      
+				<h3><b>To:</b> housing@revature.com</h3><br>
+				<input type="text" ng-hide="true" value="housing@revature.com" ng-model="recipientEmail">
+		        <h4><b>Email Header</b></h4>
+				<input type="text" placeholder="header" ng-model="header">
+		        <h5>Email body</h5>
+				<input type="text" placeholder="email body" ng-model="body">
+		     
+		      </div>
+		      <div class="modal-footer">
+		      		<div class="row">
+		      			<div class="col-md-6">
+		      				<div class="alert alert-success" ng-show="result == true">
+							  <strong>Success!</strong> Email sent!
+							</div>
+							<div class="alert alert-danger" ng-show="result == false">
+							  <strong>Alert!</strong> Email Failed to Send!
+							</div>
+		      			</div>
+		      			<div class="col-md-3">
+		      		    	<button type="button" class="btn btn-primary" ng-click="send()">Send Email</button>
+		      			</div>
+		      			<div class="col-md-3">
+		      				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+		      			</div>
+			        </div>
+		        </div>
 	      </div>
 	    </div>
 	  </div>
