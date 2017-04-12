@@ -99,6 +99,7 @@ public class MessageRestController {
 	
 	@RequestMapping(path="/newChain", method=RequestMethod.POST)
 	public @ResponseBody Boolean addNewMessageChain(@RequestBody String json, ModelMap modelMap, HttpSession session){
+		/*
 		JsonObject o = new JsonObject();
 		o.addProperty("isFromApartment", false);
 		o.addProperty("isToApartment", true);
@@ -107,6 +108,7 @@ public class MessageRestController {
 		json = o.toString();
 		
 		session.setAttribute("employee", employeeService.getEmployeeById(3));
+		*/
 		JsonElement reader = new JsonParser().parse(json);
 		JsonObject jObject = reader.getAsJsonObject();
 		Employee employee = (Employee) session.getAttribute("employee");
@@ -133,11 +135,52 @@ public class MessageRestController {
 			message.setChainId(chainId);
 			message.setMessage(messageText);
 			messageService.AddMessage(message);
-			result = true;
+			result = message.getMessageId() > 0;
 		} catch (Exception e){
 			result = false;
 		}
 		
+		
+		return result;
+	}
+	
+	@RequestMapping(path="/UpdateMessageChain", method=RequestMethod.POST)
+	public boolean addMessage(@RequestBody String json, ModelMap modelMap, HttpSession session){
+		session.setAttribute("employee", employeeService.getEmployeeById(3));
+	
+		Employee employee = (Employee) session.getAttribute("employee");
+		JsonObject o = new JsonObject();
+		o.addProperty("messagechain", 150);
+		o.addProperty("message", "hello world 2");
+		json = o.toString();
+		
+		Boolean okToAdd = false;
+		boolean result = false;
+		
+		JsonObject jObject = new JsonParser().parse(json).getAsJsonObject();
+		int chainId = jObject.get("messagechain").getAsInt();
+		String messageBody = jObject.get("message").getAsString();
+		Chain chain = chainService.getChainById(chainId);
+		
+		//checks if employee is in a group of the chain
+		if(employee != null && chain != null){
+			List<Group> groupsToCheck = groupService.getGroupsContainingEmployee(employee);
+			for (Group g : groupsToCheck){
+				if (g.getGroupId() == chain.getGroup1().getGroupId() || g.getGroupId() == chain.getGroup2().getGroupId()){
+					okToAdd = true;
+					break;
+				}
+			}
+		}
+		
+		//adds message to message chain
+		if (okToAdd){
+			Message message = new Message();
+			message.setChainId(chain.getChainId());
+			message.setMessage(messageBody);
+			messageService.AddMessage(message);
+			result = message.getMessageId() > 0;
+		}
 		
 		return result;
 	}
