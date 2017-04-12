@@ -35,6 +35,7 @@ public class Driver {
 		}
 		String json = new Gson().toJson(chains);
 		System.out.println(g.size());
+		System.out.println(chains.size());
 		System.out.println(json);
 		
 	}

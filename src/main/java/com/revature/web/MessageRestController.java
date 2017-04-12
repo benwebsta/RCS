@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,9 +22,11 @@ import com.google.gson.Gson;
 import com.revature.beans.Chain;
 import com.revature.beans.Employee;
 import com.revature.beans.Group;
+import com.revature.beans.Message;
 import com.revature.dao.EmployeeDaoImpl;
 import com.revature.service.ChainService;
 import com.revature.service.GroupService;
+import com.revature.service.MessageService;
 
 @RestController
 @RequestMapping(path="/messageRest")
@@ -34,6 +37,9 @@ public class MessageRestController {
 	
 	@Autowired
 	GroupService groupService;
+	
+	@Autowired
+	MessageService messageService;
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public @ResponseBody  String listMessageChains( 
@@ -57,9 +63,23 @@ public class MessageRestController {
 			System.out.println(chains.size());
 			jsonResponse = new Gson().toJson(chains);
 			System.out.println(jsonResponse);
-			
-			
 			return jsonResponse;
+	}
+	
+	@RequestMapping(path="/{chainId}", method=RequestMethod.GET)
+	public @ResponseBody String getMessagesForChain(@PathVariable String chainId, ModelMap modelMap, HttpSession session){
+		String response = "";
+		Chain chain = null;
+		List<Message> messages = new LinkedList<>();
+		try{
+			chain = chainService.getChainById(Integer.parseInt(chainId));
+			messages = messageService.getMessagesByChain(chain);
+		} catch (NumberFormatException e){
+			chain = null;
+		}
+		
+		response = new Gson().toJson(messages);
+		return response;
 	}
 	
 
