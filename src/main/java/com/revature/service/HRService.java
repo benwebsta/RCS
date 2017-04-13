@@ -17,17 +17,6 @@ public class HRService {
 	EmployeeDao employeeDao = new EmployeeDaoImpl();
 	ApartmentDao apartmentDao = new ApartmentDaoImpl();
 	
-	public boolean transferEmployeeToApt(Employee emp, Apartment apt){
-		System.out.println("old employees in apartment: " + apt.getEmployees());
-		if(apartmentDao.getRoomsAvailable(apt.getApartmentId()) == 0)
-			return false;
-		else {
-			List<Employee> employeeList = apt.getEmployees();
-			employeeList.add(emp);
-			apt.setEmployees(employeeList);
-			System.out.println("new employees in apt: " + apt.getEmployees() );
-			return apartmentDao.updateApartment(apt);
-		}
-	}
+
 
 }
