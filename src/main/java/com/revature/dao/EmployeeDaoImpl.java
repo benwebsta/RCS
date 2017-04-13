@@ -73,5 +73,11 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		List<Employee> l = c.list();
 		return l.size() == 1 ? l.get(0) : null; 
 	}
+	
+	public List<Employee> getAllEmployees(){
+		Session sess = HibernateUtil.getSession();
+		List<Employee> employees = sess.createCriteria(Employee.class).list();
+		return employees;
+	}
 
 }
