@@ -1,6 +1,9 @@
 
 var app = angular.module('rcs', []);
 
+app.controller("appController", function($scope) {
+	var employee = null;
+});
 
 /*app.config(function($stateProvider, $urlRouterProvider) {
 $stateProvider

@@ -23,4 +23,8 @@ public class EmployeeService {
 		return employeeDao.updateEmployee(employee);
 	}
 	
+	public Employee getEmployeeByUsername(String username){
+		return employeeDao.getEmployeeByUsername(username);
+	}
+	
 }

@@ -9,5 +9,7 @@ public interface EmployeeDao {
 	public Employee getEmployeeByLogin(String username, String password);
 	
 	public boolean updateEmployee(Employee employee);
+
+	public Employee getEmployeeByUsername(String username);
 	
 }

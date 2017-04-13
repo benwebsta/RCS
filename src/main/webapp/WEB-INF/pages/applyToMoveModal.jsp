@@ -7,7 +7,7 @@
 <title>New Password</title>
 </head>
 
-<body ng-app="rcs">
+<body>
 
 
 	
@@ -21,13 +21,14 @@
 	        </button>
 	      </div>
 	      
-	      <div>
+	      <div ng-controller="applyToMoveController">
 	      <div class="modal-body">
 	        <h5>Reason</h5>
 				<input type="text" placeholder="reason to move">
 	      </div>
 	      <div class="modal-footer">
-    		    	<button type="button" class="btn btn-primary">Submit</button>
+	      		
+    		    	<button type="button" class="btn btn-primary" ng-click="send()">Submit</button>
     				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
 	        </div>
 	        

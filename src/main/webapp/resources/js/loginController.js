@@ -1,6 +1,7 @@
 app.controller("loginController", 
 	['$scope', '$http',
 		function($scope, $http) {
+			
 			$scope.result = null;
 			$scope.employee = null;
 			$scope.update = function() {

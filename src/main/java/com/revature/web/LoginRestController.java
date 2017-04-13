@@ -33,8 +33,6 @@ public class LoginRestController {
 		
 		if (modelMap.containsAttribute("employee"))
 			System.out.println(employee);
-		if (session.getAttribute("employee") != null)
-			System.out.println(employee);
 		
 		System.out.println("end of login rest controller");
 		String employeeJson = new Gson().toJson(employee);

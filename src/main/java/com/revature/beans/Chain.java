@@ -11,17 +11,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
 import org.springframework.beans.factory.annotation.Qualifier;
 
 
 @Entity
 //Table name in DB
 @Table(name="CHAINS")
+@NamedQueries({
+	@NamedQuery(name="getChainByGroupOne", query = "from Chain where group1 = :groupId"),
+	@NamedQuery(name="getChainByGroupTwo", query = "from Chain where group2 = :groupId")
+})
 public class Chain implements Serializable {
 
 	
@@ -53,7 +58,7 @@ public class Chain implements Serializable {
 	@Qualifier("group2")
 	private Group group2;
 	
-	@OneToMany(mappedBy="chain", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="chainId", fetch=FetchType.EAGER)
 	private List<Message> messagesForChain;
 
 	public int getChainId() {

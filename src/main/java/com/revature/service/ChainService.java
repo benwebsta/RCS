@@ -1,5 +1,6 @@
 package com.revature.service;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -38,8 +39,8 @@ public class ChainService {
 	}
 
 	
-	public void addNewChain(Chain chain) {
+	public Integer addNewChain(Chain chain) {
 		// TODO Auto-generated method stub
-		chainDao.addNewChain(chain);
+		return chainDao.addNewChain(chain);
 	}
 }

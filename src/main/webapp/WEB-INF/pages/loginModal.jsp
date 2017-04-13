@@ -1,33 +1,26 @@
-<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<!-- angular scripts-->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-resource.js"></script>
-<script src="resources/js/app.js"></script>
-<script src="resources/js/updatePasswordController.js"></script>
 <title>New Password</title>
 </head>
 
-<body> --%>
-<%-- 	<form:form action="login" method="POST" commandName="employee">
-	<!-- path=[field of object specified in command name] -->
-	Username: <form:input path="username" />
-	Password: <form:password path="password" />
-	<input type="submit" value="login"/>
-	
-	</form:form> --%>
-	
-	
-	
-	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<div ng-controller="loginController">
-					<form name="loginForm">
+<body>
+
+	<div id="loginModal" class="modal fade in">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h3 class="modal-title">Login Page</h3>
+	          <span aria-hidden="true">&times;</span>
+	      </div>
+	      
+	      <div>
+	      <form name="loginForm">
+			<div class="modal-body" ng-controller="loginController">
+					
 					<!-- USERNAME -->
 			        <div class="form-group">
 			            <label>Username</label>
@@ -52,14 +45,26 @@
 			        		ng-pattern="/^[a-zA-Z0-9]+$/">
 			            <p ng-show="loginForm.password.$error.maxlength" class="help-block">Password is too long.</p>
 			        </div>
-						<button ng-click="update()" 
-								ng-disabled="loginForm.$invalid">Submit</button>
-					</form>
-				</div>
-			</div>
+			        </div>
+	      <div class="modal-footer">
+    		    	<button ng-click="update()" ng-disabled="loginForm.$invalid"
+    		    	 	type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+	        </div>
+	        </form>
+	        
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<script>
+	$('document').ready(function()
+			{
+			    $('#loginModal').modal('show');
 
+			});
+
+	</script>
 	
-	
-	
-<!-- </body>
-</html> -->
+</body>
+</html>
+

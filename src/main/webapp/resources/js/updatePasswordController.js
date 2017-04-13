@@ -1,5 +1,5 @@
 app.controller("updatePasswordController", 
-	['$scope', '$http',
+	['$scope', '$http', 
 		 function($scope, $http) {
 		$('#changepasswordModal').modal({ show: false})
 		$scope.result = null;
