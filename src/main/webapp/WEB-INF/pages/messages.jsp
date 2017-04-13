@@ -11,7 +11,9 @@
 				<div class="group-two-list">
 				<span ng-if="chain.group2.employee1">{{chain.group2.employee1.firstName}} {{chain.group2.employee1.lastName}}</span><span ng-if="chain.group2.employee2">, {{chain.group2.employee2.firstName}} {{chain.group2.employee2.lastName}}</span><span ng-if="chain.group2.employee3">, {{chain.group2.employee3.firstName}} {{chain.group2.employee3.lastName}}</span><span ng-if="chain.group2.employee4">, {{chain.group2.employee4.firstName}} {{chain.group2.employee4.lastName}}</span><span ng-if="chain.group2.employee5">, {{chain.group2.employee5.firstName}} {{chain.group2.employee5.lastName}}</span><span ng-if="chain.group2.employee6">, {{chain.group2.employee6.firstName}} {{chain.group2.employee6.lastName}}</span>
 				</div>
-			</li>
+			
 			</div>
 			</div>
         </div>
+        </div>
+        
