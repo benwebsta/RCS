@@ -15,6 +15,20 @@ app.controller("applyToMoveController",
 			
 			console.log(header);
 			console.log(body);
+
+			var tester = "hello";
+			console.log(tester);
+			
+			$http({
+				method: 'POST',
+				url: 'applyToMoveRest',
+				data: tester
+			}).then(function successCallback(response){
+				$scope.result = response.data;
+			}, function errorCallback(response) {
+				console.log("error");
+			});
+
 		}
 		
 		  $scope.applyToMove = function() {

@@ -26,8 +26,11 @@
 	
 	
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<div ng-controller="loginController">
-					<form name="loginForm">
+
+				<h1>Login Fam</h1><br><br>
+				<div>
+					<form id="loginForm" name="loginForm">
+
 					<!-- USERNAME -->
 			        <div class="form-group">
 			            <label>Username</label>
@@ -55,6 +58,9 @@
 						<button ng-click="update()" 
 								ng-disabled="loginForm.$invalid">Submit</button>
 					</form>
+
+					{{employee}}
+
 				</div>
 			</div>
 
