@@ -148,12 +148,7 @@ public class MessageRestController {
 	public boolean addMessage(@RequestBody String json, ModelMap modelMap, HttpSession session){
 		session.setAttribute("employee", employeeService.getEmployeeById(3));
 	
-		Employee employee = (Employee) session.getAttribute("employee");
-		JsonObject o = new JsonObject();
-		o.addProperty("messagechain", 150);
-		o.addProperty("message", "hello world 2");
-		json = o.toString();
-		
+		Employee employee = (Employee) session.getAttribute("employee");		
 		Boolean okToAdd = false;
 		boolean result = false;
 		
