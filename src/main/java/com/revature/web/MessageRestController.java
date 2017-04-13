@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -36,6 +37,7 @@ import com.revature.service.ApartmentService;
 import com.revature.service.ChainService;
 import com.revature.service.EmployeeService;
 import com.revature.service.GroupService;
+import com.revature.service.HRService;
 import com.revature.service.MessageService;
 
 @RestController
@@ -57,6 +59,9 @@ public class MessageRestController {
 	@Autowired
 	EmployeeService employeeService;
 	
+	@Autowired
+	HRService hrService;
+	
 	@RequestMapping(method=RequestMethod.GET)
 	public @ResponseBody  String listMessageChains( 
 		
@@ -64,7 +69,6 @@ public class MessageRestController {
 			//session.setAttribute("employee", new EmployeeDaoImpl().getEmployeeById(3));
 			Employee employee = (Employee) session.getAttribute("employee");
 			String jsonResponse = "";
-			System.out.println("test 1");
 			if(employee == null){
 				//employee is not logged in
 				//response.sendError(403);
@@ -86,7 +90,6 @@ public class MessageRestController {
 	
 	@RequestMapping(path="/{chainId}", method=RequestMethod.GET)
 	public @ResponseBody String getMessagesForChain(@PathVariable String chainId, ModelMap modelMap, HttpSession session){
-		System.out.println("test 2");
 		String response = "";
 		Chain chain = null;
 		List<Message> messages = new LinkedList<>();
@@ -113,7 +116,6 @@ public class MessageRestController {
 		
 		session.setAttribute("employee", employeeService.getEmployeeById(3));
 		*/
-		System.out.println("test 3");
 		JsonElement reader = new JsonParser().parse(json);
 		JsonObject jObject = reader.getAsJsonObject();
 		Employee employee = (Employee) session.getAttribute("employee");
@@ -152,7 +154,6 @@ public class MessageRestController {
 	@RequestMapping(path="/UpdateMessageChain", method=RequestMethod.POST)
 	public boolean addMessage(@RequestBody String json, ModelMap modelMap, HttpSession session){
 		//session.setAttribute("employee", employeeService.getEmployeeById(3));
-		System.out.println("test 4");
 		Employee employee = (Employee) session.getAttribute("employee");		
 		Boolean okToAdd = false;
 		boolean result = false;
@@ -183,6 +184,22 @@ public class MessageRestController {
 		}
 		
 		return result;
+	}
+	
+	@RequestMapping(path="/getMessagebleUsers", method=RequestMethod.GET)
+	public String getUsers(ModelMap modelMap, HttpSession session){
+		List<Employee> employees = hrService.getAllEmployeesInHousing();
+		JsonObject json = new JsonObject();
+		JsonArray employeesArray = new JsonArray();
+		for (Employee employee: employees){
+			JsonObject eObject = new JsonObject();
+			eObject.addProperty("firstName", employee.getFirstName());
+			eObject.addProperty("lastName", employee.getLastName());
+			eObject.addProperty("username", employee.getUsername());
+			employeesArray.add(eObject);
+		}
+		json.add("employees", employeesArray);
+		return json.toString();
 	}
 
 	private Group generateGroupFromEmployee(Employee employee, boolean usingFromApartmentGroup) {

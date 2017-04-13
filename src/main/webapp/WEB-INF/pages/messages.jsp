@@ -3,6 +3,7 @@
           <h1 class="page-header">Messages Page</h1>
 			<div ng-controller="getMessageChainsController">
 			<div id="message-chain-list">
+			<button type="button" ng-click="showNewMessageModel()" >New Message Chain</button>
 			<div class="chain" ng-repeat="chain in chains" style="border:1px solid black;"  ng-click="onChainClick(chain.chainId)">
 				
 				<div class="group-one-list">

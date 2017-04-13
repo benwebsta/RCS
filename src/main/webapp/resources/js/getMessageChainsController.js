@@ -19,12 +19,13 @@
 
 app.controller("getMessageChainsController", [ '$scope', '$http', '$rootScope',
 		function($scope, $http, $rootScope) {
-			console.log("test appearence");
+			console.log("controller 1");
 			$('#showMessages').modal({
 				show : false
 			});
 
 			$scope.getMessageChains = function() {
+				console.log("getting message chains")
 				$http({
 					method : 'GET',
 					url : 'messageRest'
@@ -35,6 +36,10 @@ app.controller("getMessageChainsController", [ '$scope', '$http', '$rootScope',
 					console.log("error");
 				});
 			};
+			$scope.$on("reloadMessageChain", function(event) {
+				$scope.getMessageChains();
+			});
+
 			$scope.onChainClick = function(chainId) {
 				$('#showMessages').modal({
 					show : true
@@ -42,10 +47,17 @@ app.controller("getMessageChainsController", [ '$scope', '$http', '$rootScope',
 				console.log("send update message request")
 				$rootScope.$broadcast('updateMessages', chainId);
 			};
+
+			$scope.showNewMessageModel = function() {
+				console.log("Show New Message Modal");
+				$('#newMessageChainModal').modal('show');
+				$rootScope.$broadcast('loadUsers', null);
+			};
 		} ]);
 
 app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 		function($scope, $http, $rootScope) {
+			console.log("controller 2");
 			$scope.loadMsgs = function(chainId) {
 				console.log('messagesUpdating');
 				$http({
@@ -89,3 +101,16 @@ app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 				});
 			};
 		} ]);
+app.controller("messageTab", [ '$scope', '$http', '$rootScope',
+		function($scope, $http, $rootScope) {
+	console.log("controller 3");
+			
+
+			$scope.startLoadingMessageChains = function() {
+				$rootScope.$broadcast('reloadMessageChain', null);
+				console.log("telling getMessagesChain controller to start")
+			}
+
+		} ]);
+
+
