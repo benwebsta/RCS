@@ -23,7 +23,7 @@
 </style>
 </head>
 
-<body ng-app="rcs">
+<body>
 
 
 	

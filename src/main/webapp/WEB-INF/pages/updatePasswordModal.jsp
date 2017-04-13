@@ -7,7 +7,7 @@
 <title>New Password</title>
 </head>
 
-<body ng-app="rcs">
+<body>
 
 
 	
