@@ -7,7 +7,8 @@
 <title>Housing Email</title>
 <style> 
 	textarea {
-	    width: 100%;
+	    width: 90%;
+	    margin: 0 auto;
 	    height: 150px;
 	    padding: 12px 20px;
 	    box-sizing: border-box;
@@ -16,6 +17,8 @@
 	    background-color: #f8f8f8;
 	    font-size: 16px;
 	    resize: none;
+	    position: relative;
+	    display: block;
 	}
 </style>
 </head>
@@ -37,14 +40,38 @@
 	      <div ng-controller="sendHousingRequestController">
 		      <div class="modal-body">
 		      
-				<h3><b>To:</b> housing@revature.com</h3><br>
-		        <input type="text" placeholder="Subject line" ng-model="header">
+				<h3><b>To:</b> housing@revature.com</h3>
+				<hr>
+				<div style="margin-left: 10px;" >
+						<br><label>Who does this concern?</label>
+					    <div class="form-group">
+					        <div class="radio">
+					            <label>
+					                <input type="radio" checked="checked" name="individual" value="individual" ng-model="whoItAffects" >
+					                Just you
+					            </label>
+					        </div>
+					        <div class="radio">
+					            <label>
+					                <input type="radio" name="house" value="house" ng-model="whoItAffects">
+					                The Whole House
+					            </label>
+					        </div>
+					 </div>
+				</div>
+				<hr>
+				
+				<div class="row">	
+					<input style="width: 90%; position: relative; margin: 0 auto; display: block;" type="text" 
+					placeholder="Subject line" ng-model="header">
+				</div>
+				
+
 				<form><br>
 					<textarea placeholder="Email body" ng-model="body"></textarea>
-		     	</form>
+		     	</form>	
 		      </div>
 		      <div class="modal-footer">
-		      
 		      		<div class="row" ng-show="confirmBoolean">
 		      			<div class="col-md-6">
 		      				<div class="alert alert-success" ng-show="result == true">
@@ -77,9 +104,9 @@
 		      				<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
 		      			</div>
 			        </div>
-			        
 		        </div>
 	      </div>
+	      
 	    </div>
 	  </div>
 	</div>

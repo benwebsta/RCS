@@ -3,11 +3,7 @@ app.controller("sendHousingRequestController",
 		 function($scope, $http) {
 		$('#sendHousingRequestModal').modal({ show: false})
 		$scope.confirmBoolean = true;
-		
-		$scope.test = function() {
-			console.log("test");
-		}
-		
+		var whoItAffects = "individual";
 		
 		$scope.send = function() {
 			console.log("teststststuuuu");
@@ -17,11 +13,16 @@ app.controller("sendHousingRequestController",
 		    
 		    console.log(header);
 		    console.log(body);
+		    if($scope.whoItAffects != undefined){
+		    	whoItAffects = $scope.whoItAffects;
+		    }
+		    console.log(whoItAffects);
 		    
 		    var email = {
 		    		recipientEmail : "housing@revature.com",
 		    		header : header, 
-		    		body : body
+		    		body : body, 
+		    		whoItAffects : whoItAffects
 		    }
 		    $http({
 		    	  method: 'POST',
