@@ -1,8 +1,10 @@
 app.controller("loginController", 
 	['$scope', '$http',
 		function($scope, $http) {
+
 			$scope.login = true;
 			$scope.loginHr = true;
+
 			$scope.result = null;
 			$scope.employee = null;
 			

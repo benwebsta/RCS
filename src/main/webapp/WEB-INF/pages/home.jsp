@@ -45,6 +45,7 @@
 	<!-- <link rel="stylesheet" href="bower_components/angular-bootstrap-simple-chat/src/css/themes.css"> -->
 	<title>Insert title here</title>
 </head>
+
 <body ng-app="rcs" ng-controller="loginController">
 	<div id="homeDiv">
 	
@@ -86,13 +87,15 @@
 	        
 	      </div>
 	    </nav>
-	
+
 	    <div class="container-fluid">
 	      <div class="row">
 	        <div class="col-sm-3 col-md-2 sidebar">
 	          <ul class="nav nav-sidebar">
 	            <li class="active"><a href="#">Overview <span class="sr-only">current</span></a></li>
+
 	            <li ng-click="dashboard = !dashboard; messages = false; viewAllResidents = false" ng-show="!login || !loginHr" ng-cloak><a href="#">Dashboard show</a></li>
+
 	          </ul>
 	          <div ng-show="!login" ng-cloak>
 		          <h4><b>Residents</b></h4>
