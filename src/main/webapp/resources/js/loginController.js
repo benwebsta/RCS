@@ -1,9 +1,10 @@
 app.controller("loginController", 
 	['$scope', '$http',
 		function($scope, $http) {
-			
+			$scope.login = true;
 			$scope.result = null;
 			$scope.employee = null;
+			
 			$scope.update = function() {
 		
 		    var username = $scope.username;
@@ -17,6 +18,7 @@ app.controller("loginController",
 				  data: credentials
 			}).then(function successCallback(response) {
 			   $scope.employee = response.data;
+			   $scope.login = false;
 			  }, function errorCallback(response) {
 			    console.log("error");
 			  });

@@ -11,23 +11,24 @@ app.controller("updatePasswordController",
 		    console.log(passwordUpdate);
 		    
 		    $scope.passwordUpdate = $scope.pass;
-		    
-		    var employee = {
-		    		employeeId : 1,
-		    		firstName : "Xavier", 
-		    		lastName : "Grogan",
-		    		username : "xavier",
+		    console.log($scope.employee);
+		    var emp = {
+		    		employeeId : $scope.employee.employeeId,
+		    		firstName : $scope.employee.firstName, 
+		    		lastName : $scope.employee.lastName,
+		    		username : $scope.employee.username,
 		    		password : passwordUpdate,
-		    		apartmentId : 2,
-		    		genderId : 1,
-		    		fill : 1
+		    		apartmentId : $scope.employee.apartmentId,
+		    		genderId : $scope.employee.genderId,
+		    		fill : $scope.employee.fill,
+		    		email : $scope.employee.email
 		    }
-		    console.log(employee);
+		    console.log(emp);
 		    
 		    $http({
 		    	  method: 'POST',
 		    	  url: 'updatePasswordRest',
-		    	  data: employee
+		    	  data: emp
 		    	}).then(function successCallback(response) {
 		    	   $scope.result = response.data;
 		    	  }, function errorCallback(response) {
