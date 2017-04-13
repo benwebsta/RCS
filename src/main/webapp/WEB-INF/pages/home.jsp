@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,98 +45,100 @@
 	<!-- <link rel="stylesheet" href="bower_components/angular-bootstrap-simple-chat/src/css/themes.css"> -->
 	<title>Insert title here</title>
 </head>
-<body ng-app="rcs">
-
-	<jsp:include page="updatePasswordModal.jsp"/>
-	<jsp:include page="applyToMoveModal.jsp"/>
-	<jsp:include page="sendHousingRequestModal.jsp"/>
-	<jsp:include page="sendMaintenanceRequestModal.jsp"/>
-	<jsp:include page="createNewResidentModal.jsp"/>
+<body ng-app="rcs" ng-controller="appController">
+	<jsp:include page="loginModal.jsp"/>
+	<div id="homeDiv">
+		<jsp:include page="updatePasswordModal.jsp"/>
+		<jsp:include page="applyToMoveModal.jsp"/>
+		<jsp:include page="sendHousingRequestModal.jsp"/>
+		<jsp:include page="sendMaintenanceRequestModal.jsp"/>
+		<jsp:include page="createNewResidentModal.jsp"/>
+		
+		
 	
+	    <nav class="navbar navbar-inverse navbar-fixed-top">
+	      <div class="container-fluid">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" href="#">Resident Communication System</a>
+	        </div>
+	        
+	        <div id="navbar" class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav navbar-right">
+	            <li ng-click="dashboard = !dashboard; login = false; messages = false"><a href="#">Dashboard</a></li>
+	            
+	            <li ng-controller="updatePasswordController" ng-click="changePassword()">
+	            	<a href="#">Change Password</a>
+				</li>
+	            <li><a href="#">Profile</a></li>
+	            <li><a href="#">Help</a></li>
+	          </ul>
+	          <form class="navbar-form navbar-right">
+	            <input type="text" class="form-control" placeholder="Search...">
+	          </form>
+	        </div>
+	      </div>
+	    </nav>
 	
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Resident Communication System</a>
-        </div>
-        
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li ng-click="dashboard = !dashboard; login = false; messages = false"><a href="#">Dashboard</a></li>
-            
-            <li ng-controller="updatePasswordController" ng-click="changePassword()">
-            	<a href="#">Change Password</a>
-			</li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
-          </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
-        </div>
-      </div>
-    </nav>
-
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview <span class="sr-only">current</span></a></li>
-            <li ng-click="login = !login; dashboard = false; messages = false; viewAllResidents = false"><a href="#">Login</a></li>
-            <li ng-click="dashboard = !dashboard; login = false; messages = false; viewAllResidents = false" ><a href="#">Dashboard show</a></li>
-          </ul>
-          <h4><b>Residents</b></h4>
-          <ul class="nav nav-sidebar">
-            <li ng-click="messages = !messages; dashboard = false; login = false; viewAllResidents = false"><a href="">Messages</a></li>
-            <li ng-controller="applyToMoveController" ng-click="applyToMove()">
-            	<a href="">Apply to move</a>
-            </li>
-            <li ng-controller="sendHousingRequestController" ng-click="sendHousingRequest()">
-            	<a href="">Send Housing Request</a>
-            </li>
-            <li ng-controller="sendMaintenanceRequestController" ng-click="sendMaintenanceRequest()">
-            	<a href="">Send Maintenance Request</a>
-            </li>
-          </ul>
-          <h4><b>HR</b></h4>
-          <ul class="nav nav-sidebar">
-            <li ng-controller="createNewResidentController" ng-click="createNewResident()">
-            	<a href="">Create New Resident</a>
-            </li>
-            <li ng-click="viewAllResidents = !viewAllResidents; dashboard = false; login = false; messages = false" ><a href="#">View All Residents</a></li>
-          </ul>
-        </div>
-        
-        <div ng-show="dashboard" ng-cloak>
-        	<jsp:include page="dashboard.jsp"/>
-        </div>
-        <div ng-show="login" ng-cloak>
-        	<jsp:include page="login.jsp"/>
-		</div>
-		<div ng-show="messages" ng-cloak>
-        	<jsp:include page="messages.jsp"/>
-		</div>
-		<div ng-show="viewAllResidents" ng-cloak>
-        	<jsp:include page="viewAllResidents.jsp"/>
-		</div>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-<!--     Placed at the end of the document so the pages load faster
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    Just to make our placeholder images work. Don't actually copy the next line!
-    <script src="../../assets/js/vendor/holder.min.js"></script>
-    IE10 viewport hack for Surface/desktop Windows 8 bug
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
-  
-
+	    <div class="container-fluid">
+	      <div class="row">
+	        <div class="col-sm-3 col-md-2 sidebar">
+	          <ul class="nav nav-sidebar">
+	            <li class="active"><a href="#">Overview <span class="sr-only">current</span></a></li>
+	            <li ng-click="login = !login; dashboard = false; messages = false; viewAllResidents = false"><a href="#">Login</a></li>
+	            <li ng-click="dashboard = !dashboard; login = false; messages = false; viewAllResidents = false" ><a href="#">Dashboard show</a></li>
+	          </ul>
+	          <h4><b>Residents</b></h4>
+	          <ul class="nav nav-sidebar">
+	            <li ng-click="messages = !messages; dashboard = false; login = false; viewAllResidents = false"><a href="">Messages</a></li>
+	            <li ng-controller="applyToMoveController" ng-click="applyToMove()">
+	            	<a href="">Apply to move</a>
+	            </li>
+	            <li ng-controller="sendHousingRequestController" ng-click="sendHousingRequest()">
+	            	<a href="">Send Housing Request</a>
+	            </li>
+	            <li ng-controller="sendMaintenanceRequestController" ng-click="sendMaintenanceRequest()">
+	            	<a href="">Send Maintenance Request</a>
+	            </li>
+	          </ul>
+	          <h4><b>HR</b></h4>
+	          <ul class="nav nav-sidebar">
+	            <li ng-controller="createNewResidentController" ng-click="createNewResident()">
+	            	<a href="">Create New Resident</a>
+	            </li>
+	            <li ng-click="viewAllResidents = !viewAllResidents; dashboard = false; login = false; messages = false" ><a href="#">View All Residents</a></li>
+	          </ul>
+	        </div>
+	        
+	        <div ng-show="dashboard" ng-cloak>
+	        	<jsp:include page="dashboard.jsp"/>
+	        </div>
+	        <div ng-show="login" ng-cloak>
+	        	<jsp:include page="login.jsp"/>
+			</div>
+			<div ng-show="messages" ng-cloak>
+	        	<jsp:include page="messages.jsp"/>
+			</div>
+			<div ng-show="viewAllResidents" ng-cloak>
+	        	<jsp:include page="viewAllResidents.jsp"/>
+			</div>
+	    <!-- Bootstrap core JavaScript
+	    ================================================== -->
+	<!--     Placed at the end of the document so the pages load faster
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+	    <script src="../../dist/js/bootstrap.min.js"></script>
+	    Just to make our placeholder images work. Don't actually copy the next line!
+	    <script src="../../assets/js/vendor/holder.min.js"></script>
+	    IE10 viewport hack for Surface/desktop Windows 8 bug
+	    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+	  </div>
+	  </div>
+	</div>
 </body>
 </html>
