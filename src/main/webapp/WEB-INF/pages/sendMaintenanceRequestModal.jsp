@@ -61,13 +61,13 @@
 				</div>
 				<hr>
 				
-				<div class="row">	
+				<div id="head" class="row">	
 					<input style="width: 90%; position: relative; margin: 0 auto; display: block;" type="text" 
 					placeholder="Subject line" ng-model="header">
 				</div>
 				
 
-				<form><br>
+				<form id="body"><br>
 					<textarea placeholder="Email body" ng-model="body"></textarea>
 		     	</form>	
 		      </div>
