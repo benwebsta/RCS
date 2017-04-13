@@ -45,6 +45,7 @@
 	<!-- <link rel="stylesheet" href="bower_components/angular-bootstrap-simple-chat/src/css/themes.css"> -->
 	<title>Insert title here</title>
 </head>
+
 <body ng-app="rcs" ng-controller="loginController">
 	<div id="homeDiv">
 	
@@ -86,13 +87,14 @@
 	        
 	      </div>
 	    </nav>
-	
+
 	    <div class="container-fluid">
 	      <div class="row">
 	        <div class="col-sm-3 col-md-2 sidebar">
 	          <ul class="nav nav-sidebar">
 	            <li class="active"><a href="#">Overview <span class="sr-only">current</span></a></li>
 	            <li ng-click="login = !login; dashboard = false; messages = false; viewAllResidents = false"><a href="#">Login</a></li>
+
 	            <li ng-click="dashboard = !dashboard; login = false; messages = false; viewAllResidents = false" ng-show="!login" ng-cloak><a href="#">Dashboard show</a></li>
 	          	<li ng-cloak> {{employee}}</li>
 	          	<li ng-cloak> {{login}}</li>
@@ -125,15 +127,18 @@
 	        </div>
 	        
 	        <div ng-show="dashboard && !login" ng-cloak>
+
 	        	<jsp:include page="dashboard.jsp"/>
 	        </div>
 	        <div ng-show="login" ng-cloak>
 	        	<jsp:include page="login.jsp"/>
 			</div>
+
 			<div ng-show="messages && !login" ng-cloak>
 	        	<jsp:include page="messages.jsp"/>
 			</div>
 			<div ng-show="viewAllResidents && !login" ng-cloak>
+
 	        	<jsp:include page="viewAllResidents.jsp"/>
 			</div>
 	  </div>

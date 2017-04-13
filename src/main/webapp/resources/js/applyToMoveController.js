@@ -15,6 +15,7 @@ app.controller("applyToMoveController",
 			
 			console.log(header);
 			console.log(body);
+
 			var tester = "hello";
 			console.log(tester);
 			
@@ -27,6 +28,7 @@ app.controller("applyToMoveController",
 			}, function errorCallback(response) {
 				console.log("error");
 			});
+
 		}
 		
 		  $scope.applyToMove = function() {
