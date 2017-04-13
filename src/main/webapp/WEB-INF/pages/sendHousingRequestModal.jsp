@@ -47,13 +47,13 @@
 					    <div class="form-group">
 					        <div class="radio">
 					            <label>
-					                <input type="radio" checked="checked" name="individual" value="individual" ng-model="whoItAffects" >
+					                <input type="radio" checked="checked" name="Individual" value="individual" ng-model="whoItAffects" >
 					                Just you
 					            </label>
 					        </div>
 					        <div class="radio">
 					            <label>
-					                <input type="radio" name="house" value="house" ng-model="whoItAffects">
+					                <input type="radio" name="house" value="Whole House" ng-model="whoItAffects">
 					                The Whole House
 					            </label>
 					        </div>

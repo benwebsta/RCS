@@ -3,7 +3,7 @@ app.controller("sendMaintenanceRequestController",
 		 function($scope, $http) {
 		$('#sendMaintenanceRequestModal').modal({ show: false})
 		$scope.confirmBoolean = true;
-		var whoItAffects = "individual";
+		var whoItAffects = "Individual";
 				
 		$scope.send = function() {
 			console.log("teststststuuuu");
