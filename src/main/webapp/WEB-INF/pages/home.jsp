@@ -68,10 +68,10 @@
 	          <a class="navbar-brand" href="#">Resident Communication System</a>
 	        </div>
 	        
-	        <div ng-show="!login" ng-cloak>
+	        <div ng-show="!login || !loginHr" ng-cloak>
 		        <div id="navbar" class="navbar-collapse collapse">
 		          <ul class="nav navbar-nav navbar-right">
-		            <li ng-click="dashboard = !dashboard; login = false; messages = false"><a href="#">Dashboard</a></li>
+		            <li ng-click="dashboard = !dashboard; messages = false"><a href="#">Dashboard</a></li>
 		            <li ng-controller="updatePasswordController" ng-click="changePassword()">
 		            	<a href="#">Change Password</a>
 					</li>
@@ -92,15 +92,14 @@
 	        <div class="col-sm-3 col-md-2 sidebar">
 	          <ul class="nav nav-sidebar">
 	            <li class="active"><a href="#">Overview <span class="sr-only">current</span></a></li>
-	            <li ng-click="login = !login; dashboard = false; messages = false; viewAllResidents = false"><a href="#">Login</a></li>
-	            <li ng-click="dashboard = !dashboard; login = false; messages = false; viewAllResidents = false" ng-show="!login" ng-cloak><a href="#">Dashboard show</a></li>
-	          	<li ng-cloak> {{employee}}</li>
-	          	<li ng-cloak> {{login}}</li>
+	            <li ng-click="dashboard = !dashboard; messages = false; viewAllResidents = false" ng-show="!login || !loginHr" ng-cloak><a href="#">Dashboard show</a></li>
 	          </ul>
 	          <div ng-show="!login" ng-cloak>
 		          <h4><b>Residents</b></h4>
 		          <ul class="nav nav-sidebar">
-		            <li ng-click="messages = !messages; dashboard = false; login = false; viewAllResidents = false"><a href="">Messages</a></li>
+		            <li ng-click="messages = !messages; dashboard = false; viewAllResidents = false">
+		            	<a href="">Messages</a>
+		            </li>
 		            <li ng-controller="applyToMoveController" ng-click="applyToMove()">
 		            	<a href="">Apply to move</a>
 		            </li>
@@ -113,29 +112,30 @@
 		          </ul>
 	          </div>
 	          
-	          <div ng-show="!login" ng-cloak>
+	          <div ng-show="!loginHr" ng-cloak>
 		          <h4><b>HR</b></h4>
-		          <ul class="nav nav-sidebar" ng-show="!login" ng-cloak>
+		          <ul class="nav nav-sidebar">
 		            <li ng-controller="createNewResidentController" ng-click="createNewResident()">
 		            	<a href="">Create New Resident</a>
 		            </li>
-		            <li ng-click="viewAllResidents = !viewAllResidents; dashboard = false; login = false; messages = false" ><a href="#">View All Residents</a></li>
+		            <li ng-click="viewAllResidents = !viewAllResidents; dashboard = false; messages = false" ><a href="#">View All Residents</a></li>
 		          </ul>
 		      </div>
 	        </div>
 	        
-	        <div ng-show="dashboard && !login" ng-cloak>
-	        	<jsp:include page="dashboard.jsp"/>
-	        </div>
-	        <div ng-show="login" ng-cloak>
-	        	<jsp:include page="login.jsp"/>
-			</div>
-			<div ng-show="messages && !login" ng-cloak>
+	        <div ng-show="messages" ng-cloak>
 	        	<jsp:include page="messages.jsp"/>
 			</div>
-			<div ng-show="viewAllResidents && !login" ng-cloak>
+			<div ng-show="viewAllResidents" ng-cloak>
 	        	<jsp:include page="viewAllResidents.jsp"/>
 			</div>
+	        <div ng-show="dashboard" ng-cloak>
+	        	<jsp:include page="dashboard.jsp"/>
+	        </div>
+	        <div ng-show="login && loginHr" ng-cloak>
+	        	<jsp:include page="login.jsp"/>
+			</div>
+			
 	  </div>
 	  </div>
 	</div>
