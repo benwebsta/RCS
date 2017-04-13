@@ -88,5 +88,29 @@ public class ApartmentDaoImpl implements ApartmentDao{
 		roomsAvailable = apartment.getRoomsAvailable();
 		return roomsAvailable;
 	}
+	
+	@Override
+	public boolean updateApartment(Apartment apartment) {
+		Session sess = HibernateUtil.getSession();
+		Transaction tx;
+		
+		 try {
+		     tx = sess.beginTransaction();
+		    
+			 sess.merge(apartment);
+			 
+		     tx.commit();
+		     return true;
+
+		 }
+		 catch (Exception e) {
+				e.printStackTrace();
+				return false;
+		 }
+		 finally {
+
+		     sess.close();
+		 }
+	}
 
 }

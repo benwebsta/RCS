@@ -19,4 +19,5 @@ public interface ApartmentDao {
 	
 	public int getRoomsAvailable(int apartmentId);
 	
+	public boolean updateApartment(Apartment apartment);
 }
