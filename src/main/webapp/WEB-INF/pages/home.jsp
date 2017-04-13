@@ -76,7 +76,7 @@
 		            	<a href="#">Change Password</a>
 					</li>
 		            <li><a href="#">Profile</a></li>
-		            <li><a href="#">Help</a></li>
+		            <li ng-click="logout()"><a href="#">Logout</a></li>
 		          </ul>
 		          <form class="navbar-form navbar-right">
 		            <input type="text" class="form-control" placeholder="Search...">
@@ -95,6 +95,7 @@
 	            <li ng-click="login = !login; dashboard = false; messages = false; viewAllResidents = false"><a href="#">Login</a></li>
 	            <li ng-click="dashboard = !dashboard; login = false; messages = false; viewAllResidents = false" ng-show="!login" ng-cloak><a href="#">Dashboard show</a></li>
 	          	<li ng-cloak> {{employee}}</li>
+	          	<li ng-cloak> {{login}}</li>
 	          </ul>
 	          <div ng-show="!login" ng-cloak>
 		          <h4><b>Residents</b></h4>

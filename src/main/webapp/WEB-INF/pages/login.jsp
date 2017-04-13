@@ -28,7 +28,7 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<h1>Login Fam</h1><br><br>
 				<div>
-					<form name="loginForm">
+					<form id="loginForm" name="loginForm">
 					<!-- USERNAME -->
 			        <div class="form-group">
 			            <label>Username</label>

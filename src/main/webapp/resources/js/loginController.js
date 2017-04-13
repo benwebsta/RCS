@@ -22,8 +22,18 @@ app.controller("loginController",
 			  }, function errorCallback(response) {
 			    console.log("error");
 			  });
+		    $('#loginForm')[0].reset();
 
 		  	}
+			
+			$scope.logout = function() {
+				
+				$scope.employee = null;
+				$scope.login = true;
+				
+			}
+			
+			
 		  
 		  
 	}]);
