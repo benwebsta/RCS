@@ -1,6 +1,7 @@
 
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Messages Page</h1>
+<<<<<<< HEAD
 			<div ng-controller="getMessageChainsController">
 			<div id="message-chain-list">
 			<div class="chain" ng-repeat="chain in chains" style="border:1px solid black;"  ng-click="onChainClick(chain.chainId)">
@@ -14,5 +15,7 @@
 			</li>
 			</div>
 			</div>
+=======
+>>>>>>> 782ce6c79bc5f9484c80e4a49d53ed58ff8b7e30
           
         </div>

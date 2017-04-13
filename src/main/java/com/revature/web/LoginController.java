@@ -29,7 +29,7 @@ public class LoginController {
 	@RequestMapping(method = RequestMethod.POST, path="/login")
 	public String doLogin(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap, HttpSession session){
 		Employee authEmp = es.loginEmployee(request.getParameter("username"), request.getParameter("password"));
-		System.out.println(authEmp);
+		System.out.println("auth emp " + authEmp);
 		if (authEmp != null) {
 			System.out.println(authEmp.getUsername());
 			modelMap.addAttribute("employee", authEmp);

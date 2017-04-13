@@ -3,7 +3,8 @@ app.controller("sendMaintenanceRequestController",
 		 function($scope, $http) {
 		$('#sendMaintenanceRequestModal').modal({ show: false})
 		$scope.confirmBoolean = true;
-		
+		var whoItAffects = "Individual";
+				
 		$scope.send = function() {
 			console.log("teststststuuuu");
 		    
@@ -12,11 +13,16 @@ app.controller("sendMaintenanceRequestController",
 		    
 		    console.log(header);
 		    console.log(body);
+		    if($scope.whoItAffects != undefined){
+		    	whoItAffects = $scope.whoItAffects;
+		    }
+		    console.log(whoItAffects);
 		    
 		    var email = {
 		    		recipientEmail : "maintenance@revature.com",
 		    		header : header, 
-		    		body : body
+		    		body : body, 
+		    		whoItAffects : whoItAffects
 		    }
 		    $http({
 		    	  method: 'POST',
