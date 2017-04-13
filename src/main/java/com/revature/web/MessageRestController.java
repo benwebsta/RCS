@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.SystemEnvironmentPropertySource;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -58,10 +59,12 @@ public class MessageRestController {
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public @ResponseBody  String listMessageChains( 
+		
 			ModelMap modelMap, HttpSession session){
-			session.setAttribute("employee", new EmployeeDaoImpl().getEmployeeById(3));
+			//session.setAttribute("employee", new EmployeeDaoImpl().getEmployeeById(3));
 			Employee employee = (Employee) session.getAttribute("employee");
 			String jsonResponse = "";
+			System.out.println("test 1");
 			if(employee == null){
 				//employee is not logged in
 				//response.sendError(403);
@@ -83,6 +86,7 @@ public class MessageRestController {
 	
 	@RequestMapping(path="/{chainId}", method=RequestMethod.GET)
 	public @ResponseBody String getMessagesForChain(@PathVariable String chainId, ModelMap modelMap, HttpSession session){
+		System.out.println("test 2");
 		String response = "";
 		Chain chain = null;
 		List<Message> messages = new LinkedList<>();
@@ -109,6 +113,7 @@ public class MessageRestController {
 		
 		session.setAttribute("employee", employeeService.getEmployeeById(3));
 		*/
+		System.out.println("test 3");
 		JsonElement reader = new JsonParser().parse(json);
 		JsonObject jObject = reader.getAsJsonObject();
 		Employee employee = (Employee) session.getAttribute("employee");
@@ -146,8 +151,8 @@ public class MessageRestController {
 	
 	@RequestMapping(path="/UpdateMessageChain", method=RequestMethod.POST)
 	public boolean addMessage(@RequestBody String json, ModelMap modelMap, HttpSession session){
-		session.setAttribute("employee", employeeService.getEmployeeById(3));
-	
+		//session.setAttribute("employee", employeeService.getEmployeeById(3));
+		System.out.println("test 4");
 		Employee employee = (Employee) session.getAttribute("employee");		
 		Boolean okToAdd = false;
 		boolean result = false;

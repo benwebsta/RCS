@@ -56,7 +56,7 @@
 		<jsp:include page="sendHousingRequestModal.jsp"/>
 		<jsp:include page="sendMaintenanceRequestModal.jsp"/>
 		<jsp:include page="createNewResidentModal.jsp"/>
-		<jsp:include page="showMessagesModal.jsp"/>
+<%-- 		<jsp:include page="showMessagesModal.jsp"/> --%>
 		
 	
 	    <nav class="navbar navbar-inverse navbar-fixed-top">

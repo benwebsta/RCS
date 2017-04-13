@@ -28,8 +28,8 @@
 	      </div>
 	      <div class="modal-body">
 	      	<div id = "messages">
-	      		<div class="message-context" ng-repeat="message in messages">
-	      			{{message.message}}
+	      		<div class="message-context" ng-repeat="msg in msgs">
+	      			{{msg.message}}
 	      		</div>
 	      	
 	      	</div>
