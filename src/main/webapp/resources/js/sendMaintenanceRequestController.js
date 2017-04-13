@@ -33,7 +33,6 @@ app.controller("sendMaintenanceRequestController",
 		    	  }, function errorCallback(response) {
 		    	    console.log("error");
 		    	  });
-	
 		  }
 		
 		
@@ -43,6 +42,12 @@ app.controller("sendMaintenanceRequestController",
 		  $scope.confirm = function() {
 			  $scope.confirmBoolean = false;
 		  }
+		  
+		  $("#sendMaintenanceRequestModal").on("hidden.bs.modal", function(){
+			  	console.log("TESTUUU");
+			  	$("#head").removeData('bs.modal');
+			  	$("#body").removeData('bs.modal');
+			});
 		  
 		  
 	}]);
