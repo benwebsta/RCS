@@ -31,11 +31,11 @@
 	    <th>Email</th>
 	  </tr>
 	  <tr ng-repeat="employee in employeesList">
-	    <td>{{employee.firstName}}</td>
-	    <td>{{employee.lastName}}</td>
-	    <td>{{employee.apartmentId}}</td>
-	    <td>{{employee.genderId}}</td>
-	    <td>{{employee.email}}</td>
+	    <td>{{employee.employee.firstName}}</td>
+	    <td>{{employee.employee.lastName}}</td>
+	    <td>{{employee.address}}</td>
+	    <td>{{employee.gender}}</td>
+	    <td>{{employee.employee.email}}</td>
 	  </tr>
 	</table>
 	

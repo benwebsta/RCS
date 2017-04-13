@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.beans.Employee;
+import com.revature.beans.EmployeeDTO;
 import com.revature.service.HRService;
 
 @RestController
@@ -16,13 +16,13 @@ import com.revature.service.HRService;
 public class ViewAllEmployeesRestController {
 	
 	@RequestMapping(method=RequestMethod.GET)	
-	public @ResponseBody List<Employee> viewEmployees(){
+	public @ResponseBody List<EmployeeDTO> viewEmployees(){
 		
 		HRService hrService = new HRService();
 	    
-		List<Employee> employees = hrService.getAllEmployeesInHousing();
+		List<EmployeeDTO> employeesDTO = hrService.getAllEmployeesInHousingDTO();
 		
-		return employees;
+		return employeesDTO;
 	}
 
 }
