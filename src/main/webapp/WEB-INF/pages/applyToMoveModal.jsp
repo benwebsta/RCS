@@ -24,7 +24,7 @@
 	      <div ng-controller="applyToMoveController">
 	      <div class="modal-body">
 	        <h5>Reason</h5>
-				<input type="text" placeholder="reason to move">
+				<input type="text" placeholder="reason to move" ng-model="reasonToMove">
 	      </div>
 	      <div class="modal-footer">
 	      		
