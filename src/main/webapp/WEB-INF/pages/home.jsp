@@ -33,6 +33,7 @@
 	<script src="resources/js/sendHousingRequestController.js"></script>
 	<script src="resources/js/sendMaintenanceRequestController.js"></script>
 	<script src="resources/js/createNewResidentController.js"></script>
+	<script src="resources/js/getMessageChainsController.js"></script>
 	
 	<!-- CSS for our pages -->
 	<link rel="stylesheet" src="resources/css/home.css"></script>
@@ -51,6 +52,7 @@
 	<jsp:include page="sendHousingRequestModal.jsp"/>
 	<jsp:include page="sendMaintenanceRequestModal.jsp"/>
 	<jsp:include page="createNewResidentModal.jsp"/>
+	<jsp:include page="showMessagesModal.jsp"/>
 	
 	
 
