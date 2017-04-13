@@ -47,24 +47,16 @@
 	<title>Insert title here</title>
 </head>
 
-<<<<<<< HEAD
-	<jsp:include page="updatePasswordModal.jsp"/>
-	<jsp:include page="applyToMoveModal.jsp"/>
-	<jsp:include page="sendHousingRequestModal.jsp"/>
-	<jsp:include page="sendMaintenanceRequestModal.jsp"/>
-	<jsp:include page="createNewResidentModal.jsp"/>
-	<jsp:include page="showMessagesModal.jsp"/>
-=======
+
 <body ng-app="rcs" ng-controller="loginController">
 	<div id="homeDiv">
->>>>>>> 782ce6c79bc5f9484c80e4a49d53ed58ff8b7e30
 	
 		<jsp:include page="updatePasswordModal.jsp"/>
 		<jsp:include page="applyToMoveModal.jsp"/>
 		<jsp:include page="sendHousingRequestModal.jsp"/>
 		<jsp:include page="sendMaintenanceRequestModal.jsp"/>
 		<jsp:include page="createNewResidentModal.jsp"/>
-		
+		<jsp:include page="showMessagesModal.jsp"/>
 		
 	
 	    <nav class="navbar navbar-inverse navbar-fixed-top">
