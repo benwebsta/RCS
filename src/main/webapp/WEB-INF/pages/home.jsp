@@ -124,16 +124,16 @@
 		      </div>
 	        </div>
 	        
-	        <div ng-show="dashboard" ng-cloak>
+	        <div ng-show="dashboard && !login" ng-cloak>
 	        	<jsp:include page="dashboard.jsp"/>
 	        </div>
 	        <div ng-show="login" ng-cloak>
 	        	<jsp:include page="login.jsp"/>
 			</div>
-			<div ng-show="messages" ng-cloak>
+			<div ng-show="messages && !login" ng-cloak>
 	        	<jsp:include page="messages.jsp"/>
 			</div>
-			<div ng-show="viewAllResidents" ng-cloak>
+			<div ng-show="viewAllResidents && !login" ng-cloak>
 	        	<jsp:include page="viewAllResidents.jsp"/>
 			</div>
 	  </div>
