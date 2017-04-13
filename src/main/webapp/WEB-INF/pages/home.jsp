@@ -36,6 +36,7 @@
 	<script src="resources/js/createNewResidentController.js"></script>
 	<script src="resources/js/getMessageChainsController.js"></script>
 	<script src="resources/js/newMessageChainsController.js"></script>
+	<script src="resources/js/viewAllResidentsController.js"></script>
 	
 	<!-- CSS for our pages -->
 	<link rel="stylesheet" src="resources/css/home.css"></script>
