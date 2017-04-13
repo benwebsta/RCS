@@ -27,9 +27,10 @@ app.controller("loginController",
 		  	}
 			
 			$scope.logout = function() {
-				
+				console.log("test");
 				$scope.employee = null;
 				$scope.login = true;
+				
 				
 			}
 			
