@@ -15,11 +15,12 @@ app.controller("viewAllResidentsController",
 	    });
 		
 		$scope.markAsMovedOut = function() {
+			console.log($scope.empl);
 			var moveOutEmail = {
 				firstName : $scope.empl.employee.firstName,
 				lastName : $scope.empl.employee.lastName,
 				email : $scope.empl.employee.email,
-				address : $scope.empl.employee.address
+				address : $scope.empl.address
 			}
 			
 			$http({
