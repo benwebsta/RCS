@@ -5,9 +5,9 @@ app.controller("loginController",
 			$scope.login = true;
 			$scope.loginHr = true;
 			$scope.incorrectLogin = false;
+			$scope.incorrectLoginHr = false;
 			$scope.result = null;
 			$scope.employee = null;
-			
 			$scope.update = function() {
 		
 			    var username = $scope.username;
@@ -25,6 +25,19 @@ app.controller("loginController",
 					   $scope.login = false;
 					   $scope.dashboard = true;
 					   $scope.incorrectLogin = false;
+					   
+					   $http({
+					    	  method: 'POST',
+							  url: 'getEmployeeDTO',
+							  data: $scope.employee
+						}).then(function successCallback(response) {
+							$scope.employeeDTO = response.data;
+							console.log($scope.employeeDTO);
+						  }, function errorCallback(response) {
+						    console.log("error");
+						  });
+					    
+					   
 				   }
 				   else{
 					   $scope.incorrectLogin = true;
@@ -32,6 +45,9 @@ app.controller("loginController",
 				  }, function errorCallback(response) {
 				    console.log("error");
 				  });
+			    
+			    
+			    
 			    $('#loginForm')[0].reset();
 			    $('#loginFormHr')[0].reset();
 
@@ -53,14 +69,32 @@ app.controller("loginController",
 					if($scope.employee != null){
 						   $scope.loginHr = false;
 						   $scope.dashboard = true;
-						   $scope.incorrectLogin = false;
+						   $scope.incorrectLoginHr = false;
+						   
+						   $http({
+						    	  method: 'POST',
+								  url: 'getEmployeeDTO',
+								  data: $scope.employee
+							}).then(function successCallback(response) {
+								$scope.employeeDTO = response.data;
+								console.log($scope.employeeDTO);
+							  }, function errorCallback(response) {
+							    console.log("error");
+							  });
+						    
+
 					   }
 					   else{
-						   $scope.incorrectLogin = true;
+						   $scope.incorrectLoginHr = true;
 					   }
 				  }, function errorCallback(response) {
 				    console.log("error");
 				  });
+			    
+			    
+
+			    
+			    
 			    $('#loginForm')[0].reset();
 			    $('#loginFormHr')[0].reset();
 
