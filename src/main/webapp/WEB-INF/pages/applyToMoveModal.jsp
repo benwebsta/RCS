@@ -50,9 +50,24 @@
 				<textarea placeholder="Reason to move" ng-model="reasonToMove"></textarea>
 	      </div>
 	      <div class="modal-footer">
-	      		
-    		    	<button type="button" class="btn btn-primary" ng-click="send()">Submit</button>
-    				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+	      		<div class="row">
+		      			<div class="col-md-6">
+		      				<div class="alert alert-success" ng-show="resultToMove == true">
+							  <strong>Success!</strong> Email sent!
+							</div>
+							<div class="alert alert-danger" ng-show="resultToMove == false">
+							  <strong>Alert!</strong> Email Failed to Send!
+							</div>
+		      			</div>
+		      			<div class="col-md-3">
+		      		    	<button type="button" class="btn btn-primary" ng-click="send()">Submit</button>
+		      			</div>
+		      			<div class="col-md-3">
+		      				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+		      			</div>
+			        </div>
+    		    	
+    				
 	        </div>
 	        
 	      </div>
