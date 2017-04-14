@@ -2,9 +2,12 @@ package com.revature.web;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -77,9 +80,30 @@ public class MessageRestController {
 			
 			List<Group> groups = groupService.getGroupsContainingEmployee(employee);
 			List<Chain> chains = new LinkedList<Chain>();
-			groups.forEach(g -> {
+			for (Group g : groups){
 				chains.addAll(chainService.getChainsByGroupOne(g));
 				chains.addAll(chainService.getChainsByGroupTwo(g));
+			}
+			
+			//sorts in order, because streams works best in it
+			Collections.sort(chains, new Comparator<Chain>() {
+				@Override
+				public int compare(Chain o1, Chain o2) {
+					// TODO Auto-generated method stub
+					return Integer.compare(o1.getChainId(), o2.getChainId());
+				}
+			});
+			
+			//removes duplicate entries
+			chains = chains.stream().distinct().collect(Collectors.toList());
+			
+			//sorts again because doing stream does not guarentee same order
+			Collections.sort(chains, new Comparator<Chain>() {
+				@Override
+				public int compare(Chain o1, Chain o2) {
+					// TODO Auto-generated method stub
+					return Integer.compare(o1.getChainId(), o2.getChainId());
+				}
 			});
 			
 			System.out.println(chains.size());
