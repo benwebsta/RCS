@@ -134,6 +134,9 @@
 		            	<a href="">Create New Resident</a>
 		            </li>
 		            <li ng-click="viewAllResidents = !viewAllResidents; dashboard = false; messages = false" ><a href="#">View All Residents</a></li>
+		            <li ng-click="messages = !messages; dashboard = false; viewAllResidents = false; startLoadingMessageChains()">       
+		            	<a href="">Messages</a>          
+		            </li>
 		          </ul>
 		      </div>
 	        </div>
