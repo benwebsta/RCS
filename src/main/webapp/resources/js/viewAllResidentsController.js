@@ -15,6 +15,23 @@ app.controller("viewAllResidentsController",
 	    });
 		
 		$scope.markAsMovedOut = function() {
+			var moveOutEmail = {
+				firstName : $scope.empl.employee.firstName,
+				lastName : $scope.empl.employee.lastName,
+				email : $scope.empl.employee.email,
+				address : $scope.empl.employee.address
+			}
+			
+			$http({
+		    	  method: 'POST',
+		    	  url: 'moveOutEmailRest',
+		    	  data: moveOutEmail
+		    	}).then(function successCallback(response) {
+		    	   $scope.resultMoveOutEmailRest = response.data;
+		    	  }, function errorCallback(response) {
+		    	    console.log("error");
+		    	  });
+			
 			var emp = {
 		    		employeeId : $scope.empl.employee.employeeId,
 		    		firstName : $scope.empl.employee.firstName, 
