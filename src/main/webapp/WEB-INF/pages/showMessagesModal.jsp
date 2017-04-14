@@ -24,19 +24,22 @@
 				<div>
 					<div class="modal-body" ng-controller="getMessages">
 
-<!-- 						<h5>New Message</h5> -->
+						<!-- 						<h5>New Message</h5> -->
 
 						<div id="messages">
+							<button type="button" class="btn btn-primarty"
+								ng-click="loadMsgs(currentChain)">Refresh</button>
 							<form class="form-inline pull-right">
 								<div class="form-group">
 									<label>New Message: </label> <input type="text"
-										name="newMessageContext" 
-										ng-model="newMessageContext" placeholder="message">
+										name="newMessageContext" ng-model="newMessageContext"
+										placeholder="message">
 								</div>
 								<button type="submit" class="btn btn-primarty"
 									ng-click="newMessage()">Send</button>
 							</form>
-							<br><br>
+							<br>
+							<br>
 							<ul class="list-group">
 
 								<li
@@ -45,7 +48,7 @@
 								<li
 									class="messages-loading list-group-item list-group-item-danger"
 									ng-if="error">Error Getting Messages</li>
-								<li 
+								<li
 									class="message-loading list-group-item list-group-item-danger"
 									ng-if="sendingError">Error Sending Message</li>
 								<li class="message-context list-group-item"
