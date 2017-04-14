@@ -25,6 +25,19 @@ app.controller("loginController",
 					   $scope.login = false;
 					   $scope.dashboard = true;
 					   $scope.incorrectLogin = false;
+					   
+					   $http({
+					    	  method: 'POST',
+							  url: 'getEmployeeDTO',
+							  data: $scope.employee
+						}).then(function successCallback(response) {
+							$scope.employeeDTO = response.data;
+							console.log($scope.employeeDTO);
+						  }, function errorCallback(response) {
+						    console.log("error");
+						  });
+					    
+					   
 				   }
 				   else{
 					   $scope.incorrectLogin = true;
@@ -32,6 +45,9 @@ app.controller("loginController",
 				  }, function errorCallback(response) {
 				    console.log("error");
 				  });
+			    
+			    
+			    
 			    $('#loginForm')[0].reset();
 			    $('#loginFormHr')[0].reset();
 
@@ -54,6 +70,19 @@ app.controller("loginController",
 						   $scope.loginHr = false;
 						   $scope.dashboard = true;
 						   $scope.incorrectLogin = false;
+						   
+						   $http({
+						    	  method: 'POST',
+								  url: 'getEmployeeDTO',
+								  data: $scope.employee
+							}).then(function successCallback(response) {
+								$scope.employeeDTO = response.data;
+								console.log($scope.employeeDTO);
+							  }, function errorCallback(response) {
+							    console.log("error");
+							  });
+						    
+						   
 					   }
 					   else{
 						   $scope.incorrectLogin = true;
@@ -61,6 +90,11 @@ app.controller("loginController",
 				  }, function errorCallback(response) {
 				    console.log("error");
 				  });
+			    
+			    
+
+			    
+			    
 			    $('#loginForm')[0].reset();
 			    $('#loginFormHr')[0].reset();
 
