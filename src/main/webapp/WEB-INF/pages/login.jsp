@@ -9,7 +9,7 @@
 					<div class="loginpanel" style="padding-left: 30px">
 						<div class="wrapper" style="width: 400px">
 						<br><br>
-						<form id="loginForm" name="loginForm">
+						<form id="loginForm" name="loginForm" ng-submit="loginForm.$valid && update()">
 						        <div class="form-group">
 						            <label>Username</label>
 						            <input type="text" 
@@ -19,7 +19,7 @@
 						            	ng-model="username" 
 						            	ng-maxlength="25"
 						            	ng-pattern="/^[a-zA-Z0-9]+$/">
-						            <p ng-show="loginForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+						            <div ng-show="loginForm.username.$invalid" class="alert alert-danger help-block"><strong>Alert!</strong> Username is invalid</div>
 						        </div>
 						        <div class="form-group">
 						        	<label>Password</label>
@@ -30,10 +30,10 @@
 						        		ng-model="password" 
 						        		ng-maxlength="25"
 						        		ng-pattern="/^[a-zA-Z0-9]+$/">
-						            <p ng-show="loginForm.password.$error.maxlength" class="help-block">Password is too long.</p>
+						            <div ng-show="loginForm.password.$invalid" class="alert alert-danger help-block"><strong>Alert!</strong> Password is invalid</div>
 						        </div>
-									<button ng-click="update()" 
-											ng-disabled="loginForm.$invalid">Submit</button>
+									<button type="submit">Submit</button>
+									<div ng-init="incorrectLogin = false" ng-show="incorrectLogin" class="alert alert-danger help-block"><strong>Alert!</strong> Login Incorrect!</div>
 							</form>
 						</div>
 					</div>
@@ -43,40 +43,36 @@
 					<div class="loginpanel" style="padding-left: 30px">
 						<div class="wrapper" style="width: 400px">
 						<br><br>
-						<form id="loginFormHr" name="loginFormHr">
+						<form id="loginFormHr" name="loginFormHr" ng-submit="loginFormHr.$valid && updateHr()">
 						        <div class="form-group">
 						            <label>Username</label>
 						            <input type="text" 
 						            	name="usernameHr" 
 						            	class="form-control"
-						            	ng-class="{ 'has-error' : loginFormHr.usernameHr.$invalid && !loginFormHr.usernameHr.$pristine }" 
 						            	ng-model="usernameHr" 
 						            	ng-maxlength="25"
 						            	ng-pattern="/^[a-zA-Z0-9]+$/">
-						            <p ng-show="loginFormHr.usernameHr.$error.maxlength" class="help-block">Username is too long.</p>
+						            <div ng-show="loginFormHr.usernameHr.$invalid" class="alert alert-danger help-block"><strong>Alert!</strong> Username is invalid</div>
 						        </div>
 						        <div class="form-group">
 						        	<label>Password</label>
 						        	<input type="text" 
 						        		name="passwordHr" 
 						        		class="form-control"
-						        		ng-class="{ 'has-error' : loginFormHr.passwordHr.$invalid && !loginFormHr.passwordHr.$pristine }" 
 						        		ng-model="passwordHr" 
 						        		ng-maxlength="25"
 						        		ng-pattern="/^[a-zA-Z0-9]+$/">
-						            <p ng-show="loginFormHr.passwordHr.$error.maxlength" class="help-block">Password is too long.</p>
+						            <div ng-show="loginFormHr.passwordHr.$invalid" class="alert alert-danger help-block"><strong>Alert!</strong> Password is invalid</div>
 						        </div>
-									<button ng-click="updateHr()" 
-											ng-disabled="loginFormHr.$invalid">Submit</button>
+									<button type="submit">Submit</button>
+									<div ng-init="incorrectLoginHr = false" class="alert alert-danger help-block" ng-show="incorrectLoginHr"><strong>Alert!</strong> Login Incorrect!</div>
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 			<br><br>
-			<div class="alert alert-danger" ng-show="incorrectLogin == true">
-			  <strong>Alert!</strong> Login Incorrect!
-			</div>
+
 		</div>
 		<br>
 	<div>

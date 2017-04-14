@@ -5,9 +5,9 @@ app.controller("loginController",
 			$scope.login = true;
 			$scope.loginHr = true;
 			$scope.incorrectLogin = false;
+			$scope.incorrectLoginHr = false;
 			$scope.result = null;
 			$scope.employee = null;
-			
 			$scope.update = function() {
 		
 			    var username = $scope.username;
@@ -53,10 +53,10 @@ app.controller("loginController",
 					if($scope.employee != null){
 						   $scope.loginHr = false;
 						   $scope.dashboard = true;
-						   $scope.incorrectLogin = false;
+						   $scope.incorrectLoginHr = false;
 					   }
 					   else{
-						   $scope.incorrectLogin = true;
+						   $scope.incorrectLoginHr = true;
 					   }
 				  }, function errorCallback(response) {
 				    console.log("error");
