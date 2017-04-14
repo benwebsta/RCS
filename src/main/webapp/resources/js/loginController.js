@@ -1,6 +1,6 @@
 app.controller("loginController", 
-	['$scope', '$http',
-		function($scope, $http) {
+	['$scope', '$http', '$rootScope',
+		function($scope, $http, $rootScope) {
 
 			$scope.login = true;
 			$scope.loginHr = true;
@@ -64,7 +64,10 @@ app.controller("loginController",
 				$scope.viewAllResidents = false;
 			}
 			
-			
+			$scope.startLoadingMessageChains = function() {
+				$rootScope.$broadcast('reloadMessageChain', null);
+				console.log("telling getMessagesChain controller to start");
+			}
 		  
 		  
 	}]);
