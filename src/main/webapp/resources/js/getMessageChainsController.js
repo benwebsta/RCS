@@ -58,6 +58,7 @@ app.controller("getMessageChainsController", [ '$scope', '$http', '$rootScope',
 app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 		function($scope, $http, $rootScope) {
 			console.log("controller 2");
+			$scope.msg = [];
 			$scope.loadMsgs = function(chainId) {
 				console.log('messagesUpdating');
 				$http({
@@ -67,6 +68,7 @@ app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 					console.log(response.data);
 
 					// $rootScope.$broadcast('updateMessages', response.data);
+					//used to reference itself when adding in new messages
 					$scope.currentChain = chainId;
 					$scope.newMessageContext = "";
 					$scope.msgs = response.data;
@@ -77,7 +79,7 @@ app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 			};
 
 			$scope.$on('updateMessages', function(event, chainId) {
-				loadMsgs(chainId);
+				$scope.loadMsgs(chainId);
 			});
 
 			$scope.newMessage = function() {
@@ -94,7 +96,7 @@ app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 					console.log(response.data);
 					$scope.result = true
 					// updates the message chain
-
+					$scope.loadMsgs($scope.currentChain);
 					// $scope.onChainClick($currentChain);
 				}, function errorCallback(response) {
 					console.log("error");

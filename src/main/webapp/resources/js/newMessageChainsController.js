@@ -1,3 +1,5 @@
+console.log("newMessageController");
+
 app.controller("newMessageChain", [ '$scope', '$http', function($scope, $http) {
 	console.log("controller 4");
 	$scope.loadUsers = function() {
@@ -16,7 +18,7 @@ app.controller("newMessageChain", [ '$scope', '$http', function($scope, $http) {
 	$scope.$on('loadUsers', function(event){
 		console.log("starting to load Users");
 		$scope.loadUsers();
-	})
+	});
 	
 
 	$scope.newMessageChain = function() {

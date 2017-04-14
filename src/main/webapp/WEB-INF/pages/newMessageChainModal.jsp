@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body ng-app="rcs" ng-controller="newMessageChain">	
+<body>	
 	<div id="newMessageChainModal" class="modal fade">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
@@ -18,7 +18,7 @@
 	      </div>
 	      
 	      <div>
-	      <div class="modal-body">
+	      <div class="modal-body" ng-app="rcs" ng-controller="newMessageChain">
 	        <h5>New Message</h5>
 	        	<form>
 	        	<div class="form-group">
