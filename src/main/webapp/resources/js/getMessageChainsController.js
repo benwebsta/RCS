@@ -103,16 +103,6 @@ app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 				});
 			};
 		} ]);
-app.controller("messageTab", [ '$scope', '$http', '$rootScope',
-		function($scope, $http, $rootScope) {
-	console.log("controller 3");
-			
 
-			$scope.startLoadingMessageChains = function() {
-				$rootScope.$broadcast('reloadMessageChain', null);
-				console.log("telling getMessagesChain controller to start")
-			}
-
-		} ]);
 
 

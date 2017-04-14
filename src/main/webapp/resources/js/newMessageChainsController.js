@@ -25,8 +25,8 @@ app.controller("newMessageChain", [ '$scope', '$http', function($scope, $http) {
 		console.log("sending new message chain");
 		var jsonString = JSON.stringify({
 			otherEmployee : $scope.employeeSelected,
-			isFromApartment : $scope.fromApartment,
-			isToApartment : $scope.toApartment,
+			isFromApartment : $scope.fromApartment || false,
+			isToApartment : $scope.toApartment || false,
 			message : $scope.newMessageContext
 		});
 		console.log(jsonString);

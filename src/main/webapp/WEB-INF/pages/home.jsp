@@ -106,10 +106,8 @@
 		          <h4><b>Residents</b></h4>
 		          <ul class="nav nav-sidebar">
 		          
-		            <li ng-click="messages = !messages; dashboard = false; viewAllResidents = false">
-		            <div ng-controller="messageTab" ng-click="startLoadingMessageChains()">
-		            	<a href="">Messages</a>
-		            </div>
+		            <li ng-click="messages = !messages; dashboard = false; viewAllResidents = false; startLoadingMessageChains()">       
+		            	<a href="">Messages</a>          
 		            </li>
 		            
 		            <li ng-controller="applyToMoveController" ng-click="applyToMove()">
