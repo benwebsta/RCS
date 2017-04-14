@@ -1,10 +1,10 @@
 app.controller("loginController", 
-	['$scope', '$http',
-		function($scope, $http) {
+	['$scope', '$http', '$rootScope',
+		function($scope, $http, $rootScope) {
 
 			$scope.login = true;
 			$scope.loginHr = true;
-
+			$scope.incorrectLogin = false;
 			$scope.result = null;
 			$scope.employee = null;
 			
@@ -21,8 +21,14 @@ app.controller("loginController",
 					  data: credentials
 				}).then(function successCallback(response) {
 				   $scope.employee = response.data;
-				   $scope.login = false;
-				   $scope.dashboard = true;
+				   if($scope.employee != null){
+					   $scope.login = false;
+					   $scope.dashboard = true;
+					   $scope.incorrectLogin = false;
+				   }
+				   else{
+					   $scope.incorrectLogin = true;
+				   }
 				  }, function errorCallback(response) {
 				    console.log("error");
 				  });
@@ -43,9 +49,15 @@ app.controller("loginController",
 					  url: 'loginRest',
 					  data: credentialsHr
 				}).then(function successCallback(response) {
-				   $scope.employee = response.data;
-				   $scope.loginHr = false;
-				   $scope.dashboard = true;
+					$scope.employee = response.data;
+					if($scope.employee != null){
+						   $scope.loginHr = false;
+						   $scope.dashboard = true;
+						   $scope.incorrectLogin = false;
+					   }
+					   else{
+						   $scope.incorrectLogin = true;
+					   }
 				  }, function errorCallback(response) {
 				    console.log("error");
 				  });
@@ -64,7 +76,10 @@ app.controller("loginController",
 				$scope.viewAllResidents = false;
 			}
 			
-			
+			$scope.startLoadingMessageChains = function() {
+				$rootScope.$broadcast('reloadMessageChain', null);
+				console.log("telling getMessagesChain controller to start");
+			}
 		  
 		  
 	}]);

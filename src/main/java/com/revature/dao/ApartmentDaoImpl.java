@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.transform.DistinctRootEntityResultTransformer;
 
 import com.revature.beans.Apartment;
 import com.revature.beans.Employee;
@@ -51,8 +52,11 @@ public class ApartmentDaoImpl implements ApartmentDao{
 	public List<Apartment> getAllApartments() {
 		// TODO Auto-generated method stub
 		Session sess = HibernateUtil.getSession();
-		List<Apartment> aptList;
-		aptList = sess.createCriteria(Apartment.class).list();
+		Criteria cr = sess.createCriteria(Apartment.class);
+		cr.setResultTransformer(DistinctRootEntityResultTransformer.INSTANCE);
+		List<Apartment> aptList = cr.list();
+		System.out.println("in apt dao: \n" + aptList);
+		sess.close();
 		return aptList;
 	}
 

@@ -3,7 +3,6 @@ app.controller("applyToMoveController",
 		 function($scope, $http) {
 		$('#applyToMoveModal').modal({ show: false})
 		
-		
 		$scope.test = function() {
 			console.log("test");
 		}
@@ -12,10 +11,10 @@ app.controller("applyToMoveController",
 			console.log("eh ku su");
 			
 			var moveHeader = "Request To Move";
-			var moveBody = $scope.reasonToMove;
-
+			
+            var moveBody = $scope.reasonToMove;
+			
 			var email = {
-					recipientEmail: "housing@revature.com",
 					moveHeader : moveHeader,
 					moveBody : moveBody
 			}
@@ -25,7 +24,7 @@ app.controller("applyToMoveController",
 				url: 'applyToMoveRest',
 				data: email
 			}).then(function successCallback(response){
-				$scope.result = response.data;
+				$scope.resultToMove = response.data;
 			}, function errorCallback(response) {
 				console.log("error");
 			});

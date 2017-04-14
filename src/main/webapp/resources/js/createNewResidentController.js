@@ -30,8 +30,8 @@ app.controller("createNewResidentController",
 			    		username : $scope.newEmployee.firstName,
 			    		password : $scope.newEmployee.lastName,
 			    		apartmentId : $scope.selectedApartment,
-			    		genderId : $scope.newEmployee.genderId,
-			    		fill : null,
+			    		genderId : $scope.selectedGender,
+			    		fill : 1,
 			    		email : $scope.newEmployee.email
 			    }
 			    console.log(emp);
