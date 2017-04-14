@@ -23,6 +23,8 @@ public class CreateNewResidentRestController {
 
 	@RequestMapping(method=RequestMethod.POST)
 	public @ResponseBody Boolean createNewResident_JSON(@RequestBody String newResidentJson, HttpSession session, ModelMap modelMap){
+		System.out.println(newResidentJson);
+
 		Gson gson = new Gson();
 		Employee newEmployee = gson.fromJson(newResidentJson, Employee.class);
 		boolean result = employeeService.updateEmployee(newEmployee);
