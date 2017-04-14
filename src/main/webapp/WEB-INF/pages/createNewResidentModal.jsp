@@ -1,13 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>New Password</title>
-</head>
 
-<body>
 
 
 	
@@ -21,20 +12,53 @@
 	        </button>
 	      </div>
 	      
-	      <div>
-	      <div class="modal-body">
-				Put resident fields / drop downs here
-	      </div>
-	      <div class="modal-footer">
-    		    	<button type="button" class="btn btn-primary">Create Resident</button>
-    				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-	        </div>
-	        
+	      <div class="modal-body" ng-controller="createNewResidentController">
+			      <!-- edit form column -->
+		        <h3>Personal info</h3>
+		        
+		        <form name="createResidentInput" class="form-horizontal" role="form">
+
+		          <div class="form-group">
+		            <label class="col-md-3 control-label">First Name:</label>
+		            <div class="col-md-8">
+		              <input class="form-control" type="text" ng-model="newEmployee.firstName">
+		            </div>
+		          </div>
+		          <div class="form-group">
+		            <label class="col-md-3 control-label">Last Name:</label>
+		            <div class="col-md-8">
+		              <input class="form-control" type="password" ng-model="newEmployee.lastName">
+		            </div>
+		          </div>
+		          <div class="form-group">
+		          	<!-- select from apartment list -->
+		            <label class="col-md-3 control-label">Select Apartment:</label>
+		            <div class="col-md-8">
+		            	<select ng-model="selectedApartment" id="selectApartment" ng-focus="loadOptions()">
+							<option ng-repeat="apt in apartments" value="apt.apartmentId">{{apt.address}}</option>
+						</select>
+		            </div>
+		          </div>
+		          <div class="form-group">
+		            <label class="col-md-3 control-label">Select Gender:</label>
+		            <div class="col-md-8">
+		              <select ng-model="selectedGender">
+		              <option value="1">Male</option>
+		              <option value="2">Female</option>
+		              </select>
+		            </div>
+		          </div>
+		        <div class="modal-footer">
+		          <div class="form-group">
+		            <div class="col-md-8">
+	   		    		<button type="button" class="btn btn-primary" data-dismiss="modal">Create Resident</button>
+	    				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+		            </div>
+		          </div>
+		        </div>
+		        </form>
+		      </div>
 	      </div>
 	    </div>
 	  </div>
-	</div>
-	
-</body>
-</html>
 

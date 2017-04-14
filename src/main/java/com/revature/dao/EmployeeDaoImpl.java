@@ -74,6 +74,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		return l.size() == 1 ? l.get(0) : null; 
 	}
 	
+	@Override
 	public List<Employee> getAllEmployees(){
 		Session sess = HibernateUtil.getSession();
 		List<Employee> employees = sess.createCriteria(Employee.class).list();
