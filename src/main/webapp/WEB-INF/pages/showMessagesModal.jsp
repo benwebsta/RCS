@@ -27,6 +27,9 @@
 				<button type="button" ng-click="newMessage()">Send</button>
 
 	      	<div id = "messages">
+	      		<div class="messages-loading" ng-if="loadingMessages">
+	      			Loading
+	      		</div>
 	      		<div class="message-context" ng-repeat="msg in msgs">
 	      			{{msg.message}}
 	      		</div>

@@ -1,7 +1,7 @@
 console.log("newMessageController");
 
-app.controller("newMessageChain", [ '$scope', '$http', function($scope, $http) {
-	console.log("controller 4");
+app.controller("newMessageChain", [ '$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
+	//console.log("controller 4");
 	$scope.loadUsers = function() {
 		console.log("loading users");
 		$http({
@@ -36,9 +36,8 @@ app.controller("newMessageChain", [ '$scope', '$http', function($scope, $http) {
 			data : jsonString
 		}).then(function successCallback(response) {
 			console.log(response.data);
-			$('#newMessageChainModal').modal({
-				show : false
-			});
+			$('#newMessageChainModal').modal('hide');
+			$rootScope.$broadcast("reloadMessageChain", null);
 
 		}, function errorCallback(response) {
 			console.log("error");

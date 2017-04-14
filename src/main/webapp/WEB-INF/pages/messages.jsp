@@ -4,6 +4,12 @@
 			<div ng-controller="getMessageChainsController">
 			<div id="message-chain-list">
 			<button type="button" ng-click="showNewMessageModel()" >New Message Chain</button>
+				<div id="loading-message-chains-feedback" ng-if="loadingMessages">
+					Loading
+				</div>
+				<div id ="error-loading-chains-feedback" ng-if="error">
+					Unable to load messages
+				</div>
 				<div class="chain"  ng-repeat="chain in chains" style="border:1px solid black;">
 					<div ng-click="onChainClick(chain.chainId)">
 					<div class="group-one-list">

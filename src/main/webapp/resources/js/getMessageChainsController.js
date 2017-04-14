@@ -23,17 +23,24 @@ app.controller("getMessageChainsController", [ '$scope', '$http', '$rootScope',
 			$('#showMessages').modal({
 				show : false
 			});
-
+			
 			$scope.getMessageChains = function() {
 				console.log("getting message chains")
+				$scope.loadingMessages = true;
+				$scope.chains = []
+				$scope.error = false;
 				$http({
 					method : 'GET',
 					url : 'messageRest'
 				}).then(function successCallback(response) {
 					console.log(response.data);
+					console.log("Message Chains Loaded");
 					$scope.chains = response.data;
+					$scope.loadingMessages = false;
 				}, function errorCallback(response) {
 					console.log("error");
+					$scope.loadingMessages = false;
+					$scope.error = true;
 				});
 			};
 			$scope.$on("reloadMessageChain", function(event) {
@@ -61,6 +68,8 @@ app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 			$scope.msg = [];
 			$scope.loadMsgs = function(chainId) {
 				console.log('messagesUpdating');
+				$scope.loadingMessages = true;
+				$scope.msgs = [];
 				$http({
 					method : 'GET',
 					url : 'messageRest/' + chainId
@@ -72,7 +81,7 @@ app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 					$scope.currentChain = chainId;
 					$scope.newMessageContext = "";
 					$scope.msgs = response.data;
-
+					$scope.loadingMessages = false;
 				}, function errorCallback(response) {
 					console.log("error");
 				});
