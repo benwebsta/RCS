@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>New Password</title>
 <style> 
+	/*styling stuff*/
 	textarea {
 	    width: 90%;
 	    margin: 0 auto;
