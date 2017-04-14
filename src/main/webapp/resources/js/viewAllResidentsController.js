@@ -21,7 +21,7 @@ app.controller("viewAllResidentsController",
 		    		lastName : $scope.empl.employee.lastName,
 		    		username : $scope.empl.employee.username,
 		    		password : $scope.empl.employee.password,
-		    		apartmentId : $scope.empl.employee.apartmentId,
+		    		apartmentId : 4,
 		    		genderId : $scope.empl.employee.genderId,
 		    		fill : 0,
 		    		email : $scope.empl.employee.email
