@@ -1,10 +1,12 @@
 package com.revature.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
 import com.revature.beans.Employee;
+import com.revature.beans.EmployeeDTO;
 import com.revature.dao.ApartmentDao;
 import com.revature.dao.ApartmentDaoImpl;
 import com.revature.dao.EmployeeDao;
@@ -29,12 +31,30 @@ public class HRService {
 		
 		for(Employee employee : tempEmployees){
 			if(employee.getFill() == 1){
-				/*employee.setApartment(apartmentDao.getApartmentById(employee.getApartmentId()));
-				employee.setGender(genderDao.getGenderById(employee.getGenderId()));*/
 				employees.add(employee);
 			}
 		}
 		return employees;
+	}
+	
+	public List<EmployeeDTO> getAllEmployeesInHousingDTO(){
+		List<Employee> employees = getAllEmployeesInHousing();
+		List<EmployeeDTO> employeesDTO = new ArrayList<EmployeeDTO>();
+		
+		for(Employee employee : employees){
+			EmployeeDTO employeeDTO = new EmployeeDTO();
+			
+			employeeDTO.setEmployee(employee);
+			employeeDTO.setAddress(apartmentDao.getApartmentById(employee.getApartmentId()).getAddress());
+			employeeDTO.setGender(genderDao.getGenderById(employee.getGenderId()));
+			
+			employeesDTO.add(employeeDTO);
+			
+			employeeDTO = null;
+		}
+		System.out.println(employeesDTO);
+		
+		return employeesDTO;
 	}
 	
 

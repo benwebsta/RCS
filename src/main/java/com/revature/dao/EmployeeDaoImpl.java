@@ -71,12 +71,15 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		Criteria c = sess.createCriteria(Employee.class);
 		c.add(Restrictions.eq("username", username));
 		List<Employee> l = c.list();
+		sess.close();
 		return l.size() == 1 ? l.get(0) : null; 
 	}
 	
+	@Override
 	public List<Employee> getAllEmployees(){
 		Session sess = HibernateUtil.getSession();
 		List<Employee> employees = sess.createCriteria(Employee.class).list();
+		sess.close();
 		return employees;
 	}
 

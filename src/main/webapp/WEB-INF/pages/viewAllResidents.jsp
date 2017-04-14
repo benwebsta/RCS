@@ -22,22 +22,37 @@
 	</style>
 	<!-- {{employeesList}} -->
 	<br>
-	<table>
+	<table ng-cloak>
 	  <tr>
 	    <th>First Name</th>
 	    <th>Last Name</th>
 	    <th>Address</th>
 	    <th>Gender</th>
 	    <th>Email</th>
+	    <th>Mark as moved out</th>
 	  </tr>
 	  <tr ng-repeat="employee in employeesList">
-	    <td>{{employee.firstName}}</td>
-	    <td>{{employee.lastName}}</td>
-	    <td>{{employee.apartmentId}}</td>
-	    <td>{{employee.genderId}}</td>
-	    <td>{{employee.email}}</td>
+	    <td>{{employee.employee.firstName}}</td>
+	    <td>{{employee.employee.lastName}}</td>
+	    <td>{{employee.address}}</td>
+	    <td>{{employee.gender}}</td>
+	    <td>{{employee.employee.email}}</td>
+	    <td><button ng-click="confirmMoveButton(employee)">Move out</button></td>
 	  </tr>
-	</table>
+	</table><hr>
+	<div class="alert alert-danger" ng-show="confirmMoveOut == true" ng-cloak>
+	  Are you sure you want to move out <strong>{{empl.employee.firstName}} {{empl.employee.lastName}}</strong>?
+	</div><br><br>
+	<div class="row" ng-show="confirmMoveOut == true" ng-cloak>
+		<div class="col-md-2"></div>
+		<div class="col-md-4">
+	    	<button type="button" class="btn btn-success" ng-click="markAsMovedOut()">Move out {{empl.employee.firstName}} {{empl.employee.lastName}}</button>
+		</div>
+		<div class="col-md-4">
+			<button type="button" class="btn btn-danger" ng-click="cancelMoveOut()">Cancel</button>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
 	
 	
 </div>
