@@ -73,11 +73,16 @@
 	            <span class="icon-bar"></span>
 	          </button>
 	          <a class="navbar-brand" href="#">Resident Communication System</a>
+	          
 	        </div>
+	        
+	       	
+	        
 	        
 	        <div ng-show="!login || !loginHr" ng-cloak>
 		        <div id="navbar" class="navbar-collapse collapse">
 		          <ul class="nav navbar-nav navbar-right">
+		          <li ng-show="employee != null" class="navbar-brand" ng-cloak>Welcome {{employee.firstName}} {{employee.lastName}}</li>
 		            <li ng-click="dashboard = !dashboard; messages = false"><a href="#">Dashboard</a></li>
 		            <li ng-controller="updatePasswordController" ng-click="changePassword()">
 		            	<a href="#">Change Password</a>
@@ -85,9 +90,8 @@
 		            <li><a href="#">Profile</a></li>
 		            <li ng-click="logout()"><a href="#">Logout</a></li>
 		          </ul>
-		          <form class="navbar-form navbar-right">
-		            <input type="text" class="form-control" placeholder="Search...">
-		          </form>
+		          
+	          	
 		        </div>
 	        </div>
 	        

@@ -3,8 +3,11 @@ package com.revature.service;
 import org.springframework.stereotype.Component;
 
 import com.revature.beans.Employee;
+import com.revature.beans.EmployeeDTO;
+import com.revature.dao.ApartmentDaoImpl;
 import com.revature.dao.EmployeeDao;
 import com.revature.dao.EmployeeDaoImpl;
+import com.revature.dao.GenderDaoImpl;
 
 @Component
 public class EmployeeService {
@@ -25,6 +28,18 @@ public class EmployeeService {
 	
 	public Employee getEmployeeByUsername(String username){
 		return employeeDao.getEmployeeByUsername(username);
+	}
+	
+	public EmployeeDTO getEmployeeDTO(Employee employee){
+		ApartmentDaoImpl apartmentDao = new ApartmentDaoImpl();
+		GenderDaoImpl genderDao = new GenderDaoImpl();
+		EmployeeDTO employeeDTO = new EmployeeDTO();
+		
+		employeeDTO.setEmployee(employee);
+		employeeDTO.setAddress(apartmentDao.getApartmentById(employee.getApartmentId()).getAddress());
+		employeeDTO.setGender(genderDao.getGenderById(employee.getGenderId()));
+		
+		return employeeDTO;
 	}
 	
 }
