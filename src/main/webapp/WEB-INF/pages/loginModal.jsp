@@ -20,14 +20,12 @@
 	      <div>
 	      <form name="loginForm">
 			<div class="modal-body" ng-controller="loginController">
-					
 					<!-- USERNAME -->
 			        <div class="form-group">
 			            <label>Username</label>
 			            <input type="text" 
 			            	name="username" 
 			            	class="form-control"
-			            	ng-class="{ 'has-error' : loginForm.username.$invalid && !loginForm.username.$pristine }" 
 			            	ng-model="username" 
 			            	ng-maxlength="25"
 			            	ng-pattern="/^[a-zA-Z0-9]+$/">
@@ -39,7 +37,6 @@
 			        	<input type="text" 
 			        		name="password" 
 			        		class="form-control"
-			        		ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }" 
 			        		ng-model="password" 
 			        		ng-maxlength="25"
 			        		ng-pattern="/^[a-zA-Z0-9]+$/">
@@ -47,8 +44,8 @@
 			        </div>
 			        </div>
 	      <div class="modal-footer">
-    		    	<button ng-click="update()" ng-disabled="loginForm.$invalid"
-    		    	 	type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+    		    	<button type="submit" class="btn btn-primary" data-dismiss="modal">Submit</button>
+    		    	<p ng-show="loginForm.$invalid">FUCK YOU</p>
 	        </div>
 	        </form>
 	        
