@@ -5,6 +5,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>New Password</title>
+<style> 
+	/*styling stuff*/
+	textarea {
+	    width: 90%;
+	    margin: 0 auto;
+	    height: 150px;
+	    padding: 12px 20px;
+	    box-sizing: border-box;
+	    border: 2px solid #ccc;
+	    border-radius: 4px;
+	    background-color: #f8f8f8;
+	    font-size: 16px;
+	    resize: none;
+	    position: relative;
+	    display: block;
+	    text-align: center;
+	}
+	
+	h5 {
+		text-align: center;
+		font-weight: bold;
+	}
+</style>
 </head>
 
 <body>
@@ -24,7 +47,7 @@
 	      <div ng-controller="applyToMoveController">
 	      <div class="modal-body">
 	        <h5>Reason</h5>
-				<input type="text" placeholder="reason to move">
+				<textarea placeholder="Reason to move" ng-model="reasonToMove"></textarea>
 	      </div>
 	      <div class="modal-footer">
 	      		

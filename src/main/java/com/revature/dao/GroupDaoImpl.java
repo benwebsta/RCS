@@ -23,6 +23,7 @@ public class GroupDaoImpl implements GroupDao {
 		Session sess = HibernateUtil.getSession();
 		List<Group> groupList;
 		groupList = sess.createCriteria(Group.class).list();
+		sess.close();
 		return groupList;
 	}
 
@@ -56,6 +57,7 @@ public class GroupDaoImpl implements GroupDao {
 			c.add(le);
 			groups = c.list();
 		}
+		sess.close();
 		return groups;
 	}
 

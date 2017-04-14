@@ -12,6 +12,7 @@ public class GenderDaoImpl implements GenderDao {
 		// TODO Auto-generated method stub
 		Session s = HibernateUtil.getSession();
 		Gender g = (Gender) s.get(Gender.class, new Integer(genderId));
+		s.close();
 		return g != null ? g.getGender() : "";
 	}
 

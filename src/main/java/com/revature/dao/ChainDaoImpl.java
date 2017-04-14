@@ -23,6 +23,7 @@ public class ChainDaoImpl implements ChainDao {
 		Session sess = HibernateUtil.getSession();
 		List<Chain> chainList;
 		chainList = sess.createCriteria(Chain.class).list();
+		sess.close();
 		return chainList;
 	}
 

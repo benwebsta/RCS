@@ -1,5 +1,7 @@
 package com.revature.dao;
 
+import java.util.List;
+
 import com.revature.beans.Employee;
 
 public interface EmployeeDao {
@@ -11,5 +13,7 @@ public interface EmployeeDao {
 	public boolean updateEmployee(Employee employee);
 
 	public Employee getEmployeeByUsername(String username);
+	
+	public List<Employee> getAllEmployees();
 	
 }
