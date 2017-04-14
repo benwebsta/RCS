@@ -49,7 +49,7 @@
 	        <h5>Reason</h5>
 				<textarea placeholder="Reason to move" ng-model="reasonToMove"></textarea>
 	      </div>
-	      <div class="modal-footer">
+	         <div class="modal-footer">
 	      		<div class="row">
 		      			<div class="col-md-6">
 		      				<div class="alert alert-success" ng-show="resultToMove == true">

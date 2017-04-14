@@ -11,8 +11,9 @@ app.controller("applyToMoveController",
 			console.log("eh ku su");
 			
 			var moveHeader = "Request To Move";
-			var moveBody = $scope.reasonToMove;
-
+			
+            var moveBody = $scope.reasonToMove;
+			
 			var email = {
 					moveHeader : moveHeader,
 					moveBody : moveBody
