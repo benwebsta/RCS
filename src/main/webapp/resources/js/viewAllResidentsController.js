@@ -2,6 +2,9 @@ app.controller("viewAllResidentsController",
 	['$scope', '$http',
 		 function($scope, $http) {
 		$scope.employeesList = null;
+		$scope.confirmMoveOut = false;
+		$scope.empl = false;
+		
 		$http({
 	    	  method: 'GET',
 	    	  url: 'viewEmployees'
@@ -11,20 +14,18 @@ app.controller("viewAllResidentsController",
 	    	    console.log("error");
 	    });
 		
-		$scope.markAsMovedOut = function(employee) {
-			console.log(employee.employee);
+		$scope.markAsMovedOut = function() {
 			var emp = {
-		    		employeeId : employee.employee.employeeId,
-		    		firstName : employee.employee.firstName, 
-		    		lastName : employee.employee.lastName,
-		    		username : employee.employee.username,
-		    		password : employee.employee.password,
-		    		apartmentId : employee.employee.apartmentId,
-		    		genderId : employee.employee.genderId,
+		    		employeeId : $scope.empl.employee.employeeId,
+		    		firstName : $scope.empl.employee.firstName, 
+		    		lastName : $scope.empl.employee.lastName,
+		    		username : $scope.empl.employee.username,
+		    		password : $scope.empl.employee.password,
+		    		apartmentId : $scope.empl.employee.apartmentId,
+		    		genderId : $scope.empl.employee.genderId,
 		    		fill : 0,
-		    		email : employee.employee.email
+		    		email : $scope.empl.employee.email
 		    }
-		    console.log(emp);
 		    
 		    $http({
 		    	  method: 'POST',
@@ -44,8 +45,16 @@ app.controller("viewAllResidentsController",
 		    	  }, function errorCallback(response) {
 		    	    console.log("error");
 		    });
+		    $scope.confirmMoveOut = false;
+		}
 		
+		$scope.confirmMoveButton = function(employee){
+			$scope.empl = employee;
+			$scope.confirmMoveOut = true;
+		}
 		
+		$scope.cancelMoveOut = function() {
+			$scope.confirmMoveOut = false;
 		}
 		
 		  

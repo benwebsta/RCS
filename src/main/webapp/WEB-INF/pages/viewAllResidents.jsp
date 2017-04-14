@@ -22,7 +22,7 @@
 	</style>
 	<!-- {{employeesList}} -->
 	<br>
-	<table>
+	<table ng-cloak>
 	  <tr>
 	    <th>First Name</th>
 	    <th>Last Name</th>
@@ -37,9 +37,22 @@
 	    <td>{{employee.address}}</td>
 	    <td>{{employee.gender}}</td>
 	    <td>{{employee.employee.email}}</td>
-	    <td><button ng-click="markAsMovedOut(employee)">Moved out</button></td>
+	    <td><button ng-click="confirmMoveButton(employee)">Move out</button></td>
 	  </tr>
-	</table>
+	</table><hr>
+	<div class="alert alert-danger" ng-show="confirmMoveOut == true" ng-cloak>
+	  Are you sure you want to move out <strong>{{empl.employee.firstName}} {{empl.employee.lastName}}</strong>?
+	</div><br><br>
+	<div class="row" ng-show="confirmMoveOut == true" ng-cloak>
+		<div class="col-md-2"></div>
+		<div class="col-md-4">
+	    	<button type="button" class="btn btn-success" ng-click="markAsMovedOut()">Move out {{empl.employee.firstName}} {{empl.employee.lastName}}</button>
+		</div>
+		<div class="col-md-4">
+			<button type="button" class="btn btn-danger" ng-click="cancelMoveOut()">Cancel</button>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
 	
 	
 </div>
