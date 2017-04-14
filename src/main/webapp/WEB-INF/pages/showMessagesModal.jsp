@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body ng-app="rcs" ng-controller="getMessages">
+<body ng-app="rcs">
 
 
 	
@@ -21,12 +21,11 @@
 	      </div>
 	      
 	      <div>
-	      <div class="modal-body">
+	      <div class="modal-body"  ng-controller="getMessages">
 	        <h5>New Message</h5>
 				<input type="text" name = "newMessageContext" ng-model="newMessageContext" placeholder="message">
 				<button type="button" ng-click="newMessage()">Send</button>
-	      </div>
-	      <div class="modal-body">
+
 	      	<div id = "messages">
 	      		<div class="message-context" ng-repeat="msg in msgs">
 	      			{{msg.message}}

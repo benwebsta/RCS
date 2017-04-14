@@ -35,8 +35,8 @@
 	<script src="resources/js/sendMaintenanceRequestController.js"></script>
 	<script src="resources/js/createNewResidentController.js"></script>
 	<script src="resources/js/getMessageChainsController.js"></script>
+	<script src="resources/js/newMessageChainsController.js"></script>
 	<script src="resources/js/viewAllResidentsController.js"></script>
-	
 	
 	<!-- CSS for our pages -->
 	<link rel="stylesheet" src="resources/css/home.css"></script>
@@ -58,7 +58,8 @@
 		<jsp:include page="sendHousingRequestModal.jsp"/>
 		<jsp:include page="sendMaintenanceRequestModal.jsp"/>
 		<jsp:include page="createNewResidentModal.jsp"/>
-<%-- 		<jsp:include page="showMessagesModal.jsp"/> --%>
+		<jsp:include page="newMessageChainModal.jsp"/>
+		<jsp:include page="showMessagesModal.jsp"/>
 		
 	
 	    <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -104,9 +105,13 @@
 	          <div ng-show="!login" ng-cloak>
 		          <h4><b>Residents</b></h4>
 		          <ul class="nav nav-sidebar">
+		          
 		            <li ng-click="messages = !messages; dashboard = false; viewAllResidents = false">
+		            <div ng-controller="messageTab" ng-click="startLoadingMessageChains()">
 		            	<a href="">Messages</a>
+		            </div>
 		            </li>
+		            
 		            <li ng-controller="applyToMoveController" ng-click="applyToMove()">
 		            	<a href="">Apply to move</a>
 		            </li>
