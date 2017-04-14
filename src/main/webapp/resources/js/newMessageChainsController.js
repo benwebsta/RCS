@@ -1,7 +1,7 @@
 console.log("newMessageController");
 
-app.controller("newMessageChain", [ '$scope', '$http', function($scope, $http) {
-	console.log("controller 4");
+app.controller("newMessageChain", [ '$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
+	//console.log("controller 4");
 	$scope.loadUsers = function() {
 		console.log("loading users");
 		$http({
@@ -23,10 +23,11 @@ app.controller("newMessageChain", [ '$scope', '$http', function($scope, $http) {
 
 	$scope.newMessageChain = function() {
 		console.log("sending new message chain");
+		$scope.error = false;
 		var jsonString = JSON.stringify({
 			otherEmployee : $scope.employeeSelected,
-			isFromApartment : $scope.fromApartment,
-			isToApartment : $scope.toApartment,
+			isFromApartment : $scope.fromApartment || false,
+			isToApartment : $scope.toApartment || false,
 			message : $scope.newMessageContext
 		});
 		console.log(jsonString);
@@ -36,12 +37,12 @@ app.controller("newMessageChain", [ '$scope', '$http', function($scope, $http) {
 			data : jsonString
 		}).then(function successCallback(response) {
 			console.log(response.data);
-			$('#newMessageChainModal').modal({
-				show : false
-			});
-
+			$('#newMessageChainModal').modal('hide');
+			$rootScope.$broadcast("reloadMessageChain", null);
+			$scope.error = false;
 		}, function errorCallback(response) {
 			console.log("error");
+			$scope.error = true;
 		});
 	};
 } ]);

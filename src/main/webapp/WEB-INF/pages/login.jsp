@@ -73,6 +73,10 @@
 					</div>
 				</div>
 			</div>
+			<br><br>
+			<div class="alert alert-danger" ng-show="incorrectLogin == true">
+			  <strong>Alert!</strong> Login Incorrect!
+			</div>
 		</div>
 		<br>
 	<div>

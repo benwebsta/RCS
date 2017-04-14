@@ -23,17 +23,24 @@ app.controller("getMessageChainsController", [ '$scope', '$http', '$rootScope',
 			$('#showMessages').modal({
 				show : false
 			});
-
+			
 			$scope.getMessageChains = function() {
 				console.log("getting message chains")
+				$scope.loadingMessages = true;
+				$scope.chains = []
+				$scope.error = false;
 				$http({
 					method : 'GET',
 					url : 'messageRest'
 				}).then(function successCallback(response) {
 					console.log(response.data);
+					console.log("Message Chains Loaded");
 					$scope.chains = response.data;
+					$scope.loadingMessages = false;
 				}, function errorCallback(response) {
 					console.log("error");
+					$scope.loadingMessages = false;
+					$scope.error = true;
 				});
 			};
 			$scope.$on("reloadMessageChain", function(event) {
@@ -61,6 +68,9 @@ app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 			$scope.msg = [];
 			$scope.loadMsgs = function(chainId) {
 				console.log('messagesUpdating');
+				$scope.loadingMessages = true;
+				$scope.msgs = [];
+				$scope.error = false;
 				$http({
 					method : 'GET',
 					url : 'messageRest/' + chainId
@@ -72,9 +82,11 @@ app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 					$scope.currentChain = chainId;
 					$scope.newMessageContext = "";
 					$scope.msgs = response.data;
-
+					$scope.loadingMessages = false;
+					$scope.error = false;
 				}, function errorCallback(response) {
 					console.log("error");
+					$scope.error = true;
 				});
 			};
 
@@ -87,6 +99,7 @@ app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 					messagechain : $scope.currentChain,
 					message : $scope.newMessageContext
 				});
+				$scope.sendingError = false;
 				console.log(jsonString);
 				$http({
 					method : 'POST',
@@ -95,24 +108,17 @@ app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 				}).then(function successCallback(response) {
 					console.log(response.data);
 					$scope.result = true
+
+					$scope.sendingError = false;
 					// updates the message chain
 					$scope.loadMsgs($scope.currentChain);
 					// $scope.onChainClick($currentChain);
 				}, function errorCallback(response) {
 					console.log("error");
+					$scope.sendingError = true;
 				});
 			};
 		} ]);
-app.controller("messageTab", [ '$scope', '$http', '$rootScope',
-		function($scope, $http, $rootScope) {
-	console.log("controller 3");
-			
 
-			$scope.startLoadingMessageChains = function() {
-				$rootScope.$broadcast('reloadMessageChain', null);
-				console.log("telling getMessagesChain controller to start")
-			}
-
-		} ]);
 
 

@@ -37,6 +37,7 @@
 	<script src="resources/js/getMessageChainsController.js"></script>
 	<script src="resources/js/newMessageChainsController.js"></script>
 	<script src="resources/js/viewAllResidentsController.js"></script>
+	<script src="resources/js/jQuery.ProfanityFilter.js"></script>
 	
 	<!-- CSS for our pages -->
 	<link rel="stylesheet" src="resources/css/home.css"></script>
@@ -106,10 +107,8 @@
 		          <h4><b>Residents</b></h4>
 		          <ul class="nav nav-sidebar">
 		          
-		            <li ng-click="messages = !messages; dashboard = false; viewAllResidents = false">
-		            <div ng-controller="messageTab" ng-click="startLoadingMessageChains()">
-		            	<a href="">Messages</a>
-		            </div>
+		            <li ng-click="messages = !messages; dashboard = false; viewAllResidents = false; startLoadingMessageChains()">       
+		            	<a href="">Messages</a>          
 		            </li>
 		            
 		            <li ng-controller="applyToMoveController" ng-click="applyToMove()">
