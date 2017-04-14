@@ -29,6 +29,7 @@
 	    <th>Address</th>
 	    <th>Gender</th>
 	    <th>Email</th>
+	    <th>Mark as moved out</th>
 	  </tr>
 	  <tr ng-repeat="employee in employeesList">
 	    <td>{{employee.employee.firstName}}</td>
@@ -36,6 +37,7 @@
 	    <td>{{employee.address}}</td>
 	    <td>{{employee.gender}}</td>
 	    <td>{{employee.employee.email}}</td>
+	    <td><button ng-click="markAsMovedOut(employee)">Moved out</button></td>
 	  </tr>
 	</table>
 	
