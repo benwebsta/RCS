@@ -70,6 +70,7 @@ app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 				console.log('messagesUpdating');
 				$scope.loadingMessages = true;
 				$scope.msgs = [];
+				$scope.error = false;
 				$http({
 					method : 'GET',
 					url : 'messageRest/' + chainId
@@ -82,8 +83,10 @@ app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 					$scope.newMessageContext = "";
 					$scope.msgs = response.data;
 					$scope.loadingMessages = false;
+					$scope.error = false;
 				}, function errorCallback(response) {
 					console.log("error");
+					$scope.error = true;
 				});
 			};
 
@@ -96,6 +99,7 @@ app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 					messagechain : $scope.currentChain,
 					message : $scope.newMessageContext
 				});
+				$scope.sendingError = false;
 				console.log(jsonString);
 				$http({
 					method : 'POST',
@@ -104,11 +108,14 @@ app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 				}).then(function successCallback(response) {
 					console.log(response.data);
 					$scope.result = true
+
+					$scope.sendingError = false;
 					// updates the message chain
 					$scope.loadMsgs($scope.currentChain);
 					// $scope.onChainClick($currentChain);
 				}, function errorCallback(response) {
 					console.log("error");
+					$scope.sendingError = true;
 				});
 			};
 		} ]);

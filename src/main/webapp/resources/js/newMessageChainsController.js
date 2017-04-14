@@ -23,6 +23,7 @@ app.controller("newMessageChain", [ '$scope', '$http', '$rootScope', function($s
 
 	$scope.newMessageChain = function() {
 		console.log("sending new message chain");
+		$scope.error = false;
 		var jsonString = JSON.stringify({
 			otherEmployee : $scope.employeeSelected,
 			isFromApartment : $scope.fromApartment || false,
@@ -38,9 +39,10 @@ app.controller("newMessageChain", [ '$scope', '$http', '$rootScope', function($s
 			console.log(response.data);
 			$('#newMessageChainModal').modal('hide');
 			$rootScope.$broadcast("reloadMessageChain", null);
-
+			$scope.error = false;
 		}, function errorCallback(response) {
 			console.log("error");
+			$scope.error = true;
 		});
 	};
 } ]);

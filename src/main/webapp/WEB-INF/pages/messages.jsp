@@ -6,7 +6,8 @@
 			<div class="container">
 				<button type="button" class="btn btn-primary pull-right"
 					ng-click="showNewMessageModel()">New Message Chain</button>
-				</br>
+				<br/>
+				<br/>
 				<div class="alert alert-info" id="loading-message-chains-feedback"
 					ng-if="loadingMessages">Loading</div>
 				<div class="alert alert-danger" id="error-loading-chains-feedback"
