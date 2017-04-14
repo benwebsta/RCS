@@ -4,7 +4,7 @@ app.controller("loginController",
 
 			$scope.login = true;
 			$scope.loginHr = true;
-
+			$scope.incorrectLogin = false;
 			$scope.result = null;
 			$scope.employee = null;
 			
@@ -21,8 +21,14 @@ app.controller("loginController",
 					  data: credentials
 				}).then(function successCallback(response) {
 				   $scope.employee = response.data;
-				   $scope.login = false;
-				   $scope.dashboard = true;
+				   if($scope.employee != null){
+					   $scope.login = false;
+					   $scope.dashboard = true;
+					   $scope.incorrectLogin = false;
+				   }
+				   else{
+					   $scope.incorrectLogin = true;
+				   }
 				  }, function errorCallback(response) {
 				    console.log("error");
 				  });
