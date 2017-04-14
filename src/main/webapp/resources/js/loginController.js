@@ -49,9 +49,15 @@ app.controller("loginController",
 					  url: 'loginRest',
 					  data: credentialsHr
 				}).then(function successCallback(response) {
-				   $scope.employee = response.data;
-				   $scope.loginHr = false;
-				   $scope.dashboard = true;
+					$scope.employee = response.data;
+					if($scope.employee != null){
+						   $scope.loginHr = false;
+						   $scope.dashboard = true;
+						   $scope.incorrectLogin = false;
+					   }
+					   else{
+						   $scope.incorrectLogin = true;
+					   }
 				  }, function errorCallback(response) {
 				    console.log("error");
 				  });
