@@ -148,7 +148,7 @@ public class Apartment implements Serializable{
 	public String toString() {
 		return "Apartment [apartmentId=" + apartmentId + ", address=" + address + ", city=" + city + ", state=" + state
 				+ ", zipCode=" + zipCode + ", genderId=" + genderId + ", roomsAvailable=" + roomsAvailable
-				+ ", employees=" + employees + "]";
+				+ ", employees=" + employees + "]\n";
 	}
 
 	

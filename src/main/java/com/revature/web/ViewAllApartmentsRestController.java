@@ -20,7 +20,7 @@ public class ViewAllApartmentsRestController {
 		ApartmentService aptService = new ApartmentService();
 	    
 		List<Apartment> apartments = aptService.getAllApartments();
-		
+
 		return apartments;
 	}
 }

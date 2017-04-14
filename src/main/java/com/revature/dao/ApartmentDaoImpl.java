@@ -51,8 +51,9 @@ public class ApartmentDaoImpl implements ApartmentDao{
 	public List<Apartment> getAllApartments() {
 		// TODO Auto-generated method stub
 		Session sess = HibernateUtil.getSession();
-		List<Apartment> aptList;
-		aptList = sess.createCriteria(Apartment.class).list();
+		List<Apartment> aptList = sess.createCriteria(Apartment.class).list();
+		System.out.println("in apt dao: \n" + aptList);
+		sess.close();
 		return aptList;
 	}
 
