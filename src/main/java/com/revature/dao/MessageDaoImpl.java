@@ -19,6 +19,7 @@ public class MessageDaoImpl implements MessageDao {
 		Session sess = HibernateUtil.getSession();
 		List<Message> messageList;
 		messageList = sess.createCriteria(Message.class).list();
+		sess.close();
 		return messageList;
 	}
 
@@ -27,6 +28,7 @@ public class MessageDaoImpl implements MessageDao {
 		Session sess = HibernateUtil.getSession();
 		Integer messageId = id;
 		Message message = (Message) sess.get(Message.class, messageId);
+		sess.close();
 		return message;
 		
 	}
@@ -41,6 +43,7 @@ public class MessageDaoImpl implements MessageDao {
 			c.addOrder(Order.desc("messageId"));
 			messages = c.list();
 		}
+		sess.close();
 		return messages;
 	}
 

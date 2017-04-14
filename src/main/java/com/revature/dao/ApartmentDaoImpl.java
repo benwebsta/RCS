@@ -64,6 +64,7 @@ public class ApartmentDaoImpl implements ApartmentDao{
 		Apartment apartment = (Apartment) sess.get(Apartment.class, apartmentId);
 		List<Employee> empList;
 		empList = apartment.getEmployees();
+		sess.close();
 		return empList;
 	}
 
@@ -75,6 +76,7 @@ public class ApartmentDaoImpl implements ApartmentDao{
 		Apartment apartment = (Apartment) sess.get(Apartment.class, apartmentId);
 		int genderID;
 		genderID = apartment.getGenderId();
+		sess.close();
 		return genderID;
 	}
 
@@ -86,6 +88,7 @@ public class ApartmentDaoImpl implements ApartmentDao{
 		Apartment apartment = (Apartment) sess.get(Apartment.class, apartmentId);
 		int roomsAvailable;
 		roomsAvailable = apartment.getRoomsAvailable();
+		sess.close();
 		return roomsAvailable;
 	}
 	
