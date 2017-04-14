@@ -125,7 +125,7 @@ public class MessageRestController {
 		try{
 			boolean usingFromApartmentGroup = jObject.get("isFromApartment").getAsBoolean();
 			boolean usingToApartmentGroup = jObject.get("isToApartment").getAsBoolean();
-			String usernameReference = jObject.get("otherEmployee").getAsString();
+			String usernameReference = jObject.get("otherEmployee").getAsJsonObject().get("username").getAsString();
 			Employee otherEmployee = employeeService.getEmployeeByUsername(usernameReference);
 			String messageText = jObject.get("message").getAsString();
 			

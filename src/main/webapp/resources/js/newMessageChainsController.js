@@ -9,7 +9,7 @@ app.controller("newMessageChain", [ '$scope', '$http', function($scope, $http) {
 			url : 'messageRest/getMessagebleUsers'
 		}).then(function successCallback(response) {
 			console.log(response.data);
-			$scope.users = response.data
+			$scope.employeesList = response.data.employees
 		}, function errorCallback(response) {
 			console.log("error");
 		});
@@ -24,7 +24,7 @@ app.controller("newMessageChain", [ '$scope', '$http', function($scope, $http) {
 	$scope.newMessageChain = function() {
 		console.log("sending new message chain");
 		var jsonString = JSON.stringify({
-			otherEmployee : $scope.user,
+			otherEmployee : $scope.employeeSelected,
 			isFromApartment : $scope.fromApartment,
 			isToApartment : $scope.toApartment,
 			message : $scope.newMessageContext

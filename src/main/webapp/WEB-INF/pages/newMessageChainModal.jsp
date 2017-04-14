@@ -27,7 +27,7 @@
 				</div>
 				<div class="form-group">
 				<label>User to Send </label>
-				<select ng-model="selectedUser" ng-options="user for user in users">
+				<select ng-model="employeeSelected" ng-options="x.username for x in employeesList">
 				</select>
 				</div>
 				<div class="form-group">
