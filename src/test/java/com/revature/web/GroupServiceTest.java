@@ -30,7 +30,7 @@ import com.revature.beans.Group;
 import com.revature.dao.GroupDao;
 import com.revature.service.GroupService;
 
-@Ignore("To be removed when Group Service is ready to test")
+//@Ignore("To be removed when Group Service is ready to test")
 public class GroupServiceTest {
 	
 	@InjectMocks
@@ -64,7 +64,7 @@ public class GroupServiceTest {
 
 			@Override
 			public List<Group> answer(InvocationOnMock invocation) throws Throwable {
-				Employee employee = invocation.getArgument(1);
+				Employee employee = invocation.getArgument(0);
 				
 				List<Group> list = new LinkedList<Group>();
 				for(Group group: groups){
@@ -87,11 +87,22 @@ public class GroupServiceTest {
 	}
 
 	private void mockGetGroupById() {
-		when(mockDao.getGroupById(anyInt())).thenReturn(null);
 		
-		for(Group group : groups){
-			when(mockDao.getGroupById(group.getGroupId())).thenReturn(group);
-		}
+		Answer<Group> getGroupById = new Answer<Group>(){
+
+			@Override
+			public Group answer(InvocationOnMock invocation) throws Throwable {
+				Integer id = invocation.getArgument(0);
+				for (Group g: groups){
+					if(g.getGroupId() == id){
+						return g;
+					}
+				}
+				return null;
+			}
+			
+		};
+		when(mockDao.getGroupById(anyInt())).thenAnswer(getGroupById);
 	}
 
 	private void mockGetAllGroups() {
@@ -132,9 +143,11 @@ public class GroupServiceTest {
 		group1.setEmployee2(employee2);
 		group1.setEmployee3(employee3);
 		group1.setEmployee4(employee4);
+		group1.setGroupId(1);
 		
 		group2.setEmployee1(employee4);
 		group2.setEmployee2(employee5);
+		group2.setGroupId(2);
 		
 		this.groups = new LinkedList<Group>(Arrays.asList(group1, group2));
 	}
@@ -142,7 +155,7 @@ public class GroupServiceTest {
 	@Test
 	public void addGroupTest(){
 		assertEquals(2, groupService.getAllGroups().size());
-		assertEquals(1, groupService.getGroupsContainingEmployee(employee1));
+		assertEquals(1, groupService.getGroupsContainingEmployee(employee1).size());
 		Group g = new Group();
 		g.setEmployee1(employee1);
 		g.setEmployee2(employee2);
@@ -150,7 +163,7 @@ public class GroupServiceTest {
 		g.setEmployee4(employee4);
 		groupService.addGroup(g);
 		assertEquals(3, groupService.getAllGroups().size());
-		assertEquals(2, groupService.getGroupsContainingEmployee(employee1));
+		assertEquals(2, groupService.getGroupsContainingEmployee(employee1).size());
 	}
 	
 	@Test

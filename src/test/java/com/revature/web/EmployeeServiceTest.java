@@ -37,7 +37,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-@Ignore("To be used when EmployeeService is ready to be tested")
+//@Ignore("To be used when EmployeeService is ready to be tested")
 public class EmployeeServiceTest {
 
 	@InjectMocks
@@ -67,7 +67,7 @@ public class EmployeeServiceTest {
 			public Boolean answer(InvocationOnMock invocation) throws Throwable {
 				// TODO Auto-generated method stub
 				boolean b = false;
-				Employee employeeToUpdate = invocation.getArgument(1);
+				Employee employeeToUpdate = invocation.getArgument(0);
 				for(int i = 0; i < employees.size(); i++){
 					Employee employeeToCheck = employees.get(i);
 					if(employeeToUpdate.getEmployeeId() == employeeToCheck.getEmployeeId()){
@@ -94,10 +94,23 @@ public class EmployeeServiceTest {
 	}
 
 	private void mockGetEmployeeById() {
-		when(mockDao.getEmployeeById(anyInt())).thenReturn(null);
-		when(mockDao.getEmployeeById(1)).thenReturn(employee1);
-		when(mockDao.getEmployeeById(2)).thenReturn(employee2);
-		when(mockDao.getEmployeeById(3)).thenReturn(employee3);
+		Answer<Employee> getEmployeeAnswer = new Answer<Employee>(){
+
+			@Override
+			public Employee answer(InvocationOnMock invocation) throws Throwable {
+				Integer id = invocation.getArgument(0);
+				Employee employeeToReturn = null;
+				for(Employee e: employees){
+					if(e.getEmployeeId() == id){
+						employeeToReturn = e;
+					}
+				}
+				return employeeToReturn;
+				}
+			};
+			when(mockDao.getEmployeeById(ArgumentMatchers.anyInt())).thenAnswer(getEmployeeAnswer);
+			
+		
 	}
 
 	private void setupPrexistingData() {
@@ -139,14 +152,14 @@ public class EmployeeServiceTest {
 	@Test
 	public void getNotExistingEmployeeByIdTest(){
 		Employee employee = employeeService.getEmployeeById(9001);
-		assertNull("Employee returned with null");
+		assertNull("Employee returned with null", employee);
 	}
 	
 	@Test
 	public void loginEmployeeTest(){
-		Employee employee = employeeService.loginEmployee("username", "password");
+		Employee employee = employeeService.loginEmployee("username1", "password");
 		assertNotNull("Employee was null", employee);
-		assertEquals("username is not correct", "username", employee.getUsername());
+		assertEquals("username is not correct", "username1", employee.getUsername());
 		assertEquals("password is not correct", "password", employee.getPassword());
 	}
 	
@@ -175,7 +188,7 @@ public class EmployeeServiceTest {
 		employee.setFirstName("newName");
 		assertNotEquals(employeeService.getEmployeeById(1).getFirstName(), employee.getFirstName());
 		assertEquals(true, employeeService.updateEmployee(employee));
-		assertEquals(mockDao.getEmployeeById(1).getFirstName(), employee.getFirstName());
+		assertEquals(employee.getFirstName(), mockDao.getEmployeeById(1).getFirstName());
 	}
 	
 	@Test

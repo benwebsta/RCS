@@ -26,7 +26,7 @@ import com.revature.beans.Group;
 import com.revature.dao.ChainDao;
 import com.revature.service.ChainService;
 
-@Ignore
+//@Ignore
 public class ChainServiceTest {
 
 	@InjectMocks
@@ -142,9 +142,10 @@ public class ChainServiceTest {
 		group1.setEmployee1(employee1);
 		group1.setEmployee2(employee2);
 		group1.setEmployee3(employee3);
+		group1.setGroupId(1);
 		group2.setEmployee1(employee4);
 		group2.setEmployee2(employee5);
-		
+		group2.setGroupId(2);
 		chains = new LinkedList<Chain>();
 		
 		chain = new Chain();
