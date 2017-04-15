@@ -24,7 +24,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -102,7 +105,27 @@ public class MessageRestController {
 			}
 			
 			System.out.println(chains.size());
-			jsonResponse = new Gson().toJson(chains);
+			
+			Gson gson = new GsonBuilder().setExclusionStrategies(new ExclusionStrategy() {
+
+				@Override
+				public boolean shouldSkipClass(Class<?> arg0) {
+					// TODO Auto-generated method stub
+					return false;
+				}
+
+				@Override
+				public boolean shouldSkipField(FieldAttributes arg0) {
+					// TODO Auto-generated method stub
+					return arg0.getName().equals("password");
+				}
+				
+
+				
+
+			}).create();
+			
+			jsonResponse = gson.toJson(chains);
 			System.out.println(jsonResponse);
 			return jsonResponse;
 	}
@@ -118,8 +141,25 @@ public class MessageRestController {
 		} catch (NumberFormatException e){
 			chain = null;
 		}
-		
-		response = new Gson().toJson(messages);
+		Gson gson = new GsonBuilder().setExclusionStrategies(new ExclusionStrategy() {
+
+			@Override
+			public boolean shouldSkipClass(Class<?> arg0) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			@Override
+			public boolean shouldSkipField(FieldAttributes arg0) {
+				// TODO Auto-generated method stub
+				return arg0.getName().equals("password");
+			}
+			
+
+			
+
+		}).create();
+		response = gson.toJson(messages);
 		return response;
 	}
 	
