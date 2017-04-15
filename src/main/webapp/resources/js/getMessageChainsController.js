@@ -19,7 +19,6 @@
 
 app.controller("getMessageChainsController", [ '$scope', '$http', '$rootScope',
 		function($scope, $http, $rootScope) {
-			console.log("controller 1");
 			$('#showMessages').modal({
 				show : false
 			});
@@ -64,8 +63,7 @@ app.controller("getMessageChainsController", [ '$scope', '$http', '$rootScope',
 
 app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 		function($scope, $http, $rootScope) {
-			console.log("controller 2");
-			$scope.msg = [];
+			$scope.msgs = [];
 			$scope.loadMsgs = function(chainId) {
 				console.log('messagesUpdating');
 				$scope.loadingMessages = true;
@@ -87,6 +85,7 @@ app.controller("getMessages", [ '$scope', '$http', '$rootScope',
 				}, function errorCallback(response) {
 					console.log("error");
 					$scope.error = true;
+					$scope.loadingMessages = false;
 				});
 			};
 

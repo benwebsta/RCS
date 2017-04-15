@@ -4,10 +4,11 @@
 	<div ng-controller="getMessageChainsController">
 		<div id="message-chain-list">
 			<div class="container">
+				<button type="button" class="btn btn-primary"
+					ng-click="getMessageChains()">Refresh</button>
 				<button type="button" class="btn btn-primary pull-right"
 					ng-click="showNewMessageModel()">New Message Chain</button>
-				<br/>
-				<br/>
+				<br /> <br />
 				<div class="alert alert-info" id="loading-message-chains-feedback"
 					ng-if="loadingMessages">Loading</div>
 				<div class="alert alert-danger" id="error-loading-chains-feedback"
