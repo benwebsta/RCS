@@ -23,7 +23,7 @@
 						        </div>
 						        <div class="form-group">
 						        	<label>Password</label>
-						        	<input type="text" 
+						        	<input type="password" 
 						        		name="password" 
 						        		class="form-control"
 						        		ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }" 
@@ -56,7 +56,7 @@
 						        </div>
 						        <div class="form-group">
 						        	<label>Password</label>
-						        	<input type="text" 
+						        	<input type="password" 
 						        		name="passwordHr" 
 						        		class="form-control"
 						        		ng-model="passwordHr" 

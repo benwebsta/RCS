@@ -94,17 +94,12 @@ public class MessageRestController {
 				}
 			});
 			
-			//removes duplicate entries
-			chains = chains.stream().distinct().collect(Collectors.toList());
-			
-			//sorts again because doing stream does not guarentee same order
-			Collections.sort(chains, new Comparator<Chain>() {
-				@Override
-				public int compare(Chain o1, Chain o2) {
-					// TODO Auto-generated method stub
-					return Integer.compare(o1.getChainId(), o2.getChainId());
+			//removes repeated entries
+			for(int i = 0; i < chains.size(); i++){
+				while(i+1 < chains.size() && chains.get(i).getChainId() == chains.get(i+1).getChainId()){
+					chains.remove(i);
 				}
-			});
+			}
 			
 			System.out.println(chains.size());
 			jsonResponse = new Gson().toJson(chains);
